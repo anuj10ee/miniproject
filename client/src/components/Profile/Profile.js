@@ -43,7 +43,7 @@ function Profile(props) {
             <div className="pic">
               <img src={image} alt="" />
             </div>
-            <div className="info">
+            <div className="info">git p
               {name}PATA ADDRESS
               <button className="edit">EDIT</button>
             </div>
