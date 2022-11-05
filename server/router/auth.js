@@ -19,12 +19,12 @@ const bcrypt = require("bcryptjs");
 console.log("BLAHHHH");
 router.post("/register", async (req, res) => {
   // console.log(abc);
-  const { email, name, password } = req.body;
+  const { email, name,address, password } = req.body;
   console.log(name);
   // console.log(req.body);
   // console.log(xyz);
 
-  if (!name || !email || !password) {
+  if (!name || !email || !password || !address) {
     return res.status(422).json({ error: "FILL KROOOOO" });
   }
   try {
@@ -32,7 +32,7 @@ router.post("/register", async (req, res) => {
     if (userExist) {
       return res.status(422).json({ error: "email already exists" });
     } else {
-      const user = new User({ name, email, password });
+      const user = new User({ name, email,address, password });
 
       await user.save();
       res.status(201).json({ message: "user registered successfully" });
@@ -85,7 +85,7 @@ router.post("/login", async (req, res) => {
       // res.use(cookieSession({
       //   name: 'session',
       //   keys: [/* secret keys */],
-      
+
       //   // Cookie Options
       //   maxAge: 24 * 60 * 60 * 1000 // 24 hours
       // }))
@@ -106,19 +106,18 @@ router.post("/login", async (req, res) => {
 
 //home page
 
-router.get("/home",authenticate, (req, res) => {
+router.get("/home", authenticate , (req, res) => {
   console.log("HELLO FROM HOME");
   // res.send("HELLO WORLD FROM SERVER");
   console.log(req.rootUser);
   res.send(req.rootUser);
 });
-router.get("/profile",authenticate, (req, res) => {
+router.get("/profile", authenticate, (req, res) => {
   console.log("HELLO FROM Profile");
   // res.send("HELLO WORLD FROM SERVER");
   console.log(req.rootUser);
   res.send(req.rootUser);
 });
-
 
 router.get("/logout", (req, res) => {
   console.log("HELLO FROM logout");
