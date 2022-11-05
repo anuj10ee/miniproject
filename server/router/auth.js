@@ -106,12 +106,19 @@ router.post("/login", async (req, res) => {
 
 //home page
 
-router.get("/home", authenticate, (req, res) => {
+router.get("/home",authenticate, (req, res) => {
   console.log("HELLO FROM HOME");
   // res.send("HELLO WORLD FROM SERVER");
   console.log(req.rootUser);
   res.send(req.rootUser);
 });
+router.get("/profile",authenticate, (req, res) => {
+  console.log("HELLO FROM Profile");
+  // res.send("HELLO WORLD FROM SERVER");
+  console.log(req.rootUser);
+  res.send(req.rootUser);
+});
+
 
 router.get("/logout", (req, res) => {
   console.log("HELLO FROM logout");

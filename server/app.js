@@ -10,7 +10,7 @@ require("./db/conn");
 app.use(express.json());
 app.use(cookieparser());
 const PORT = process.env.PORT || 1337;
-console.log(process.env.PORT);
+console.log(process.env.PORT);  
 const corsOptions = {
   origin: true, //included origin as true
   credentials: true, //included credentials as true

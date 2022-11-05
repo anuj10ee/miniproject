@@ -1,38 +1,41 @@
 import "./App.css";
-import React from 'react';
+import React from "react";
 import { useState } from "react";
 // import ReactDOM from 'react-dom'
-import{Route} from 'react-router-dom';
-import Register from './components/auth/register'
-import Login from './components/auth/login'
-import { BrowserRouter as Router,Routes, Link } from 'react-router-dom';
-import Temp from './components/TEMP/home'
-import Home from './components/Home/home'
+import { Route } from "react-router-dom";
+import Register from "./components/auth/register";
+import Login from "./components/auth/login";
+import { BrowserRouter as Router, Routes, Link } from "react-router-dom";
+import Temp from "./components/TEMP/temp";
+import Home from "./components/Home/home";
 import Logout from "./components/auth/logout";
+import Navbar from "./components/Navbar/Navbar";
+import Profile from "./components/Profile/Profile";
 
 function App() {
-  
   return (
     <div>
-
+      <Navbar />
       <Routes>
-      <Route exact path="/" element={<Temp/>}>
-      </Route>
-      <Route exact path="/login" element={<Login/>}>
-      </Route>
-      {/* <Route path="./login">
+        <Route exact path="/" element={<Temp />}></Route>
+        <Route exact path="/login" element={<Login />}></Route>
+        <Route exact path="/profile" element={<Profile />}></Route>
+        {/* <Route path="./login">
         <Login/>
       </Route> */}
-      <Route path="/register"element={<Register/>}>
-      </Route>
-      <Route path="/home"element={<Home/>}>
 
-      </Route>
-      <Route path="/logout"element={<Logout/>}>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/logout" element={<Logout />}></Route>
 
-      </Route>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/logout" element={<Logout />}></Route>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/logout" element={<Logout />}></Route>
       </Routes>
-      
+
       {/* <h1>Register</h1>
       <form onSubmit={registerUser}>
         <input
