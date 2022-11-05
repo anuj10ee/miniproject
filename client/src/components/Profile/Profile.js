@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useEffect,useState } from "react";
+import { useEffect} from "react";
 import "./profile.css"
 import image from "./png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png"
 
