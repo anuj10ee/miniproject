@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useEffect,useState } from "react";
+import { useEffect} from "react";
 import "./profile.css"
 import image from "./png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png"
 
@@ -43,9 +43,9 @@ function Profile(props) {
             <div className="pic">
               <img src={image} alt="" />
             </div>
-            <div className="info">git p
-              {name}PATA ADDRESS
-              <button className="edit">EDIT</button>
+            <div className="info">
+              {name}
+              <button className="edit" onClick={()=>navigate("/editOptions")}>EDIT</button>
             </div>
           </div>
           <div className="right">

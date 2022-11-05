@@ -11,6 +11,7 @@ import Home from "./components/Home/home";
 import Logout from "./components/auth/logout";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
+import Edit from "./components/Profile/Edit";
 // import Notify from "./components/alert/Alert"
 
 function App() {
@@ -29,13 +30,8 @@ function App() {
         <Route path="/register" element={<Register />}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/logout" element={<Logout />}></Route>
-
-        <Route path="/register" element={<Register />}></Route>
-        <Route path="/home" element={<Home />}></Route>
-        <Route path="/logout" element={<Logout />}></Route>
-        <Route path="/register" element={<Register />}></Route>
-        <Route path="/home" element={<Home />}></Route>
-        <Route path="/logout" element={<Logout />}></Route>
+        <Route path="/editOptions" element={<Edit />}></Route>
+        
       </Routes>
 
       {/* <h1>Register</h1>
