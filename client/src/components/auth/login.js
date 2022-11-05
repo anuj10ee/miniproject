@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./login.css";
 import { useEffect } from "react";
-import ClipLoader from "react-spinners/ClipLoader";
+//import ClipLoader from "react-spinners/ClipLoader";
 
 function Login() {
   const navigate = useNavigate();
@@ -48,7 +48,7 @@ function Login() {
   }
   return (
     <div className="login">
-      {
+      {/* {
         loading?
         <ClipLoader
         color="red"
@@ -58,7 +58,7 @@ function Login() {
         aria-label="Loading Spinner"
         data-testid="loader"
       />
-        :
+        : */}
 
       <div className="card">
         <div className="left">
@@ -95,7 +95,7 @@ function Login() {
           </form>
         </div>
       </div>
-      }
+      
     </div>
   );
 }
