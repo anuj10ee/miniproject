@@ -6,13 +6,13 @@
     justify-content: center;
 }
 .register .card {
+    height: 80vh;
     width: 50%;
     display: flex;
     flex-direction: row-reverse;
     background-color: white;
     border-radius: 10px;
     min-height: 600px;
-    overflow: hidden;
 }
 .register .card .left {
     flex: 1;
@@ -21,7 +21,6 @@
     padding: 50px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
     color: white;
 }
 .register .card .left h1 {
@@ -45,7 +44,6 @@
     padding: 50px;
     display: flex;
     flex-direction: column;
-    gap: 50px;
     justify-content: center;
 }
 .register .card .right h1 {
@@ -54,7 +52,6 @@
 .register .card .right form {
     display: flex;
     flex-direction: column;
-    gap: 30px;
 }
 .register .card .right form input {
     border: none;

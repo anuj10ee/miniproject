@@ -12,23 +12,21 @@ const Register = () => {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-
+  const [address, setaddress] = useState("");
   async function registerUser(event) {
     event.preventDefault();
-    const response = await fetch(
-      "http://localhost:1337/register",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-        }),
-      }
-    );
+    const response = await fetch("http://localhost:1337/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        address,
+        password,
+      }),
+    });
 
     const data = await response.json();
     if (response.status === 422 || !data) {
@@ -64,14 +62,20 @@ const Register = () => {
               type="text"
               placeholder="Name"
             />
-            <br />
+
             <input
               value={email}
               onChange={(e) => setemail(e.target.value)}
               type="email"
               placeholder="Email"
             />
-            <br />
+            <input
+              value={address}
+              onChange={(e) => setaddress(e.target.value)}
+              type="text"
+              placeholder="Address"
+            />
+
             <input
               value={password}
               onChange={(e) => setpassword(e.target.value)}
