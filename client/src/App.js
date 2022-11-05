@@ -11,11 +11,13 @@ import Home from "./components/Home/home";
 import Logout from "./components/auth/logout";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
+// import Notify from "./components/alert/Alert"
 
 function App() {
   return (
     <div>
       <Navbar />
+      {/* <Notify/> */}
       <Routes>
         <Route exact path="/" element={<Temp />}></Route>
         <Route exact path="/login" element={<Login />}></Route>

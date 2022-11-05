@@ -5,30 +5,30 @@
     align-items: center;
 }
 
-.left{
+.navbar .left{
     border: 2px blue solid;
     width: 70%;
 }
 
-.right{
+.navbar .right{
     /* border: 2px red solid; */
     width:30%;
 }
 
-.outer{
+.navbar .outer{
     list-style-type: none;
     font: 1em  sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.left .inner{
+.navbar .left .inner{
     margin: auto;
     border: 8px;
     border-color: aqua;
     cursor: pointer;
 }
-.left .inner a{
+.navbar .left .inner a{
     color: black;
     text-decoration: none;
 }

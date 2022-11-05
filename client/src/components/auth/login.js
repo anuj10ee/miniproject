@@ -3,13 +3,23 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./login.css";
+import { useEffect } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function Login() {
   const navigate = useNavigate();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-
+  const[loading, setLoading]= useState(false);
+  useEffect(() => {
+   setLoading(true);
+   setTimeout(() => {
+    setLoading(false)
+   }, 8000);
+  }, [])
+  
   async function loginUser(event) {
+    
     event.preventDefault();
     const response = await fetch("http://localhost:1337/login", {
       method: "POST",
@@ -38,6 +48,18 @@ function Login() {
   }
   return (
     <div className="login">
+      {
+        loading?
+        <ClipLoader
+        color="red"
+        loading={loading}
+    
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+        :
+
       <div className="card">
         <div className="left">
           <h1>Hello World.</h1>
@@ -73,6 +95,7 @@ function Login() {
           </form>
         </div>
       </div>
+      }
     </div>
   );
 }
