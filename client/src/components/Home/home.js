@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import Profile from "../Profile/Profile";
 // import {useHistory}
 import { useNavigate } from "react-router-dom";
+import Spinner from "../Spinner/Spinner";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Home = () => {
         },
         credentials: "include",
       });
-
+      
       const data = await res.json();
       console.log("abcdefgh");
       console.log(data);
@@ -40,6 +41,7 @@ const Home = () => {
 
   return (
     <div className="home">
+      <Spinner/>
       <button className="logout" style={{ padding: 30, background: "yellow" }}>
         <a href="/logout">LOGOUT</a>
       </button>
