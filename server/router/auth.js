@@ -19,7 +19,7 @@ const bcrypt = require("bcryptjs");
 console.log("BLAHHHH");
 router.post("/register", async (req, res) => {
   // console.log(abc);
-  const { email, name,address, password } = req.body;
+  const { email, name, address, password } = req.body;
   console.log(name);
   // console.log(req.body);
   // console.log(xyz);
@@ -32,7 +32,7 @@ router.post("/register", async (req, res) => {
     if (userExist) {
       return res.status(422).json({ error: "email already exists" });
     } else {
-      const user = new User({ name, email,address, password });
+      const user = new User({ name, email, address, password });
 
       await user.save();
       res.status(201).json({ message: "user registered successfully" });
@@ -104,9 +104,30 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post("/editOptions", async (req, res) => {
+  const { email, name, password } = req.body;
+  console.log(name);
+
+  if (!name || !email || !password) {
+    return res.status(422).json({ error: "FILL KROOOOO" });
+  }
+
+  try {
+    const userExist = await User.findOne({ email: email });
+    if (userExist) {
+      userExist.name = name;
+      await userExist.save();
+      res.status(201).json({ message: "user registered successfully" });
+    } else {
+      console.log("userNotFound");
+    }
+  } catch (err) {
+    console.log(err);
+  }
+});
 //home page
 
-router.get("/home", authenticate , (req, res) => {
+router.get("/home", authenticate, (req, res) => {
   console.log("HELLO FROM HOME");
   // res.send("HELLO WORLD FROM SERVER");
   console.log(req.rootUser);
@@ -125,28 +146,5 @@ router.get("/logout", (req, res) => {
   res.clearCookie("jwtoken", { path: "/" });
   res.status(200).send("user logout");
 });
-
-router.post("/editOptions",async (req,res)=>{
-  const { email, name, password } = req.body;
-  console.log(name);
-
-  if (!name || !email || !password) {
-    return res.status(422).json({ error: "FILL KROOOOO" });
-  }
-
-  try {
-    const userExist = await User.findOne({ email: email });
-    if (userExist) {
-      userExist.name=name;
-      await userExist.save();
-      res.status(201).json({ message: "user registered successfully" });
-    } else {
-      console.log("userNotFound")
-    }
-  } catch (err) {
-    console.log(err);
-  }
-
-})
 
 module.exports = router;
