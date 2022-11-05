@@ -3,6 +3,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background:black;
+    
 }
 
 .navbar .left{
@@ -29,6 +31,6 @@
     cursor: pointer;
 }
 .navbar .left .inner a{
-    color: black;
+    color:white;
     text-decoration: none;
 }
