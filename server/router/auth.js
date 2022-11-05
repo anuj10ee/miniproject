@@ -127,4 +127,27 @@ router.get("/logout", (req, res) => {
   res.status(200).send("user logout");
 });
 
+router.post("/editOptions",async (req,res)=>{
+  const { email, name, password } = req.body;
+  console.log(name);
+
+  if (!name || !email || !password) {
+    return res.status(422).json({ error: "FILL KROOOOO" });
+  }
+
+  try {
+    const userExist = await User.findOne({ email: email });
+    if (userExist) {
+      userExist.name=name;
+      await userExist.save();
+      res.status(201).json({ message: "user registered successfully" });
+    } else {
+      console.log("userNotFound")
+    }
+  } catch (err) {
+    console.log(err);
+  }
+
+})
+
 module.exports = router;
