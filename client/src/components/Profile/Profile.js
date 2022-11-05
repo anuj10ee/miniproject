@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import "./profile.css"
 import image from "./png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png"
 
-function Profile() {
+function Profile(props) {
   const navigate = useNavigate();
-  const [name, setname] = useState("");
+  const [name,setName]=useState("");
 
   const callProfilePage = async () => {
     try {
@@ -22,7 +22,7 @@ function Profile() {
       const data = await res.json();
       console.log("abcdefgh");
       console.log(data);
-      setname(data.name);
+      setName(data.name);
       if (res.status === 401) {
         const error = new Error(res.error);
         throw error;
