@@ -1,0 +1,84 @@
+.profile .card1{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border: 1px solid red;
+    height: 80vh;
+}
+.profile .card1 .left{
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+}
+.profile .card1 .right{
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+}
+.profile .card1 .left .info{
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+}
+.profile .card1 .left .pic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile .card1 .left img{
+    width:70%;
+}
+.profile .card2{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border: 1px solid red;
+    height: 80vh;
+}
+.profile .card2 .left{
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+}
+.profile .card2 .right{
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+}
+.profile .card2 .left .info{
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+}
+.profile .card2 .left .pic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile .card2 .left img{
+    width:70%;
+}
