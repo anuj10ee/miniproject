@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { useEffect} from "react";
 import "./profile.css"
 import image from "./png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png"
 
 function Profile(props) {
   const navigate = useNavigate();
-  const [name,setName]=useState("");
+  const [details,setDetails]=useState("");
 
   const callProfilePage = async () => {
     try {
@@ -22,7 +22,7 @@ function Profile(props) {
       const data = await res.json();
       console.log("abcdefgh");
       console.log(data);
-      setName(data.name);
+      setDetails(data);
       if (res.status === 401) {
         const error = new Error(res.error);
         throw error;
@@ -44,8 +44,12 @@ function Profile(props) {
               <img src={image} alt="" />
             </div>
             <div className="info">
-              {name}
-              <button className="edit" onClick={()=>navigate("/editOptions")}>EDIT</button>
+              {details.name}
+              <button className="edit">
+                <Link to={"/editOptions"} state={details}>
+                EDIT
+                </Link>
+                </button>
             </div>
           </div>
           <div className="right">

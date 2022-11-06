@@ -105,17 +105,14 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/editOptions", async (req, res) => {
-  const { email, name, password } = req.body;
+  const { email, name, codechefID } = req.body;
   console.log(name);
-
-  if (!name || !email || !password) {
-    return res.status(422).json({ error: "FILL KROOOOO" });
-  }
 
   try {
     const userExist = await User.findOne({ email: email });
     if (userExist) {
       userExist.name = name;
+      userExist.codechefID = codechefID;
       await userExist.save();
       res.status(201).json({ message: "user registered successfully" });
     } else {

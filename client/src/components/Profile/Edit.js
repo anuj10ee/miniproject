@@ -1,12 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 
 const Edit=()=> {
     const navigate=useNavigate();
-  const [name, setname] = useState("");
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
+    const location = useLocation()
+    const details=location.state
+  const [name, setname] = useState(details.name);
+  const [email, setemail] = useState(details.email);
+  const [codechefID, setCodechefID] = useState(details.codechefID);
 
   async function updateUser(event) {
     event.preventDefault();
@@ -20,7 +22,7 @@ const Edit=()=> {
         body: JSON.stringify({
           name,
           email,
-          password,
+          codechefID,
         }),
       }
     );
@@ -49,10 +51,10 @@ const Edit=()=> {
         />
         <br />
         <input
-          value={password}
-          onChange={(e) => setpassword(e.target.value)}
-          type="password"
-          placeholder="Password"
+          value={codechefID}
+          onChange={(e) => setCodechefID(e.target.value)}
+          type="text"
+          placeholder="Add Codechef username"
         />
         <br />
         <input type="submit" style={{ cursor: "pointer" }} value="Update" />
