@@ -22,7 +22,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Temp />}></Route>
         <Route exact path="/login" element={<Login />}></Route>
-        <Route exact path="/profile" element={<Profile name="anuj"/>}></Route>
+        <Route exact path="/profile" element={<Profile name="anuj" />}></Route>
         {/* <Route path="./login">
         <Login/>
       </Route> */}
@@ -31,7 +31,6 @@ function App() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/logout" element={<Logout />}></Route>
         <Route path="/editOptions" element={<Edit />}></Route>
-        
       </Routes>
 
       {/* <h1>Register</h1>

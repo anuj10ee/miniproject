@@ -1,6 +1,7 @@
 import React from "react";
 import "./navbar.css";
 import Home from "../Home/home";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -9,22 +10,36 @@ function Navbar() {
         <div className="left">
           <ul className="outer">
             <li className="inner">
-              <a href="./home" className="home">home</a>
+              <Link to="/home">Home</Link>
             </li>
             <li className="inner">
-              <a href="./profile" className="profile">profile</a>
+              <Link to="/profile">Profile</Link>
             </li>
             <li className="inner">
-            <a href="./feed" className="feed">feed</a>
+              <Link to="/feed">Feed</Link>
             </li>
             <li className="inner">
-            <a href="./contests" className="contests">contests</a>
+              <Link to="/contests">Contests</Link>
             </li>
-            <li className="inner"><a href="./friends" className="friends">friends</a></li>
-            <li className="inner"><a href="./targetset" className="targetset">targetset</a></li>
-            <li className="inner"><a href="./teams" className="teams">teams</a></li>
-            <li className="inner"><a href="./search" className="search">search</a></li>
-            <li className="inner"><a href="./settings" className="settings">settings</a></li>
+            <li className="inner">
+              {" "}
+              <Link to="/friends">Friends</Link>
+            </li>
+            <li className="inner">
+              {" "}
+              <Link to="/targetset">Targetset</Link>
+            </li>
+            <li className="inner">
+            <Link to ="/teams">Teams</Link>
+
+            </li>
+            <li className="inner">
+            <Link to ="/search">Search</Link>
+
+            </li>
+            <li className="inner">
+            <Link to ="/settings">Settings</Link>
+            </li>
           </ul>
         </div>
         <div className="right"></div>
