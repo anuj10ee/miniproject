@@ -30,15 +30,13 @@ function Navbar() {
               <Link to="/targetset">Targetset</Link>
             </li>
             <li className="inner">
-            <Link to ="/teams">Teams</Link>
-
+              <Link to="/teams">Teams</Link>
             </li>
             <li className="inner">
-            <Link to ="/search">Search</Link>
-
+              <Link to="/search">Search</Link>
             </li>
             <li className="inner">
-            <Link to ="/settings">Settings</Link>
+              <Link to="/settings">Settings</Link>
             </li>
           </ul>
         </div>

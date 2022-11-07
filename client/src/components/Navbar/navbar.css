@@ -1,14 +1,16 @@
-
+*{
+    margin:0;
+    padding:0;
+}
 .navbar{
     display: flex;
     justify-content: center;
     align-items: center;
     background:black;
-    
+ height:50px;   
 }
 
 .navbar .left{
-    border: 2px blue solid;
     width: 70%;
 }
 
@@ -29,6 +31,7 @@
     border: 8px;
     border-color: aqua;
     cursor: pointer;
+
 }
 .navbar .left .inner a{
     color:white;
