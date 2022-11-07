@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import "./profile.css";
 import image from "./0377c76083423a1414e4001161e0cdffb0b36e1f_760x400.0.jpg";
 
-
+import ChartContainer from "../Heatmap/heatmap";
 
 
 
@@ -161,6 +161,7 @@ function Profile(props) {
             </div>
             <div className="right">
               <h3>RECENT SUBMISSIONS</h3>
+              <ChartContainer />
             </div>
           </div>
         </div>
