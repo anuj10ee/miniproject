@@ -15,5 +15,3 @@ mongoose
   .catch((err) => {
     console.log("DISCONNECT HOGYA");
   });
- 
-  

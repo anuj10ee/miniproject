@@ -44,31 +44,35 @@ function Profile(props) {
               <img src={image} alt="" />
             </div>
             <div className="info">
-              {details.name}
+              <div className="innerinfo">
+              <h2>{details.name}</h2>
+              <p>fdsfhvdxhifczesrgfftfghkhgyhgklmolkopkoo</p>
+              <p>fdsfhvdxhifczesrgfftfghkhgyhgklmolkopkoo</p>
               <button className="edit">
-                <Link to={"/editOptions"} state={details}>
+                <Link className="anchor" to={"/editOptions"} state={details}>
                   EDIT
                 </Link>
               </button>
+              </div>
+               
+              
             </div>
           </div>
           <div className="right">
             <div className="inner-right">
-            <div className="education">
-              <h2>EDUCATION</h2>
-              <p>ABES ENGINEERING COLLEGE</p>
-              <p>COMPUTER SCIENCE AND ENGINEERING</p>
-
-            </div>
-            <div className="skills">
-              <h2>SKILLS</h2>
-              <p>HTML CSS OOSD GITHUB TEKKEN</p>
+              <div className="education">
+                <h2>EDUCATION</h2>
+                <p>ABES ENGINEERING COLLEGE</p>
+                <p>COMPUTER SCIENCE AND ENGINEERING</p>
+              </div>
+              <div className="skills">
+                <h2>SKILLS</h2>
+                <p>HTML CSS OOSD GITHUB TEKKEN</p>
+              </div>
             </div>
           </div>
-            </div>
-            
         </div>
-        <div className="card2">
+        {/* <div className="card2">
           <div className="left">
             <div className="pic">
               <img src={image} alt="" />
@@ -82,8 +86,8 @@ function Profile(props) {
             <div className="education">EDUCATION</div>
             <div className="skills">SKILLS</div>
           </div>
-        </div>
-      </div>
+        </div>*/}
+      </div> 
     </>
   );
 }
