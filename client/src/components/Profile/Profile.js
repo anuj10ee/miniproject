@@ -4,10 +4,27 @@ import { useEffect } from "react";
 import "./profile.css";
 import image from "./0377c76083423a1414e4001161e0cdffb0b36e1f_760x400.0.jpg";
 
+
+
+
+
+
+
+
+
+
+
+
+
 function Profile(props) {
+
+
+  
+
+
   const navigate = useNavigate();
   const [details, setDetails] = useState("");
-
+  const [CodechefData, setCodechefData] = useState("");
   const callProfilePage = async () => {
     try {
       const res = await fetch("http://localhost:1337/profile", {
@@ -32,6 +49,48 @@ function Profile(props) {
       navigate("/login");
     }
   };
+
+const apis = {
+  "v1":"https://competitive-coding-api.herokuapp.com/api/codechef/dustin404",
+  "v2":"https://competitive-coding-api.herokuapp.com/api/codeforces/dustin404",
+}
+
+
+
+
+
+// for(const key in apis)
+// {
+  const callCodeforces = async () => {
+    try{
+      const res = await fetch ("https://competitive-coding-api.herokuapp.com/api/codechef/dustin404",{
+        method: "GET",
+        headers:{
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        credentials:"omit",
+      })
+      const data1 = await res.json();
+      console.log(data1);
+      setCodechefData(data1);
+    } catch (err) {
+      console.log(err);
+      navigate("/login");
+    }
+  };
+
+  
+//     callCodeforces();
+  
+// }
+ 
+
+useEffect(() => {
+  callCodeforces();
+}, []);
+
+
   useEffect(() => {
     callProfilePage();
   }, []);
@@ -46,7 +105,7 @@ function Profile(props) {
             <div className="info">
               <div className="innerinfo">
               <h2>{details.name}</h2>
-              <p>fdsfhvdxhifczesrgfftfghkhgyhgklmolkopkoo</p>
+              <p>Codechef Username: {CodechefData?CodechefData.user_details.username:"x"}</p>
               <p>fdsfhvdxhifczesrgfftfghkhgyhgklmolkopkoo</p>
               <button className="edit">
                 <Link className="anchor" to={"/editOptions"} state={details}>
