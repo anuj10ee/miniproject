@@ -3,16 +3,27 @@
     padding: 0;
 }
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700&family=Poppins&display=swap');
-.profile{
 
-    /* height: 71vh; */
-    background-color: rgb(248,248,248);
+.profile{
+    background-color: #f8f8f8;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
+
+.profile .edit{
+    margin: 4px;
+    background-color:black;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.profile .edit .anchor{
+    text-decoration: none;
+    color: #ffffff;
+}
+
 .profile .card1{
 
     width: 90%;
@@ -23,6 +34,7 @@
     margin: 30px auto;
     /* border: 1px solid red; */
     height: 60vh;
+    border-radius: 10px;
 }
 .profile .card1 .left{
     /* border: 1px solid red; */
@@ -61,7 +73,6 @@
     font-family: 'Poppins', sans-serif;
 }
 .profile .card1 .left .info{
-    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -73,9 +84,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 .profile .card1 .left img{
-    width:70%;
+    width:60%;
+    border-radius: 30px;
 }
 .profile .card2{
     width: 90%;

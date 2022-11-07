@@ -4,7 +4,24 @@ import { useEffect } from "react";
 import "./profile.css";
 import image from "./0377c76083423a1414e4001161e0cdffb0b36e1f_760x400.0.jpg";
 
+
+
+
+
+
+
+
+
+
+
+
+
 function Profile(props) {
+
+
+  
+
+
   const navigate = useNavigate();
   const [details, setDetails] = useState("");
   const [codechefdata, setcodechefdata] = useState("");
@@ -77,6 +94,20 @@ function Profile(props) {
       navigate("/login");
     }
   };
+
+
+
+
+// for(const key in apis)
+// {
+  
+//     callCodeforces();
+  
+// }
+ 
+
+
+
   useEffect(() => {
     
     callCodechef();
@@ -98,7 +129,7 @@ function Profile(props) {
                 <p>Class CSE A</p>
                 <p>kjsdkfjlsdjfj,jffk</p>
                 <button className="edit">
-                  <Link to={"/editOptions"} state={details}>
+                  <Link className="anchor" to={"/editOptions"} state={details}>
                     EDIT
                   </Link>
                 </button>
