@@ -12,6 +12,6 @@ mongoose
   .then(() => {
     console.log("MONGODB CONNECTED");
   })
-  .catch((err) => {
+  .catch((err) => { 
     console.log("DISCONNECT HOGYA");
   });

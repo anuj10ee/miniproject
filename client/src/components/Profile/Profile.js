@@ -7,6 +7,51 @@ import image from "./0377c76083423a1414e4001161e0cdffb0b36e1f_760x400.0.jpg";
 function Profile(props) {
   const navigate = useNavigate();
   const [details, setDetails] = useState("");
+  const [codechefdata, setcodechefdata] = useState("");
+  const [codeforcesdata, setcodeforcesdata] = useState("");
+
+  const callCodechef = async () => {
+    try {
+      const res = await fetch(
+        "https://competitive-coding-api.herokuapp.com/api/codechef/dustin404",
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          credentials: "omit",
+        }
+      );
+      const codechefdata = await res.json();
+      console.log(codechefdata);
+      console.log(codechefdata.user_details.username);
+      setcodechefdata(codechefdata);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const callCodeforces = async () => {
+    try {
+      const res = await fetch(
+        "https://competitive-coding-api.herokuapp.com/api/codeforces/anuj108",
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          credentials: "omit",
+        }
+      );
+      const codeforcesdata = await res.json();
+      console.log(codeforcesdata);
+      setcodeforcesdata(codeforcesdata);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const callProfilePage = async () => {
     try {
@@ -33,8 +78,12 @@ function Profile(props) {
     }
   };
   useEffect(() => {
+    
+    callCodechef();
+    callCodeforces();
     callProfilePage();
   }, []);
+
   return (
     <>
       <div className="profile">
@@ -44,43 +93,44 @@ function Profile(props) {
               <img src={image} alt="" />
             </div>
             <div className="info">
-              {details.name}
-              <button className="edit">
-                <Link to={"/editOptions"} state={details}>
-                  EDIT
-                </Link>
-              </button>
+              <div className="inner-info">
+                <h2>{details.name}</h2>
+                <p>Class CSE A</p>
+                <p>kjsdkfjlsdjfj,jffk</p>
+                <button className="edit">
+                  <Link to={"/editOptions"} state={details}>
+                    EDIT
+                  </Link>
+                </button>
+              </div>
             </div>
           </div>
           <div className="right">
             <div className="inner-right">
-            <div className="education">
-              <h2>EDUCATION</h2>
-              <p>ABES ENGINEERING COLLEGE</p>
-              <p>COMPUTER SCIENCE AND ENGINEERING</p>
-
-            </div>
-            <div className="skills">
-              <h2>SKILLS</h2>
-              <p>HTML CSS OOSD GITHUB TEKKEN</p>
+              <div className="education">
+                <h2>EDUCATION</h2>
+                <p>ABES ENGINEERING COLLEGE</p>
+                <p>COMPUTER SCIENCE AND ENGINEERING</p>
+              </div>
+              <div className="skills">
+                <h2>SKILLS</h2>
+                <p>HTML CSS OOSD GITHUB TEKKEN</p>
+              </div>
             </div>
           </div>
-            </div>
-            
         </div>
         <div className="card2">
-          <div className="left">
-            <div className="pic">
-              <img src={image} alt="" />
-            </div>
-            <div className="info">
-              NAAM PATA ADDRESS
-              <button className="edit">EDIT</button>
-            </div>
+          <div className="head">
+            <h2>CODECHEF</h2>
           </div>
-          <div className="right">
-            <div className="education">EDUCATION</div>
-            <div className="skills">SKILLS</div>
+          <div className="content">
+            <div className="left">
+             <p>USERNAME:{codechefdata?codechefdata.user_details.username:"x"}</p>
+             <p></p>
+            </div>
+            <div className="right">
+              <h3>RECENT SUBMISSIONS</h3>
+            </div>
           </div>
         </div>
       </div>
