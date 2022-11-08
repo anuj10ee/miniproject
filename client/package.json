@@ -14,10 +14,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-<<<<<<< HEAD
     "bootstrap": "^5.2.2",
-=======
->>>>>>> 5045e745470220f0f31afae0d93b3436082b1fb5
     "hammerjs": "^2.0.8",
     "react": "^18.2.0",
     "react-animation-on-scroll": "^5.1.0",

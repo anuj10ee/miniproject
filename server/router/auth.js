@@ -105,7 +105,7 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/editOptions", async (req, res) => {
-  const { email, name, codechefID } = req.body;
+  const { email, name, codechefID,codeforcesID } = req.body;
   console.log(name);
 
   try {
@@ -113,6 +113,7 @@ router.post("/editOptions", async (req, res) => {
     if (userExist) {
       userExist.name = name;
       userExist.codechefID = codechefID;
+      userExist.codeforcesID=codeforcesID;
       await userExist.save();
       res.status(201).json({ message: "user registered successfully" });
     } else {

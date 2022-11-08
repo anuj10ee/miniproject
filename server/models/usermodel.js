@@ -8,13 +8,13 @@ const User = new mongoose.Schema(
     email: { type: String, required: true },
     address: { type: String },
     codechefID: { type: String },
-
+    codeforcesID: {type:String},
     password: { type: String, required: true },
     quote: { type: String },
     tokens: [
       {
         token: {
-          type: String, 
+          type: String,
           required: true,
         },
       },
