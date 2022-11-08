@@ -10,7 +10,7 @@ function Navbar() {
         <div className="left">
           <ul className="outer">
             <li className="inner">
-              <Link to="/home">Home</Link>
+              <Link to="/home" >Home</Link>
             </li>
             <li className="inner">
               <Link to="/profile">Profile</Link>

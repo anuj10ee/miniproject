@@ -1,9 +1,36 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700&family=Poppins&display=swap');
 
+/* /////// */
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: black;
+    cursor:pointer;
+  }
+  
+  .hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  /* ////// */
 .profile{
     background-color: #f8f8f8;
     display: flex;
@@ -12,11 +39,15 @@
     align-items: center;
 }
 
-.profile .edit{
+.profile .left .edit{
     margin: 4px;
     background-color:black;
     border-radius: 5px;
     padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
 }
 
 .profile .edit .anchor{
@@ -44,6 +75,15 @@
     margin: auto;
     width: 50%;
 }
+.profile .card1 .left .inner-info h2{
+    margin: 5px 0;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+}
+.profile .card1 .left .inner-info p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+}
 .profile .card1 .right{
     /* border: 1px solid red; */
     display: flex;
@@ -54,13 +94,15 @@
     width: 50%;
 }
 .profile .card1 .right .education h2{
-    padding: 15px 0px;
-    color: rgb(120,102,184);
+    margin: 5px 0px;
+    color: black;
     font-family: 'Poppins', sans-serif;
 }
 .profile .card1 .right .education p{
 
     font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+
 }
 .profile .card1 .right .skills p{
 
@@ -68,8 +110,8 @@
 }
 
 .profile .card1 .right .skills h2{
-    padding: 15px 0px;
-    color: rgb(120,102,184);
+    margin: 5px 0px;
+    color: black;
     font-family: 'Poppins', sans-serif;
 }
 .profile .card1 .left .info{
@@ -79,6 +121,7 @@
     align-items: center;
     margin: auto;
     width: 50%;
+   
 }
 .profile .card1 .left .pic{
     display: flex;
@@ -98,15 +141,25 @@
     justify-content: center;
     align-items: center;
     margin: auto;
-    border: 1px solid red;
     height: 60vh;
+    border-radius: 10px;
+
+    margin: 30px auto;
 }
 .profile .card2 .head
 {
-    height: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
+
+}
+.profile .card2 .head img
+{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    width:20%;
+
 }
 .profile .card2 .content{
     width: 100%;
@@ -117,7 +170,95 @@
 }
 .profile .card2 .content .left{
 width: 50%;
+margin: 0 10%;
+}
+.profile .card2 .content .left p{
+    font-size: 20px;
+    font-weight: 600;
+    font-family: poppins;
+}
+.profile .card2 .content .left span{
+    font-size: 20px;
+    font-weight: 300;
+    font-family: poppins;
+    margin:0 10px;
 }
 .profile .card2 .content .right{
    width: 50%;
 }
+.profile .card2 .content .right h3{
+    font-size: 20px;
+    font-weight: 600;
+    font-family: poppins;
+ }
+ .profile .card2 .content .right .outer{
+    list-style-type: none;
+    font-size: 20px;
+    font-weight: 300;
+    font-family: poppins;
+ }
+ .profile .card3{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255,255,255);
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 60vh;
+    border-radius: 10px;
+
+    margin: 30px auto;
+}
+.profile .card3 .head
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+
+}
+.profile .card3 .head img
+{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    width:70%;
+
+}
+.profile .card3 .content{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile .card3 .content .left{
+width: 50%;
+margin: 0 10%;
+}
+.profile .card3 .content .left p{
+    font-size: 20px;
+    font-weight: 600;
+    font-family: poppins;
+}
+.profile .card3 .content .left span{
+    font-size: 20px;
+    font-weight: 300;
+    font-family: poppins;
+    margin:0 10px;
+}
+.profile .card3 .content .right{
+   width: 50%;
+}
+.profile .card3 .content .right h3{
+    font-size: 20px;
+    font-weight: 600;
+    font-family: poppins;
+ }
+ .profile .card3 .content .right .outer{
+    list-style-type: none;
+    font-size: 20px;
+    font-weight: 300;
+    font-family: poppins;
+ }
