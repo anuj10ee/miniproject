@@ -1,0 +1,69 @@
+.register {
+    height: 100vh;
+    background-color: #c1beff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.register .card {
+    height: 80vh;
+    width: 50%;
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: white;
+    border-radius: 10px;
+    min-height: 600px;
+}
+.register .card .left {
+    flex: 1;
+    background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)), url("https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1600") center;
+    background-size: cover;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.register .card .left h1 {
+    font-size: 60px;
+    line-height: 100px;
+}
+.register .card .left span {
+    font-size: 14px;
+}
+.register .card .left button {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    background-color: white;
+    color: rebeccapurple;
+    font-weight: bold;
+    cursor: pointer;
+}
+.register .card .right {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.register .card .right h1 {
+    color: #555;
+}
+.register .card .right form {
+    display: flex;
+    flex-direction: column;
+}
+.register .card .right form input {
+    border: none;
+    border-bottom: 1px solid lightgray;
+    padding: 20px 10px;
+}
+.register .card .right form button {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    background-color: #938eef;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}

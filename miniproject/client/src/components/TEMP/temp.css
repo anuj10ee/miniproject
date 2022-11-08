@@ -1,0 +1,36 @@
+.temp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+.temp .upper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:20px 40px;
+}
+.temp .lower{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.temp .lower .left a{
+    text-decoration: none;
+    padding: 20px 40px;
+    font-family: sans-serif;
+    background: black;
+    color: white;
+    border-radius:10px;
+    margin: 10px;
+}
+.temp .lower .right a{
+    text-decoration: none;
+    padding: 20px 40px;
+    font-family: sans-serif;
+    background: black;
+    color: white;
+    border-radius:10px;
+    margin: 10px;
+}
