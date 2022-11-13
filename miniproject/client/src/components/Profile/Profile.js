@@ -18,28 +18,6 @@ function Profile(props) {
   const [codechefdata, setcodechefdata] = useState("");
   const [codeforcesdata, setcodeforcesdata] = useState("");
 
-  // const callCodeforces = async () => {
-  //   try {
-  //     const res = await fetch(
-  //       "https://competitive-coding-api.herokuapp.com/api/codeforces/dustin404",
-  //       {
-  //         method: "GET",
-  //         headers: {
-  //           Accept: "application/json",
-  //           "Content-Type": "application/json",
-  //         },
-  //         credentials: "omit",
-  //       }
-  //     );
-  //     const codeforcesdata = await res.json();
-  //     console.log(codeforcesdata);
-  //     console.log(details.codechefID);
-  //     setcodeforcesdata(codeforcesdata);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
   const callProfilePage = async () => {
     try {
       const res = await fetch("http://localhost:1337/profile", {
@@ -62,7 +40,7 @@ function Profile(props) {
         const r = await callCodechef(data);
         console.log(r);
         setcodechefdata(r);
-        const s=await callCodeforces(data);
+        const s = await callCodeforces(data);
         console.log(s);
         setcodeforcesdata(s);
       }
@@ -72,99 +50,128 @@ function Profile(props) {
     }
   };
 
-  // for(const key in apis)
-  // {
-
-  //     callCodeforces();
-
-  // }
-
   useEffect(() => {
     callProfilePage();
   }, []);
 
   return (
     <>
-      <div className="profile">
-        <Fade left>
-          <div className="card1">
-            <div className="left">
-              <div className="pic">
-                <img src={image} alt="" />
+      {codechefdata && codeforcesdata ? (
+        <div className="profile">
+          <Fade left>
+            <div className="card1">
+              <div className="left">
+                <div className="pic">
+                  <img src={image} alt="" />
+                </div>
+                <div className="info">
+                  <div className="inner-info">
+                    <h2 className="hover-underline-animation">
+                      {details.name}
+                    </h2>
+                    <p>Competitive Coder</p>
+                    <p>Blah Blah</p>
+                    <button className="edit">
+                      <Link
+                        className="anchor"
+                        to={"/editOptions"}
+                        state={details}
+                      >
+                        EDIT
+                      </Link>
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div className="info">
-                <div className="inner-info">
-                  <h2 className="hover-underline-animation">{details.name}</h2>
-                  <p>Competitive Coder</p>
-                  <p>Blah Blah</p>
-                  <button className="edit">
-                    <Link
-                      className="anchor"
-                      to={"/editOptions"}
-                      state={details}
-                    >
-                      EDIT
-                    </Link>
-                  </button>
+              <div className="right">
+                <div className="inner-right">
+                  <div className="education">
+                    <h2 className="hover-underline-animation">EDUCATION</h2>
+                    <p>ABES ENGINEERING COLLEGE</p>
+                    <p>COMPUTER SCIENCE AND ENGINEERING</p>
+                  </div>
+                  <div className="skills">
+                    <h2 className="hover-underline-animation">SKILLS</h2>
+                    <p>
+                      <Badge pill bg="primary">
+                        Primary
+                      </Badge>{" "}
+                      <Badge pill bg="secondary">
+                        Secondary
+                      </Badge>{" "}
+                      <Badge pill bg="success">
+                        Success
+                      </Badge>{" "}
+                      <Badge pill bg="danger">
+                        Danger
+                      </Badge>{" "}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="right">
-              <div className="inner-right">
-                <div className="education">
-                  <h2 className="hover-underline-animation">EDUCATION</h2>
-                  <p>ABES ENGINEERING COLLEGE</p>
-                  <p>COMPUTER SCIENCE AND ENGINEERING</p>
+          </Fade>
+          <Fade right>
+            {details.codechefID ? (
+              <div className="card2">
+                <div className="head">
+                  <img src={codechef} alt="" />
                 </div>
-                <div className="skills">
-                  <h2 className="hover-underline-animation">SKILLS</h2>
-                  <p>
-                    <Badge pill bg="primary">
-                      Primary
-                    </Badge>{" "}
-                    <Badge pill bg="secondary">
-                      Secondary
-                    </Badge>{" "}
-                    <Badge pill bg="success">
-                      Success
-                    </Badge>{" "}
-                    <Badge pill bg="danger">
-                      Danger
-                    </Badge>{" "}
-                  </p>
+                <div className="content">
+                  <div className="left">
+                    <p>
+                      USERNAME:
+                      <span>{codechefdata.user_details.username}</span>
+                    </p>
+                    <p>
+                      TOTAL PROBLEMS SOLVED:{" "}
+                      <span> {codechefdata.fully_solved.count}</span>
+                    </p>
+                    <p>
+                      RATING:
+                      <span>{codechefdata.rating}</span>{" "}
+                    </p>
+                    <p>
+                      GLOBAL RANK: <span>{codechefdata.global_rank}</span>
+                    </p>
+                  </div>
+                  <div className="right">
+                    <h3>RECENT SUBMISSIONS</h3>
+                    <ul className="outer">
+                      <li className="inner">SQUIRRELS</li>
+                      <li className="inner">DOGS</li>
+                      <li className="inner">CATS</li>
+                    </ul>
+                  </div>
                 </div>
+                <ChartContainer />
               </div>
-            </div>
-          </div>
-        </Fade>
-        <Fade right>
-          {details.codechefID ? (
-            <div className="card2">
+            ) : (
+              ""
+            )}
+          </Fade>
+          <Fade right>
+            <div className="card3">
               <div className="head">
-                <img src={codechef} alt="" />
+                <img src={codeforces} alt="" />
               </div>
               <div className="content">
                 <div className="left">
                   <p>
                     USERNAME:
-                    <span>
-                      {codechefdata ? codechefdata.user_details.username : "x"}
-                    </span>
+                    {console.log(codeforcesdata.username)}
+                    <span>{codeforcesdata.username}</span>
                   </p>
                   <p>
                     TOTAL PROBLEMS SOLVED:{" "}
-                    <span>
-                      {" "}
-                      {codechefdata ? codechefdata.fully_solved.count : "x"}
-                    </span>
+                    <span> {codechefdata.fully_solved.count}</span>
                   </p>
                   <p>
                     RATING:
-                    <span>{codechefdata ? codechefdata.rating : "x"}</span>{" "}
+                    <span>{codeforcesdata.rating}</span>{" "}
                   </p>
                   <p>
-                    GLOBAL RANK:{" "}
-                    <span>{codechefdata ? codechefdata.global_rank : "x"}</span>
+                    GLOBAL RANK: <span>{codeforcesdata.rank}</span>
                   </p>
                 </div>
                 <div className="right">
@@ -178,53 +185,11 @@ function Profile(props) {
               </div>
               <ChartContainer />
             </div>
-          ) : (
-            ""
-          )}
-        </Fade>
-        <Fade right>
-          <div className="card3">
-            <div className="head">
-              <img src={codeforces} alt="" />
-            </div>
-            <div className="content">
-              <div className="left">
-                <p>
-                  USERNAME:
-                  {console.log(codeforcesdata.username)}
-                  <span>{codeforcesdata ? codeforcesdata.username : "x"}</span>
-                </p>
-                <p>
-                  TOTAL PROBLEMS SOLVED:{" "}
-                  <span>
-                    {" "}
-                    {codechefdata ? codechefdata.fully_solved.count : "x"}
-                  </span>
-                </p>
-                <p>
-                  RATING:
-                  <span>
-                    {codeforcesdata ? codeforcesdata.rating : "x"}
-                  </span>{" "}
-                </p>
-                <p>
-                  GLOBAL RANK:{" "}
-                  <span>{codeforcesdata ? codeforcesdata.rank : "x"}</span>
-                </p>
-              </div>
-              <div className="right">
-                <h3>RECENT SUBMISSIONS</h3>
-                <ul className="outer">
-                  <li className="inner">SQUIRRELS</li>
-                  <li className="inner">DOGS</li>
-                  <li className="inner">CATS</li>
-                </ul>
-              </div>
-            </div>
-            <ChartContainer />
-          </div>
-        </Fade>
-      </div>
+          </Fade>
+        </div>
+      ) : (
+        <div>Hello</div>
+      )}
     </>
   );
 }
