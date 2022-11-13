@@ -8,6 +8,7 @@ import Profile from "../Profile/Profile";
 // import {useHistory}
 import { useNavigate } from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
+import Posts from "../posts/Posts";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const Home = () => {
         },
         credentials: "include",
       });
-      
+
       const data = await res.json();
       console.log("abcdefgh");
       console.log(data);
@@ -41,10 +42,12 @@ const Home = () => {
 
   return (
     <div className="home">
-      <Spinner/>
-      <button className="logout" style={{ padding: 30, background: "yellow" }}>
+      <div className="leftbar">YE HAI LEFT || </div>
+      <div className="feed"><Posts/></div>
+      <div className="rightbar">YE HAI RIGHT SIDE</div>
+      {/* <button className="logout" style={{ padding: 30, background: "yellow" }}>
         <a href="/logout">LOGOUT</a>
-      </button>
+      </button> */}
 
       {/* <div className="GET">
 
