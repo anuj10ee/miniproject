@@ -5,6 +5,7 @@ import "./Edit.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 // import 'bootstrap/dist/css/bootstrap.min.css';
+import { useParams } from "react-router";
 
 const Edit = () => {
   const navigate = useNavigate();
@@ -16,19 +17,21 @@ const Edit = () => {
   const [codeforcesID, setCodeforcesID] = useState(details.codeforcesID);
   // const [userId, setUserId] = useState(details.codeforcesID);
 
+  console.log(details);
   async function updateUser(event) {
     event.preventDefault();
-    const response = await fetch(`http://localhost:1337/user/${details._id}`, {
+    
+    const response = await fetch("http://localhost:1337/user/"+details._id, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name,
-        email,
-        codechefID,
-        codeforcesID,
-
+        name:name,
+        email:email,
+        codechefID:codechefID,
+        codeforcesID:codeforcesID,
+        userId:details._id,
       }),
     });
     const data = await response.json();
