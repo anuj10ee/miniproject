@@ -8,6 +8,8 @@ import codechef from "./NicePng_mustach-png_7920230.png";
 import codeforces from "./codeforces-seeklogo.com.svg";
 import Fade from "react-reveal/Fade";
 import Badge from "react-bootstrap/Badge";
+import callCodechef from "./codechef";
+import callCodeforces from "./codeforces";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Profile(props) {
@@ -16,49 +18,27 @@ function Profile(props) {
   const [codechefdata, setcodechefdata] = useState("");
   const [codeforcesdata, setcodeforcesdata] = useState("");
 
-  const callCodechef = async () => {
-    try {
-      const res = await fetch(
-        `https://competitive-coding-api.herokuapp.com/api/codechef/dustin404`,
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          credentials: "omit",
-        }
-      );
-      const codechefdata = await res.json();
-      console.log(codechefdata);
-      console.log(codechefdata.user_details.username);
-      setcodechefdata(codechefdata);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const callCodeforces = async () => {
-    try {
-      const res = await fetch(
-        "https://competitive-coding-api.herokuapp.com/api/codeforces/anuj108",
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          credentials: "omit",
-        }
-      );
-      const codeforcesdata = await res.json();
-      console.log(codeforcesdata);
-      console.log(details.codechefID);
-      setcodeforcesdata(codeforcesdata);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const callCodeforces = async () => {
+  //   try {
+  //     const res = await fetch(
+  //       "https://competitive-coding-api.herokuapp.com/api/codeforces/dustin404",
+  //       {
+  //         method: "GET",
+  //         headers: {
+  //           Accept: "application/json",
+  //           "Content-Type": "application/json",
+  //         },
+  //         credentials: "omit",
+  //       }
+  //     );
+  //     const codeforcesdata = await res.json();
+  //     console.log(codeforcesdata);
+  //     console.log(details.codechefID);
+  //     setcodeforcesdata(codeforcesdata);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   const callProfilePage = async () => {
     try {
@@ -78,6 +58,13 @@ function Profile(props) {
       if (res.status === 401) {
         const error = new Error(res.error);
         throw error;
+      } else {
+        const r = await callCodechef(data);
+        console.log(r);
+        setcodechefdata(r);
+        const s=await callCodeforces(data);
+        console.log(s);
+        setcodeforcesdata(s);
       }
     } catch (err) {
       console.log(err);
@@ -93,8 +80,6 @@ function Profile(props) {
   // }
 
   useEffect(() => {
-    callCodechef();
-    callCodeforces();
     callProfilePage();
   }, []);
 
@@ -109,9 +94,7 @@ function Profile(props) {
               </div>
               <div className="info">
                 <div className="inner-info">
-                  <h2 className="hover-underline-animation">
-                    {details.name} Shakya
-                  </h2>
+                  <h2 className="hover-underline-animation">{details.name}</h2>
                   <p>Competitive Coder</p>
                   <p>Blah Blah</p>
                   <button className="edit">
@@ -208,6 +191,7 @@ function Profile(props) {
               <div className="left">
                 <p>
                   USERNAME:
+                  {console.log(codeforcesdata.username)}
                   <span>{codeforcesdata ? codeforcesdata.username : "x"}</span>
                 </p>
                 <p>
@@ -219,7 +203,9 @@ function Profile(props) {
                 </p>
                 <p>
                   RATING:
-                  <span>{codeforcesdata ? codeforcesdata.rating : "x"}</span>{" "}
+                  <span>
+                    {codeforcesdata ? codeforcesdata.rating : "x"}
+                  </span>{" "}
                 </p>
                 <p>
                   GLOBAL RANK:{" "}
