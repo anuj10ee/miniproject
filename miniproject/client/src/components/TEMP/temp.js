@@ -11,13 +11,15 @@ export default function Home() {
             <TypeAnimation
               // Same String at the start will only be typed once, initially
               sequence={[
-                "Website for Mice",
+                "Track your progress",
                 1000,
-                "Website for Hamsters",
+                "Track your friend's progress",
                 1000,
-                "Website for Guinea Pigs",
+                "Track upcoming contests",
                 1000,
-                "Website for Chinchillas",
+                "Website for Coders",
+                1000,
+                "Website for Developers",
                 1000,
               ]}
               speed={50} // Custom Speed from 1-99 - Default Speed: 40

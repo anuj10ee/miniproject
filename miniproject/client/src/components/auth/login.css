@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 .login .card {
     height: 80vh;
@@ -13,11 +13,11 @@
     background-color: white;
     border-radius: 15px;
     min-height: 600px;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     /* overflow: hidden; */
 }
 .login .card .left {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     flex: 1;
     background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)), url("https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600") center;
     background-size: cover;
@@ -43,7 +43,7 @@
     cursor: pointer;
 }
 .login .card .right {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     flex: 1;
     padding: 50px;
     display: flex;

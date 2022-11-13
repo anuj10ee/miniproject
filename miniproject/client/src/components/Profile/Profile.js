@@ -208,9 +208,7 @@ function Profile(props) {
               <div className="left">
                 <p>
                   USERNAME:
-                  <span>
-                    {codeforcesdata ? codeforcesdata.username : "x"}
-                  </span>
+                  <span>{codeforcesdata ? codeforcesdata.username : "x"}</span>
                 </p>
                 <p>
                   TOTAL PROBLEMS SOLVED:{" "}
@@ -220,7 +218,8 @@ function Profile(props) {
                   </span>
                 </p>
                 <p>
-                  RATING:<span>{codeforcesdata ? codeforcesdata.rating : "x"}</span>{" "}
+                  RATING:
+                  <span>{codeforcesdata ? codeforcesdata.rating : "x"}</span>{" "}
                 </p>
                 <p>
                   GLOBAL RANK:{" "}

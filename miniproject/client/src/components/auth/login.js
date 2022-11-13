@@ -10,16 +10,15 @@ function Login() {
   const navigate = useNavigate();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const[loading, setLoading]= useState(false);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
-   setLoading(true);
-   setTimeout(() => {
-    setLoading(false)
-   }, 8000);
-  }, [])
-  
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 8000);
+  }, []);
+
   async function loginUser(event) {
-    
     event.preventDefault();
     const response = await fetch("http://localhost:1337/login", {
       method: "POST",

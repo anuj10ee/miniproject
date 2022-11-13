@@ -1,0 +1,25 @@
+.edit .head{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+}
+.edit .lower{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.edit .submit{
+    padding: 10px 20px;
+    background: black;
+    color: white;
+    margin: 5px;
+    border-radius: 5px;
+}
+.edit .form span{
+    font-size: 20px;
+}
+
+.edit .form input{
+    font-size:20px;
+}
