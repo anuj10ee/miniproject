@@ -9,7 +9,7 @@ import Profile from "../Profile/Profile";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
 import Timeline from "../timeline/Timeline";
-import Posts from "../posts/Posts"
+import Posts from "../posts/Posts";
 const Home = () => {
   const navigate = useNavigate();
 
@@ -44,8 +44,7 @@ const Home = () => {
     <div className="home">
       <div className="leftbar">YE HAI LEFT || </div>
       <div className="feed">
-        <Timeline/>
-        
+        <Timeline />
       </div>
       <div className="rightbar">YE HAI RIGHT SIDE</div>
       {/* <button className="logout" style={{ padding: 30, background: "yellow" }}>
