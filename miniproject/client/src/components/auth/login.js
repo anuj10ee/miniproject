@@ -34,6 +34,7 @@ function Login() {
 
     const data = await response.json();
     console.log("jhshgdjsgdkuchksh");
+    console.log(data);
     if (response.status === 400 || !data) {
       window.alert("INVALID LOGIN");
     } else {

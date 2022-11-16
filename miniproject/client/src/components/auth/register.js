@@ -12,6 +12,8 @@ const Register = () => {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+  const [codechefID, setcodechefID] = useState("");
+  const [codeforcesID, setcodeforcesID] = useState("");
   const [address, setaddress] = useState("");
   async function registerUser(event) {
     event.preventDefault();
@@ -25,6 +27,8 @@ const Register = () => {
         email,
         address,
         password,
+        codechefID,
+        codeforcesID,
       }),
     });
 
@@ -81,6 +85,18 @@ const Register = () => {
               onChange={(e) => setpassword(e.target.value)}
               type="password"
               placeholder="Password"
+            />
+            <input
+              value={codechefID}
+              onChange={(e) => setcodechefID(e.target.value)}
+              type="text"
+              placeholder="CODECHEF USERNAME"
+            />
+            <input
+              value={codeforcesID}
+              onChange={(e) => setcodeforcesID(e.target.value)}
+              type="text"
+              placeholder="CODEFORCES USERNAME"
             />
             <br />
             <input

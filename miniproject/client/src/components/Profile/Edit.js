@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { useParams } from "react-router";
+import CardProfile from './edit-javascript';
 
 const Edit = () => {
   const navigate = useNavigate();
@@ -20,18 +21,18 @@ const Edit = () => {
   console.log(details);
   async function updateUser(event) {
     event.preventDefault();
-    
-    const response = await fetch("http://localhost:1337/user/"+details._id, {
+
+    const response = await fetch("http://localhost:1337/user/" + details._id, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name:name,
-        email:email,
-        codechefID:codechefID,
-        codeforcesID:codeforcesID,
-        userId:details._id,
+        name: name,
+        email: email,
+        codechefID: codechefID,
+        codeforcesID: codeforcesID,
+        userId: details._id,
       }),
     });
     const data = await response.json();
@@ -42,7 +43,9 @@ const Edit = () => {
     }
   }
   return (
+    <>
     <div className="edit">
+      {/* 
       <div className="head">
         <h2>EDIT OPTIONS</h2>
       </div>
@@ -88,8 +91,11 @@ const Edit = () => {
           />
           <br />
         </form>
-      </div>
-    </div>
+      </div>*/}
+    </div> 
+    <a target="_blank" title="instagram/web__addict" href="https://www.instagram.com/web__addict/"><i class="fab fa-instagram"></i></a>
+    <CardProfile/>
+   </>
   );
 };
 

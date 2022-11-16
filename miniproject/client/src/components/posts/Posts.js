@@ -9,11 +9,12 @@ function Posts(props) {
   const [data, setData] = useState("");
   const [userdata, setuserData] = useState("");
 
-  console.log(props);
+  console.log(props.userID);
   const callPost = async () => {
-    console.log(props);
+    
 
     try {
+      // console.log(props.userID);
       const res = await fetch(
         "http://localhost:1337/posts/timeline/all/" + props.userID,
         {
@@ -58,13 +59,28 @@ function Posts(props) {
                   <div className="postWrapper">
                     <div className="postTop">
                       <div className="postTopLeft">
-                        <Link to={`/profile`}>
+                        {console.log(val.userId)}
+                        {console.log(props.userID)}
+                        {console.log(val.userId===props.userID)}
+                        {
+                          val.userId===props.userID?
+                          <Link to={`/profile`}>
                           <img
                             className="postProfileImg"
                             src={props.like}
                             alt=""
                           />
                         </Link>
+                          :
+                          <Link to={`/profile/${val.userId}`}>
+                          <img
+                            className="postProfileImg"
+                            src={props.like}
+                            alt=""
+                          />
+                        </Link>
+                        }
+                        
                         <span className="postUsername"></span>
                         <span className="postDate">
                           {val.createdAt ? val.createdAt : "y"}

@@ -19,12 +19,14 @@ const bcrypt = require("bcryptjs");
 console.log("BLAHHHH");
 router.post("/register", async (req, res) => {
   // console.log(abc);
-  const { email, name, address, password } = req.body;
+  const { email, name, address, password, codechefID, codeforcesID } = req.body;
   console.log(name);
   // console.log(req.body);
   // console.log(xyz);
 
-  if (!name || !email || !password || !address) {
+  if (
+    (!name || !email || !password || !address || !codechefID, !codeforcesID)
+  ) {
     return res.status(422).json({ error: "FILL KROOOOO" });
   }
   try {
@@ -32,7 +34,14 @@ router.post("/register", async (req, res) => {
     if (userExist) {
       return res.status(422).json({ error: "email already exists" });
     } else {
-      const user = new User({ name, email, address, password });
+      const user = new User({
+        name,
+        email,
+        address,
+        password,
+        codechefID,
+        codeforcesID,
+      });
 
       await user.save();
       return res.status(201).json({ message: "user registered successfully" });
@@ -94,7 +103,7 @@ router.post("/login", async (req, res) => {
         res.status(400).json({ error: "user error" });
       } else {
         // console.log(token);
-        res.json({ message: "user logged in" });
+        res.json({ message: "user logged in", userDetails: userLogin });
       }
     } else {
       res.status(400).json({ error: "user error" });
@@ -133,6 +142,12 @@ router.get("/home", authenticate, (req, res) => {
 });
 router.get("/profile", authenticate, (req, res) => {
   console.log("HELLO FROM Profile");
+  // res.send("HELLO WORLD FROM SERVER");
+  console.log(req.rootUser);
+  res.send(req.rootUser);
+});
+router.get("/profile/:id", (req, res) => {
+  console.log("HELLO FROM Profile2");
   // res.send("HELLO WORLD FROM SERVER");
   console.log(req.rootUser);
   res.send(req.rootUser);

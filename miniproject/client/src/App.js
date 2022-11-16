@@ -14,6 +14,7 @@ import Profile from "./components/Profile/Profile";
 import Edit from "./components/Profile/Edit";
 import Team from "./components/team/Team"
 // import Notify from "./components/alert/Alert"
+import OtherProfile from "./components/otherProfile/OtherProfile";
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
         <Route exact path="/team" element={<Team/>}></Route>
         <Route exact path="/" element={<Temp />}></Route>
         <Route exact path="/login" element={<Login />}></Route>
-        <Route exact path="/profile" element={<Profile name="anuj" />}></Route>
+        <Route exact path="/profile" element={<Profile />}></Route>
+        <Route exact path="/profile/:id" element={<OtherProfile/>}></Route>
         {/* <Route path="./login">
         <Login/>
       </Route> */}

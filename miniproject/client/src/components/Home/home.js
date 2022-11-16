@@ -10,8 +10,10 @@ import { useNavigate } from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
 import Timeline from "../timeline/Timeline";
 import Posts from "../posts/Posts";
+import { useState } from "react";
 const Home = () => {
   const navigate = useNavigate();
+  const [Data, setData] = useState("");
 
   const callHomePage = async () => {
     try {
@@ -25,6 +27,7 @@ const Home = () => {
       });
 
       const data = await res.json();
+      setData(data);
       console.log("abcdefgh");
       console.log(data);
       if (res.status === 401) {
@@ -43,9 +46,7 @@ const Home = () => {
   return (
     <div className="home">
       <div className="leftbar">YE HAI LEFT || </div>
-      <div className="feed">
-        <Timeline />
-      </div>
+      <div className="feed">{Data ? <Timeline data={Data} /> : "x"}</div>
       <div className="rightbar">YE HAI RIGHT SIDE</div>
       {/* <button className="logout" style={{ padding: 30, background: "yellow" }}>
         <a href="/logout">LOGOUT</a>

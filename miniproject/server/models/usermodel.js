@@ -7,8 +7,8 @@ const User = new mongoose.Schema(
     name: { type: String, require: true, min: 3, max: 20, unique: true },
     email: { type: String, required: true, max: 50, unique: true },
     address: { type: String, max: 50 },
-    codechefID: { type: String },
-    codeforcesID: { type: String },
+    codechefID: { type: String, required: true },
+    codeforcesID: { type: String, required: true },
     password: { type: String, required: true, min: 6 },
     quote: { type: String },
     profilePicture: {
