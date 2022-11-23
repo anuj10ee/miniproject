@@ -11,14 +11,15 @@ const User = new mongoose.Schema(
     codeforcesID: { type: String, required: true },
     password: { type: String, required: true, min: 6 },
     quote: { type: String },
-    profilePicture: {
-      type: String,
-      default: "",
+    img: {
+      type:String,
+      default:"uploads/"
     },
     coverPicture: {
       type: String,
       default: "",
     },
+    
     followers: {
       type: Array,
       default: [],

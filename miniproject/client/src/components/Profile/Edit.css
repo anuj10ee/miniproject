@@ -1,4 +1,4 @@
-.edit{
+/* .edit{
     font-family: 'Hind Guntur', sans-serif;
     color: #054231;
     display: flex;
@@ -11,6 +11,7 @@
   }
   
   .card{
+    margin:auto;
     width: 310px;
     height: 627px;
     padding: 15px;
@@ -188,7 +189,7 @@
     transition: all .1s linear;
     cursor: pointer;
   }
-  
+   */
 .edit .head{
     display:flex;
     justify-content: center;

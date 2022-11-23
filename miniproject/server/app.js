@@ -4,13 +4,13 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cookieparser = require("cookie-parser");
-const postRoute = require("./router/posts")
-const userRoute=require("./router/users")
+const postRoute = require("./router/posts");
+const userRoute = require("./router/users");
 
 dotenv.config({ path: "./config.env" });
 require("./db/conn");
 app.use(express.json());
-app.use(cookieparser()); 
+app.use(cookieparser());
 const PORT = process.env.PORT || 1337;
 console.log(process.env.PORT);
 const corsOptions = {
@@ -20,8 +20,8 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(require("./router/auth"));
-app.use("/posts",postRoute);
-app.use("/user",userRoute);
+app.use("/posts", postRoute);
+app.use("/user", userRoute);
 
 app.get("/", (req, res) => {
   res.json("HELLO");

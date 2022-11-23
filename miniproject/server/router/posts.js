@@ -5,7 +5,7 @@ const User = require("../models/usermodel");
 //create a post
 
 router.post("/", async (req, res) => {
-    console.log("POST PAGE");
+  console.log("POST PAGE");
   const newPost = new Post(req.body);
   try {
     const savedPost = await newPost.save();
@@ -83,7 +83,7 @@ router.get("/timeline/all/:userID", async (req, res) => {
         return Post.find({ userId: friendId });
       })
     );
-    res.json(userPosts.concat(...friendPosts))
+    res.json(userPosts.concat(...friendPosts));
     console.log(userPosts);
   } catch (err) {
     res.status(500).json(err);

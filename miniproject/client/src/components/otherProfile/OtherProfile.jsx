@@ -13,7 +13,6 @@ import ChartContainer from "../Heatmap/heatmap";
 import codechef from "../Profile/NicePng_mustach-png_7920230.png";
 import codeforces from "../Profile/codeforces-seeklogo.com.svg";
 
-
 function OtherProfile() {
   const { id } = useParams();
   console.log(id);
@@ -65,7 +64,8 @@ function OtherProfile() {
             <div className="card1">
               <div className="left">
                 <div className="pic">
-                  <img src={image} alt="" />
+                {console.log(details.img)}
+                <img src={"/uploads/"+details.img} alt="" />
                 </div>
                 <div className="info">
                   <div className="inner-info">

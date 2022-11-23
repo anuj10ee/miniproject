@@ -11,8 +11,6 @@ function Posts(props) {
 
   console.log(props.userID);
   const callPost = async () => {
-    
-
     try {
       // console.log(props.userID);
       const res = await fetch(
@@ -32,14 +30,14 @@ function Posts(props) {
       if (res.status === 401) {
         const error = new Error(res.error);
         throw error;
-      }
-      else{
+      } else {
         setData(datares);
-      console.log(data);
-      const r = await callDetails(props);
-      setuserData(r);
+        console.log(data);
+        console.log(props);
+        const r = await callDetails(props.userID);
+        console.log(r);
+        setuserData(r);
       }
-      
     } catch (err) {
       console.log(err);
     }
@@ -50,8 +48,8 @@ function Posts(props) {
   }, []);
   return (
     <>
-      {console.log(data)};
-      {data&&userdata
+      {console.log(userdata)};
+      {data && userdata
         ? data.map((val, i) => {
             return (
               <>
@@ -61,26 +59,25 @@ function Posts(props) {
                       <div className="postTopLeft">
                         {console.log(val.userId)}
                         {console.log(props.userID)}
-                        {console.log(val.userId===props.userID)}
-                        {
-                          val.userId===props.userID?
+                        {console.log(val.userId === props.userID)}
+                        {val.userId === props.userID ? (
                           <Link to={`/profile`}>
-                          <img
-                            className="postProfileImg"
-                            src={props.like}
-                            alt=""
-                          />
-                        </Link>
-                          :
+                            <img
+                              className="postProfileImg"
+                              src={"uploads/" + userdata.img}
+                              alt=""
+                            />
+                          </Link>
+                        ) : (
                           <Link to={`/profile/${val.userId}`}>
-                          <img
-                            className="postProfileImg"
-                            src={props.like}
-                            alt=""
-                          />
-                        </Link>
-                        }
-                        
+                            <img
+                              className="postProfileImg"
+                              src={props.like}
+                              alt=""
+                            />
+                          </Link>
+                        )}
+
                         <span className="postUsername"></span>
                         <span className="postDate">
                           {val.createdAt ? val.createdAt : "y"}

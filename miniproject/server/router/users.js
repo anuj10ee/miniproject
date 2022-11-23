@@ -1,11 +1,57 @@
 const User = require("../models/usermodel");
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
+const multer =require('multer');
+
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, '../client/public/uploads');
+  },
+  filename: function(req, file, cb) {
+    cb(null,Date.now() + file.originalname);
+  }
+});
+
+const fileFilter = (req, file, cb) => {
+  // reject a file
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
+const upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 1024 * 1024 * 5
+  }
+});
+
+
+
+
+//*
+// router.put("/updatepic", (req, res) => {
+//   User.findByIdAndUpdate(
+//     req.user._id,
+//     { $set: { pic: req.body.pic } },
+//     { new: true },
+//     (err, result) => {
+//       if (err) {
+//         return res.status(422).json({ error: "pic canot post" });
+//       }
+//       res.json(result);
+//     }
+//   );
+// });
+//*
 
 //update user
-router.put("/:id", async (req, res) => {
-  console.log(req.body);
-  console.log(req.params);
+router.put("/:id",upload.single('image'), async (req, res) => {
+  console.log(req);
+  console.log("54");
+  console.log(req.file);
 
   if (req.body.userId === req.params.id || req.body.isAdmin) {
     if (req.body.password) {
@@ -16,11 +62,18 @@ router.put("/:id", async (req, res) => {
         return res.status(500).json(err);
       }
     }
+    if(req.file.path)
+    {
+      req.body.img=req.file.filename;
+      console.log(req.body.img);
+      console.log("68");
+    }
     try {
       const user = await User.findByIdAndUpdate(req.params.id, {
         $set: req.body,
       });
-      res.status(200).json("Account has been updated");
+      res.send(user);
+      // res.status(200).json("Account has been updated");
     } catch (err) {
       return res.status(500).json(err);
     }

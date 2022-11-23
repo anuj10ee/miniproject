@@ -12,8 +12,7 @@ import Logout from "./components/auth/logout";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Edit from "./components/Profile/Edit";
-import Team from "./components/team/Team"
-// import Notify from "./components/alert/Alert"
+// // import Notify from "./components/alert/Alert"
 import OtherProfile from "./components/otherProfile/OtherProfile";
 
 function App() {
@@ -22,11 +21,11 @@ function App() {
       <Navbar />
       {/* <Notify/> */}
       <Routes>
-        <Route exact path="/team" element={<Team/>}></Route>
+        {/* <Route exact path="/team" element={<Team/>}></Route> */}
         <Route exact path="/" element={<Temp />}></Route>
         <Route exact path="/login" element={<Login />}></Route>
         <Route exact path="/profile" element={<Profile />}></Route>
-        <Route exact path="/profile/:id" element={<OtherProfile/>}></Route>
+        <Route exact path="/profile/:id" element={<OtherProfile />}></Route>
         {/* <Route path="./login">
         <Login/>
       </Route> */}
