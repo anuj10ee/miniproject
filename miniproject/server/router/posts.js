@@ -2,22 +2,68 @@ const router = require("express").Router();
 const Post = require("../models/post");
 const User = require("../models/usermodel");
 
+
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "../client/public/uploads");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + file.originalname);
+  },
+});
+
+const fileFilter = (req, file, cb) => {
+  // reject a file
+  if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
+const upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 1024 * 1024 * 5,
+  },
+});
+
+
+
 //create a post
 
-router.post("/", async (req, res) => {
+router.post("/", upload.single("image"),async (req, res) => {
   console.log("POST PAGE");
+  console.log(req.body);
+  console.log("54");
+  console.log(req.file);
   const newPost = new Post(req.body);
+  console.log(newPost); 
   try {
+    
+    console.log(req.file.path);
+    if (req.file.path){
+      req.body.img = req.file.filename;
+      console.log(req.body.img);
+      console.log("68");
+      newPost.img=req.body.img;
+    }
+    const user = await User.findById(req.body.userId);
+    console.log(user);
+    newPost.profileimg=user.img;
     const savedPost = await newPost.save();
     res.status(200).json(savedPost);
+    
   } catch (err) {
     res.status(500).json(err);
-  }
+  } 
 });
 //update a post
 
 router.put("/:id", async (req, res) => {
-  try {
+  try { 
     const post = await Post.findById(req.params.id);
     if (post.userId === req.body.userId) {
       await post.updateOne({ $set: req.body });

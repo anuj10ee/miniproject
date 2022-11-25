@@ -66,7 +66,7 @@ function Profile(props) {
             <div className="card1">
               <div className="left">
                 <div className="pic">
-                  <img src={"uploads/"+details.img} alt="" />
+                  <img src={"uploads/" + details.img} alt="" />
                 </div>
                 <div className="info">
                   <div className="inner-info">

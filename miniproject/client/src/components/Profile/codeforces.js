@@ -3,7 +3,7 @@ const callCodeforces = async (props) => {
 
   try {
     const res = await fetch(
-      `https://competitive-coding-api.herokuapp.com/api/codeforces/${props.codeforcesID}`,
+      `https://codeforces.com/api/user.status?handle=${props.codeforcesID}`,
       {
         method: "GET",
         headers: {

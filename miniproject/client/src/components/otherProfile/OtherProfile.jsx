@@ -64,8 +64,8 @@ function OtherProfile() {
             <div className="card1">
               <div className="left">
                 <div className="pic">
-                {console.log(details.img)}
-                <img src={"/uploads/"+details.img} alt="" />
+                  {console.log(details.img)}
+                  <img src={"/uploads/" + details.img} alt="" />
                 </div>
                 <div className="info">
                   <div className="inner-info">

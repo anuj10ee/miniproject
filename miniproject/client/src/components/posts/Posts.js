@@ -48,7 +48,7 @@ function Posts(props) {
   }, []);
   return (
     <>
-      {console.log(userdata)};
+      {console.log(data)};
       {data && userdata
         ? data.map((val, i) => {
             return (
@@ -72,7 +72,7 @@ function Posts(props) {
                           <Link to={`/profile/${val.userId}`}>
                             <img
                               className="postProfileImg"
-                              src={props.like}
+                              src={"uploads/" + val.profileimg}
                               alt=""
                             />
                           </Link>
@@ -87,7 +87,11 @@ function Posts(props) {
                     </div>
                     <div className="postCenter">
                       <span className="postText">{val.desc}</span>
-                      <img className="postImg" src={props.like} alt="" />
+                      <img
+                        className="postImg"
+                        src={"uploads/" + val.img}
+                        alt=""
+                      />
                     </div>
                     <div className="postBottom">
                       <div className="postBottomLeft">

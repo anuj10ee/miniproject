@@ -8,8 +8,6 @@ import Form from "react-bootstrap/Form";
 import { useParams } from "react-router";
 import CardProfile from "./edit-javascript";
 
-
-
 const Edit = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -26,6 +24,7 @@ const Edit = () => {
   async function updateUser(event) {
     event.preventDefault();
     var bodyformdata = new FormData();
+    console.log(details);
     bodyformdata.append("name", name);
     bodyformdata.append("email", email);
     bodyformdata.append("codechefID", codechefID);
@@ -33,7 +32,6 @@ const Edit = () => {
     bodyformdata.append("image", profilePic);
     bodyformdata.append("userId", details._id);
     console.log(bodyformdata);
-  
 
     const response = await fetch("http://localhost:1337/user/" + details._id, {
       method: "PUT",
@@ -70,7 +68,11 @@ const Edit = () => {
           <h2>EDIT OPTIONS</h2>
         </div>
         <div className="lower">
-          <form className="form " onSubmit={updateUser} enctype="multipart/form-data">
+          <form
+            className="form "
+            onSubmit={updateUser}
+            enctype="multipart/form-data"
+          >
             <span>NAME: </span>
             <input
               value={name}
@@ -105,7 +107,7 @@ const Edit = () => {
             <br />
             <span>Profile-Picture: </span>
             {console.log(details.img)}
-            <img src={"uploads/"+details.img} alt="asdf" />
+            <img src={"uploads/" + details.img} alt="asdf" />
             <input
               // value={profilePic}
               type="file"

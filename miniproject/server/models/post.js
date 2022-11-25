@@ -10,10 +10,15 @@ const PostSchema = new mongoose.Schema(
       type: String,
       max: 500,
     },
-    img: {
-      type: String,
+    profileimg:{
+      type:String,
+      default:"uploads/",
     },
-    userName:{
+    img: {
+      type:String,
+      default:"uploads/"
+    },
+    userName: {
       type: String,
     },
     likes: {
@@ -24,4 +29,6 @@ const PostSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Post", PostSchema);
+const model = mongoose.model("Post", PostSchema);
+
+module.exports = model;
