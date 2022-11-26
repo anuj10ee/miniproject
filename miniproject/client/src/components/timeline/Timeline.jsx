@@ -2,6 +2,7 @@ import React from "react";
 import Posts from "../posts/Posts";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import callCodeforcessubmissions from "./createcodeforcespost";
 
 function Timeline(props) {
   const location = useLocation();
@@ -17,6 +18,7 @@ function Timeline(props) {
     console.log(props);
     bodyformdata.append("userId", props.data._id);
     console.log(bodyformdata);
+    // const d=await callCodeforcessubmissions(props.data.codeforcesID);
 
     const response = await fetch("http://localhost:1337/posts", {
       method: "POST",

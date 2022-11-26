@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // import { MoreVert } from "@material-ui/icons";
 import like from "./premium_photo-1663099358462-bcacf22f97c5.avif";
 import callDetails from "./calldetails";
+import createcodeforcesPost from "../timeline/createcodeforcespost";
 
 function Posts(props) {
   const [data, setData] = useState("");
@@ -44,11 +45,17 @@ function Posts(props) {
   };
 
   useEffect(() => {
+    // createcodeforcesPost(props);
     callPost();
   }, []);
   return (
     <>
       {console.log(data)};
+      {
+        data.sort((a,b)=>{
+          return new Date(b.createdAt) - new Date(a.createdAt);
+      })
+      }
       {data && userdata
         ? data.map((val, i) => {
             return (
