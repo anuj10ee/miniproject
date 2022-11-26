@@ -4,12 +4,13 @@ import { useEffect } from "react";
 
 function Contest() {
   const navigate = useNavigate();
+  let myData=[]
   const [Details, setDetails] = useState("");
 
   const contestpage = async () => {
     try {
       const res = await fetch(
-        "https://mighty-chamber-73462.herokuapp.com/https://clist.by/api/v2/contest//?username=ch12&api_key=2446567b0a223208e1e154ec75017888389ec682",
+        "https://mighty-chamber-73462.herokuapp.com/https://clist.by/api/v2/contest//?username=ch12&api_key=2446567b0a223208e1e154ec75017888389ec682&upcoming=true",
         {
           method: "GET",
           // headers: {
@@ -21,7 +22,7 @@ function Contest() {
         }
       );
       const data = await res.json();
-      setDetails(data.objects);
+    setDetails(data.objects);
       console.log(data.objects);
       console.log(Details[0]);
     } catch (err) {
@@ -47,11 +48,22 @@ function Contest() {
         </thead>
         <tbody>
           {console.log(Details)}
+          
           {Details
-            ? Details.map((item) => (
-                <tr>
+            ? myData = [].concat(Details)
+            .sort(function(a, b){
+              // Convert string dates into `Date` objects
+              const date1 = new Date(a.start);
+              const date2 = new Date(b.start);
+              
+              return date1 - date2;
+          }).map((item) => (
+              
+                <tr >
                   <td>{item.host}</td>
-                  <td>{item.end}</td>
+                  <td>{item.event}</td>
+                  <td>{item.end }</td>
+                  <td style={{padding:'20px' ,color:'green'}}>{item.start }</td>
                   <td>{item.duration}</td>
                   <td />
                 </tr>
