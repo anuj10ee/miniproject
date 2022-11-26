@@ -2,7 +2,6 @@ const router = require("express").Router();
 const Post = require("../models/post");
 const User = require("../models/usermodel");
 
-
 const multer = require("multer");
 
 const storage = multer.diskStorage({
@@ -30,40 +29,60 @@ const upload = multer({
   },
 });
 
-
-
 //create a post
 
-router.post("/", upload.single("image"),async (req, res) => {
-  console.log("POST PAGE");
-  console.log(req.body);
-  console.log("54");
-  console.log(req.file);
+router.post("/", upload.single("image"), async (req, res) => {
+  // console.log("POST PAGE");
+  // console.log(req.body);
+  // console.log("54");
+  // console.log(req.file);
   const newPost = new Post(req.body);
-  console.log(newPost); 
+  // console.log(newPost);
   try {
-    
     console.log(req.file.path);
-    if (req.file.path){
+    if (req.file.path) {
       req.body.img = req.file.filename;
-      console.log(req.body.img);
-      console.log("68");
-      newPost.img=req.body.img;
+      // console.log(req.body.img);
+      // console.log("68");
+      newPost.img = req.body.img;
     }
     const user = await User.findById(req.body.userId);
-    console.log(user);
-    newPost.profileimg=user.img;
+    // console.log(user);
+    newPost.profileimg = user.img;
     const savedPost = await newPost.save();
     res.status(200).json(savedPost);
-    
   } catch (err) {
     res.status(500).json(err);
-  } 
+  }
+});
+
+router.post("/codeforces", async (req, res) => {
+  console.log("60");
+  const newPost = new Post(req.body);
+  console.log(newPost);
+  try {
+    const user = await User.findById(req.body.userId);
+    // console.log(user);
+    newPost.profileimg = user.img;
+    var t = new Date(1970, 0, 1); // Epoch
+    t.setSeconds(req.body.time);
+    t.setHours(t.getHours() + 5);
+    t.setMinutes(t.getMinutes() + 30);
+    console.log("70");
+    newPost.time = t;
+    // const post = await Post.find();
+    // const savedPost = await newPost.save();
+    console.log("72");
+    console.log(newPost);
+    res.status(200).json(newPost);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 //update a post
 
 router.put("/:id", async (req, res) => {
-  try { 
+  try {
     const post = await Post.findById(req.params.id);
     if (post.userId === req.body.userId) {
       await post.updateOne({ $set: req.body });
@@ -130,7 +149,7 @@ router.get("/timeline/all/:userID", async (req, res) => {
       })
     );
     res.json(userPosts.concat(...friendPosts));
-    console.log(userPosts);
+    // console.log(userPosts);
   } catch (err) {
     res.status(500).json(err);
   }

@@ -137,7 +137,7 @@ router.post("/editOptions", async (req, res) => {
 router.get("/home", authenticate, (req, res) => {
   console.log("HELLO FROM HOME");
   // res.send("HELLO WORLD FROM SERVER");
-  console.log(req.rootUser);
+  // console.log(req.rootUser);
   res.send(req.rootUser);
 });
 router.get("/profile", authenticate, (req, res) => {

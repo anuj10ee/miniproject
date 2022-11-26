@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import like from "./premium_photo-1663099358462-bcacf22f97c5.avif";
 import callDetails from "./calldetails";
 import createcodeforcesPost from "../timeline/createcodeforcespost";
+import callCodeforcessubmissions from "../Profile/codeforces-submissions";
 
 function Posts(props) {
   const [data, setData] = useState("");
@@ -14,6 +15,7 @@ function Posts(props) {
   const callPost = async () => {
     try {
       // console.log(props.userID);
+      await callCodeforcessubmissions(props);
       const res = await fetch(
         "http://localhost:1337/posts/timeline/all/" + props.userID,
         {
@@ -26,12 +28,16 @@ function Posts(props) {
         }
       );
 
-      const datares = await res.json();
+      let datares = await res.json();
       console.log(datares);
+      
       if (res.status === 401) {
         const error = new Error(res.error);
         throw error;
       } else {
+        datares.sort((a,b)=>{
+          return new Date(b.createdAt) - new Date(a.createdAt);
+      })
         setData(datares);
         console.log(data);
         console.log(props);
@@ -51,11 +57,7 @@ function Posts(props) {
   return (
     <>
       {console.log(data)};
-      {
-        data.sort((a,b)=>{
-          return new Date(b.createdAt) - new Date(a.createdAt);
-      })
-      }
+      
       {data && userdata
         ? data.map((val, i) => {
             return (
