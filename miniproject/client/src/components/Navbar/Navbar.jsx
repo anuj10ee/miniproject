@@ -19,7 +19,7 @@ function Navbar() {
               <Link to="/feed">Feed</Link>
             </li>
             <li className="inner">
-              <Link to="/contests">Contests</Link>
+              <Link to="/contest">Contests</Link>
             </li>
             <li className="inner">
               {" "}

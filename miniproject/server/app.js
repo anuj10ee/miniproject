@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 const cookieparser = require("cookie-parser");
 const postRoute = require("./router/posts");
 const userRoute = require("./router/users");
+const axios = require("axios");
 
 dotenv.config({ path: "./config.env" });
 require("./db/conn");
