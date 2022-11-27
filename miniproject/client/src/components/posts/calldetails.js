@@ -2,8 +2,8 @@ const callDetails = async (props) => {
   
 
   try {
-    console.log(props);
-    const res = await fetch(`http://localhost:1337/user/${props}`, {
+    console.log(props._id);
+    const res = await fetch(`http://localhost:1337/user/${props._id}`, {
       method: "GET",
       headers: {
         Accept: "application/json",

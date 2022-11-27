@@ -28,7 +28,7 @@ const Edit = () => {
     bodyformdata.append("name", name);
     bodyformdata.append("email", email);
     bodyformdata.append("codechefID", codechefID);
-    // bodyformdata.append("codeforcesID", codeforcesID);
+    bodyformdata.append("codeforcesID", codeforcesID);
     bodyformdata.append("image", profilePic);
     bodyformdata.append("userId", details._id);
     console.log(bodyformdata);

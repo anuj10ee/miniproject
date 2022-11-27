@@ -2,7 +2,6 @@ import React from "react";
 import Posts from "../posts/Posts";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
-import callCodeforcessubmissions from "./createcodeforcespost";
 
 function Timeline(props) {
   const location = useLocation();
@@ -52,7 +51,7 @@ function Timeline(props) {
       <div className="share">
         <form
           className="form "
-          enctype="multipart/form-data"
+          encType="multipart/form-data"
           onSubmit={createPost}
         >
           <input type="text" placeholder="TYPE TEXT" />
@@ -77,7 +76,7 @@ function Timeline(props) {
           <br />
         </form>
       </div>
-      <Posts userID={props.data._id} />
+      <Posts userID={props.data} />
     </div>
   );
 }

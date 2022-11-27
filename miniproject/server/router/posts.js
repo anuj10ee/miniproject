@@ -36,21 +36,32 @@ router.post("/", upload.single("image"), async (req, res) => {
   // console.log(req.body);
   // console.log("54");
   // console.log(req.file);
-  const newPost = new Post(req.body);
+  var newPost = new Post(req.body);
   // console.log(newPost);
   try {
     console.log(req.file.path);
     if (req.file.path) {
       req.body.img = req.file.filename;
-      // console.log(req.body.img);
-      // console.log("68");
+      console.log(req.body.img);
+      console.log("46");
       newPost.img = req.body.img;
     }
     const user = await User.findById(req.body.userId);
-    // console.log(user);
+    console.log(user);
+    console.log(newPost.profileimg);
+    console.log(user.img);
     newPost.profileimg = user.img;
-    const savedPost = await newPost.save();
-    res.status(200).json(savedPost);
+    console.log(newPost.profileimg);
+    var createdDt = new Date();
+    newPost.time = createdDt;
+    // Post.insertOne( { ts: new Timestamp() } );
+    try {
+      const savedPost = await newPost.save();
+      res.status(200).json(savedPost);
+      console.log(savedPost);
+    } catch (err) {
+      console.log(err);
+    }
   } catch (err) {
     res.status(500).json(err);
   }
@@ -70,8 +81,27 @@ router.post("/codeforces", async (req, res) => {
     t.setMinutes(t.getMinutes() + 30);
     console.log("70");
     newPost.time = t;
+    newPost.problemname=req.body.problemname;
     // const post = await Post.find();
-    // const savedPost = await newPost.save();
+    // const a=await ;
+    // console.log(Post.find({ time: t }));
+    Post.find({ time: t }, function (err, docs) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("First function call : ", docs);
+        if(docs.length===0)
+        {
+          newPost.save();
+        }
+      }
+    });
+
+    // if(Post.find({time:t}))
+    // {
+    //   const savedPost = await newPost.save();
+    // }
+
     console.log("72");
     console.log(newPost);
     res.status(200).json(newPost);

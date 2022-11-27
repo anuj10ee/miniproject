@@ -18,9 +18,12 @@ const PostSchema = new mongoose.Schema(
       type:String,
       default:"uploads/"
     },
+    problemname:{
+      type:String,
+    },
     time:{
       type:String,
-      unique:true,
+      // unique:true,
     },
     userName: {
       type: String,

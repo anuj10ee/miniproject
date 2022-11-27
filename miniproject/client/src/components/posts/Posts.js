@@ -2,22 +2,24 @@ import React, { useEffect, useState } from "react";
 import "./posts.css";
 import { Link } from "react-router-dom";
 // import { MoreVert } from "@material-ui/icons";
-import like from "./premium_photo-1663099358462-bcacf22f97c5.avif";
 import callDetails from "./calldetails";
-import createcodeforcesPost from "../timeline/createcodeforcespost";
 import callCodeforcessubmissions from "../Profile/codeforces-submissions";
+import Post from "./Post";
+
 
 function Posts(props) {
   const [data, setData] = useState("");
   const [userdata, setuserData] = useState("");
-
-  console.log(props.userID);
+  // const [like, setLike] = useState(post.likes.length);
+  const [isLiked, setIsLiked] = useState(false);
+  
   const callPost = async () => {
     try {
       // console.log(props.userID);
+      console.log(props.userID);
       await callCodeforcessubmissions(props);
       const res = await fetch(
-        "http://localhost:1337/posts/timeline/all/" + props.userID,
+        "http://localhost:1337/posts/timeline/all/" + props.userID._id,
         {
           method: "GET",
           headers: {
@@ -30,14 +32,14 @@ function Posts(props) {
 
       let datares = await res.json();
       console.log(datares);
-      
+
       if (res.status === 401) {
         const error = new Error(res.error);
         throw error;
       } else {
-        datares.sort((a,b)=>{
-          return new Date(b.createdAt) - new Date(a.createdAt);
-      })
+        datares.sort((a, b) => {
+          return new Date(b.time) - new Date(a.time);
+        });
         setData(datares);
         console.log(data);
         console.log(props);
@@ -57,12 +59,12 @@ function Posts(props) {
   return (
     <>
       {console.log(data)};
-      
       {data && userdata
         ? data.map((val, i) => {
+          
             return (
               <>
-                <div className="post">
+               <div className="post">
                   <div className="postWrapper">
                     <div className="postTop">
                       <div className="postTopLeft">
@@ -89,13 +91,16 @@ function Posts(props) {
 
                         <span className="postUsername"></span>
                         <span className="postDate">
-                          {val.createdAt ? val.createdAt : "y"}
+                          {val.time ? val.time : "y"}
                         </span>
                       </div>
                       <div className="postTopRight"></div>
                     </div>
                     <div className="postCenter">
-                      <span className="postText">{val.desc}</span>
+                      <span className="postText">
+                        {" "}
+                        {val.problemname ? val.problemname : val.desc}
+                      </span>
                       <img
                         className="postImg"
                         src={"uploads/" + val.img}
@@ -106,7 +111,7 @@ function Posts(props) {
                       <div className="postBottomLeft">
                         <img
                           className="likeIcon"
-                          src={props.like}
+                          src="uploads/img.png"
                           //   onClick={likeHandler}
                           alt=""
                         />
