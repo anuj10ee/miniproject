@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useEffect } from "react";
+import "./contest.css";
 
 function Contest() {
   const navigate = useNavigate();
@@ -35,15 +36,15 @@ function Contest() {
   }, []);
 
   return (
-    <div className="container">
-      <h1>Simple Inventory Table</h1>
+    <div className="contest">
+      <h1>Upcoming Contests</h1>
       <table>
         <thead>
           <tr>
-            <th>Product Name</th>
-            <th>Product Category</th>
-            <th>Unit Price</th>
-            <th>Action</th>
+            <th>Platform Name</th>
+            <th>Contest Name</th>
+            <th>End Time</th>
+            <th>Start Time</th>
           </tr>
         </thead>
         <tbody>
