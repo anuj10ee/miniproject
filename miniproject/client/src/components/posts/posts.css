@@ -1,13 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@300;400;600&family=Roboto:wght@300;400;700&display=swap');
+
+
 .post {
   width: 100%;
   border-radius: 10px;
   -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
   box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
   margin: 30px 0;
+  background-color:rgb(240,240,240);
 }
 
 .postWrapper {
   padding: 10px;
+    border: 2px solid olive;
+    border-radius: 6px;
 }
 
 .postTop {
@@ -22,8 +28,8 @@
 }
 
 .postProfileImg {
-  width: 32px;
-  height: 32px;
+  width:45px;
+  height:45px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -36,15 +42,18 @@
 
 .postDate{
     font-size: 12px;
+
 }
 
 .postCenter{
+    display: flex;
+    flex-direction: column;
     margin: 20px 0;
 }
 
 .postImg{
-    margin-top: 20px;
-    width: 100%;
+  width: 72%;
+  margin: 10px auto;
     max-height: 500px;
     object-fit: contain;
 }

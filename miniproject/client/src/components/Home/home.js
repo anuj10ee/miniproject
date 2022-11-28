@@ -45,9 +45,9 @@ const Home = () => {
 
   return (
     <div className="home">
-      <div className="leftbar">YE HAI LEFT || </div>
+      {/* <div className="leftbar">YE HAI LEFT </div> */}
       <div className="feed">{Data ? <Timeline data={Data} /> : "x"}</div>
-      <div className="rightbar">YE HAI RIGHT SIDE</div>
+      {/* <div className="rightbar">YE HAI RIGHT SIDE</div> */}
       {/* <button className="logout" style={{ padding: 30, background: "yellow" }}>
         <a href="/logout">LOGOUT</a>
       </button> */}

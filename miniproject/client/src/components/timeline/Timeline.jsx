@@ -2,6 +2,7 @@ import React from "react";
 import Posts from "../posts/Posts";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import "./timeline.css";
 
 function Timeline(props) {
   const location = useLocation();
@@ -46,7 +47,7 @@ function Timeline(props) {
     }
   }
   return (
-    <div>
+    <div className="timeline">
       {console.log(props.data._id)}
       <div className="share">
         <form
@@ -54,26 +55,41 @@ function Timeline(props) {
           encType="multipart/form-data"
           onSubmit={createPost}
         >
-          <input type="text" placeholder="TYPE TEXT" />
-          <br />
+          <div className="upper">
+            <div className="left">
+              {console.log(props.data)}
+              <img src={"uploads/" + props.data.img} alt="" />
+            </div>
+            <div className="right">
+              <input type="text" placeholder="OR KYA CHL RHA HAI" />
+              <br />
+            </div>
+          </div>
+          <div className="lower">
+            <div className="left">
+              <input id="file-upload"
+                // value={profilePic}
+                type="file"
+                onChange={(e) => setPostPic(e.target.files[0])}
 
-          {/* <span>Profile-Picture: </span> */}
-          <img src="#" alt="asdf" />
-          <input
-            // value={profilePic}
-            type="file"
-            onChange={(e) => setPostPic(e.target.files[0])}
-
-            // placeholder="Add Codeforces username"
-          />
-          <br />
-          <input
-            type="submit"
-            className="submit"
-            style={{ cursor: "pointer" }}
-            value="Update"
-          />
-          <br />
+                // placeholder="Add Codeforces username"
+              />
+              <label for="file-upload" class="custom-file-upload">
+                Choose Photo
+              </label>
+              <br />
+            </div>
+            <div className="right">
+              <input
+                type="submit"
+                className="submit"
+                style={{ cursor: "pointer" }}
+                value="Post"
+              />
+              
+              <br />
+            </div>
+          </div>
         </form>
       </div>
       <Posts userID={props.data} />

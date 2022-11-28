@@ -6,13 +6,12 @@ import callDetails from "./calldetails";
 import callCodeforcessubmissions from "../Profile/codeforces-submissions";
 import Post from "./Post";
 
-
 function Posts(props) {
   const [data, setData] = useState("");
   const [userdata, setuserData] = useState("");
   // const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
-  
+
   const callPost = async () => {
     try {
       // console.log(props.userID);
@@ -58,85 +57,104 @@ function Posts(props) {
   }, []);
   return (
     <>
-      {console.log(data)};
-      {data && userdata
-        ? data.map((val, i) => {
-          
-            return (
-              <>
-               <div className="post">
-                  <div className="postWrapper">
-                    <div className="postTop">
-                      <div className="postTopLeft">
-                        {console.log(val.userId)}
-                        {console.log(props.userID)}
-                        {console.log(val.userId === props.userID)}
-                        {val.userId === props.userID ? (
-                          <Link to={`/profile`}>
-                            <img
-                              className="postProfileImg"
-                              src={"uploads/" + userdata.img}
-                              alt=""
-                            />
-                          </Link>
-                        ) : (
-                          <Link to={`/profile/${val.userId}`}>
-                            <img
-                              className="postProfileImg"
-                              src={"uploads/" + val.profileimg}
-                              alt=""
-                            />
-                          </Link>
-                        )}
+      {console.log(data)}
+      {data && userdata ? (
+        data.map((val, i) => {
+          return (
+            <>
+              <div className="post">
+                <div className="postWrapper">
+                  <div className="postTop">
+                    <div className="postTopLeft">
+                      {console.log(val.userId)}
+                      {console.log(props.userID)}
+                      {console.log(val.userId === props.userID)}
+                      {val.userId === props.userID ? (
+                        <Link to={`/profile`}>
+                          <img
+                            className="postProfileImg"
+                            src={"uploads/" + userdata.img}
+                            alt=""
+                          />
+                        </Link>
+                      ) : (
+                        <Link to={`/profile/${val.userId}`}>
+                          <img
+                            className="postProfileImg"
+                            src={"uploads/" + val.profileimg}
+                            alt=""
+                          />
+                        </Link>
+                      )}
 
-                        <span className="postUsername"></span>
-                        <span className="postDate">
-                          {val.time ? val.time : "y"}
-                        </span>
-                      </div>
-                      <div className="postTopRight"></div>
-                    </div>
-                    <div className="postCenter">
-                      <span className="postText">
-                        {" "}
-                        {val.problemname ? val.problemname : val.desc}
+                      <span className="postUsername"></span>
+                      <span className="postDate">
+                        {val.time ? val.time.slice(0,25) : "y"}
                       </span>
+                    </div>
+                    <div className="postTopRight"></div>
+                  </div>
+                  <div className="postCenter">
+                    <span className="postText">
+                      {" "}
+                      {val.problemname ? val.problemname : val.desc}
+                    </span>
+                    {val.img==="uploads/"?
+                    <img
+                    className="postImg"
+                    src={"uploads/cf2.png"}
+                    alt=""
+                  />
+                    :
+                    <img
+                      className="postImg"
+                      src={"uploads/" + val.img}
+                      alt=""
+                    />
+                    }
+                    
+                  </div>
+                  <div className="postBottom">
+                    <div className="postBottomLeft">
                       <img
-                        className="postImg"
-                        src={"uploads/" + val.img}
+                        className="likeIcon"
+                        src="uploads/img.png"
+                        //   onClick={likeHandler}
                         alt=""
                       />
+                      <img
+                        className="likeIcon"
+                        src={props.like}
+                        //   onClick={likeHandler}
+                        alt=""
+                      />
+                      <span className="postLikeCounter">
+                        {data.likes} people like it
+                      </span>
                     </div>
-                    <div className="postBottom">
-                      <div className="postBottomLeft">
-                        <img
-                          className="likeIcon"
-                          src="uploads/img.png"
-                          //   onClick={likeHandler}
-                          alt=""
-                        />
-                        <img
-                          className="likeIcon"
-                          src={props.like}
-                          //   onClick={likeHandler}
-                          alt=""
-                        />
-                        <span className="postLikeCounter">
-                          {data.likes} people like it
-                        </span>
-                      </div>
-                      <div className="postBottomRight">
-                        <span className="postCommentText"> comments</span>
-                      </div>
+                    <div className="postBottomRight">
+                      <span className="postCommentText"> comments</span>
                     </div>
                   </div>
                 </div>
-              </>
-            );
-          })
-        : // <callPosts data={data}/>
+              </div>
+            </>
+          );
+        })
+      ) : (
+        // <callPosts data={data}/>
 
-          "x"}
+        <div class="middle">
+          <div class="bar bar1"></div>
+          <div class="bar bar2"></div>
+          <div class="bar bar3"></div>
+          <div class="bar bar4"></div>
+          <div class="bar bar5"></div>
+          <div class="bar bar6"></div>
+          <div class="bar bar7"></div>
+          <div class="bar bar8"></div>
+        </div>
+      )}
       {
         // const r=callPosts();
         // setData(r);
