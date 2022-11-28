@@ -59,11 +59,11 @@ function Contest() {
               return date1 - date2;
           }).map((item) => (
               
-                <tr >
+                <tr style={{padding:'20px' ,color:'green'}}>
                   <td>{item.host}</td>
                   <td>{item.event}</td>
+                  <td >{item.start }</td>
                   <td>{item.end }</td>
-                  <td style={{padding:'20px' ,color:'green'}}>{item.start }</td>
                   <td>{item.duration}</td>
                   <td />
                 </tr>
