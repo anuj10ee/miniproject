@@ -32,6 +32,8 @@ const callCodeforcessubmissions = async (props) => {
             userId: props.userID._id,
             time: results.creationTimeSeconds,
             problemname:results.problem.name,
+            contestId:results.problem.contestId,
+            index:results.problem.index,
           }),
         });
         const data = await response.json();

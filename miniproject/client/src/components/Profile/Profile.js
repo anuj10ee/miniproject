@@ -163,8 +163,7 @@ function Profile(props) {
                 <div className="left">
                   <p>
                     USERNAME:
-                    {console.log(codeforcesdata.username)}
-                    <span>{codeforcesdata.username}</span>
+                    <span>{codeforcesdata.result[0].handle}</span>
                   </p>
                   <p>
                     TOTAL PROBLEMS SOLVED:{" "}
@@ -172,10 +171,11 @@ function Profile(props) {
                   </p>
                   <p>
                     RATING:
-                    <span>{codeforcesdata.rating}</span>{" "}
+                    {console.log(codeforcesdata.result[0])}
+                    <span>{codeforcesdata.result[0].rating?codeforcesdata.result[0].rating:"-"}</span>{" "}
                   </p>
                   <p>
-                    GLOBAL RANK: <span>{codeforcesdata.rank}</span>
+                    GLOBAL RANK: <span>{codeforcesdata.result[0].rank?codeforcesdata.result[0].rank:"-"}</span>
                   </p>
                 </div>
                 <div className="right">

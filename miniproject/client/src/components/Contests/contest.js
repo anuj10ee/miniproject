@@ -65,7 +65,7 @@ function Contest() {
                   <td>{item.event}</td>
                   <td >{item.start }</td>
                   <td>{item.end }</td>
-                  <td>{item.duration}</td>
+                  {/* <td>{item.duration}</td> */}
                   <td />
                 </tr>
               ))

@@ -95,9 +95,13 @@ function Posts(props) {
                     <div className="postTopRight"></div>
                   </div>
                   <div className="postCenter">
+                    {console.log(val)}
                     <span className="postText">
                       {" "}
-                      {val.problemname ? val.problemname : val.desc}
+                      {val.problemname ?
+                      
+                      <span> Solved Problem {val.problemname} <br /> <a href="">https://codeforces.com/problemset/problem/{val.contestId}/{val.index}</a> </span>
+                       : val.desc}
                     </span>
                     {val.img==="uploads/"?
                     <img

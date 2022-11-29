@@ -21,6 +21,12 @@ const PostSchema = new mongoose.Schema(
     problemname:{
       type:String,
     },
+    contestId:{
+      type:String,
+    },
+    index:{
+      type:String,
+    },
     time:{
       type:String,
       // unique:true,
