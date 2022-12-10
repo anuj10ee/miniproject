@@ -11,7 +11,7 @@ function Contest() {
   const contestpage = async () => {
     try {
       const res = await fetch(
-        "https://mighty-chamber-73462.herokuapp.com/https://clist.by/api/v2/contest//?username=ch12&api_key=2446567b0a223208e1e154ec75017888389ec682&upcoming=true",
+        "https://kontests.net/api/v1/all",
         {
           method: "GET",
           // headers: {
@@ -23,8 +23,8 @@ function Contest() {
         }
       );
       const data = await res.json();
-    setDetails(data.objects);
-      console.log(data.objects);
+    setDetails(data);
+      console.log(data);
       console.log(Details[0]);
     } catch (err) {
       console.log(err);
@@ -43,8 +43,8 @@ function Contest() {
           <tr>
             <th>Platform Name</th>
             <th>Contest Name</th>
-            <th>End Time</th>
             <th>Start Time</th>
+            <th>End Time</th>
           </tr>
         </thead>
         <tbody>
@@ -54,17 +54,17 @@ function Contest() {
             ? myData = [].concat(Details)
             .sort(function(a, b){
               // Convert string dates into `Date` objects
-              const date1 = new Date(a.start);
-              const date2 = new Date(b.start);
+              const date1 = new Date(a.start_time);
+              const date2 = new Date(b.start_time);
               
               return date1 - date2;
           }).map((item) => (
               
                 <tr style={{padding:'20px' ,color:'green'}}>
-                  <td>{item.host}</td>
-                  <td>{item.event}</td>
-                  <td >{item.start }</td>
-                  <td>{item.end }</td>
+                  <td>{item.site}</td>
+                  <td>{item.name}</td>
+                  <td >{item.start_time }</td>
+                  <td>{item.end_time }</td>
                   {/* <td>{item.duration}</td> */}
                   <td />
                 </tr>

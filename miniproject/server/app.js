@@ -19,6 +19,7 @@ const corsOptions = {
   credentials: true, //included credentials as true
 };
 
+
 app.use(cors(corsOptions));
 app.use(require("./router/auth"));
 app.use("/posts", postRoute);
