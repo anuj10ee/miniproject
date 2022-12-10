@@ -28,7 +28,7 @@ function Contest() {
       console.log(Details[0]);
     } catch (err) {
       console.log(err);
-      navigate("/home");
+      // navigate("/home");
     }
   };
   useEffect(() => {
