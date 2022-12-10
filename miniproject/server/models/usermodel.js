@@ -7,8 +7,28 @@ const User = new mongoose.Schema(
     name: { type: String, require: true, min: 3, max: 20, unique: true },
     email: { type: String, required: true, max: 50, unique: true },
     address: { type: String, max: 50 },
+    college:{type:String},
+    branch:{type:String},
+    title:{type:String},
+
     codechefID: { type: String, required: true },
+    codechefSub: { type: String},
+    codechefRating: { type: String},
+    codechefRank: { type: String},
+    skills:[],
+  //   codechefRecent:[
+  //     {
+  //     submissions:{
+  //       type: String,
+  //     },
+  //   },
+  // ],
+  gfgID: { type: String,required: true },
+  gfgSub: { type: String},
+  gfgRank: { type: String,default: "",},
+  gfgScore:{ type: String},
     codeforcesID: { type: String, required: true },
+    codeforcesSub: { type: String},
     password: { type: String, required: true, min: 6 },
     quote: { type: String },
     img: {

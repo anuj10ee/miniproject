@@ -14,8 +14,13 @@ const Edit = () => {
   const details = location.state;
   const [name, setname] = useState(details.name);
   const [email, setemail] = useState(details.email);
+  const [college, setcollege] = useState(details.college);
+  const [branch, setbranch] = useState(details.branch);
+  const [desc, setdesc] = useState(details.desc);
+  const [title, settitle] = useState(details.title);
   const [codechefID, setCodechefID] = useState(details.codechefID);
   const [codeforcesID, setCodeforcesID] = useState(details.codeforcesID);
+  const [gfgID, setGfgID] = useState(details.gfgID);
   const [profilePic, setProfilePic] = useState("");
   const [url, setUrl] = useState("");
   // const [userId, setUserId] = useState(details.codeforcesID);
@@ -27,10 +32,16 @@ const Edit = () => {
     console.log(details);
     bodyformdata.append("name", name);
     bodyformdata.append("email", email);
+    bodyformdata.append("college", college);
+    bodyformdata.append("branch", branch);
+    bodyformdata.append("desc", desc);
+    bodyformdata.append("title", title)
     bodyformdata.append("codechefID", codechefID);
     bodyformdata.append("codeforcesID", codeforcesID);
+    bodyformdata.append("gfgID", gfgID);
     bodyformdata.append("image", profilePic);
     bodyformdata.append("userId", details._id);
+
     console.log(bodyformdata);
 
     const response = await fetch("http://localhost:1337/user/" + details._id, {
@@ -89,6 +100,38 @@ const Edit = () => {
               placeholder="Email"
             />
             <br />
+            <span>COLLEGE NAME: </span>
+            <input
+              value={college}
+              onChange={(e) => setcollege(e.target.value)}
+              type="text"
+              placeholder="College Name"
+            />
+            <br />
+            <span>BRANCH NAME: </span>
+            <input
+              value={branch}
+              onChange={(e) => setbranch(e.target.value)}
+              type="text"
+              placeholder="Branch Name"
+            />
+            <br />
+            <span>DESCRIPTION: </span>
+            <input
+              value={desc}
+              onChange={(e) => setdesc(e.target.value)}
+              type="text"
+              placeholder="ABOUT YOURSELF"
+            />
+            <br />
+            <span>Title: </span>
+            <input
+              value={title}
+              onChange={(e) => settitle(e.target.value)}
+              type="text"
+              placeholder="Your Title"
+            />
+            <br />
             <span>CODECHEF_ID: </span>
             <input
               value={codechefID}
@@ -103,6 +146,14 @@ const Edit = () => {
               onChange={(e) => setCodeforcesID(e.target.value)}
               type="text"
               placeholder="Add Codeforces username"
+            />
+            <br />
+            <span>GFG_ID: </span>
+            <input
+              value={gfgID}
+              onChange={(e) => setGfgID(e.target.value)}
+              type="text"
+              placeholder="Add Gfg username"
             />
             <br />
             <span>Profile-Picture: </span>
