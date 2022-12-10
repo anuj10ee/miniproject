@@ -16,6 +16,11 @@ const Register = () => {
   const [codeforcesID, setcodeforcesID] = useState("");
   const [gfgID, setgfgID] = useState("");
   const [address, setaddress] = useState("");
+  const [college, setcollege] = useState("");
+  const [branch, setbranch] = useState("");
+  const [desc, setdesc] = useState("");
+  const [title, settitle] = useState("");
+
   async function registerUser(event) {
     event.preventDefault();
     const response = await fetch("http://localhost:1337/register", {
@@ -28,9 +33,13 @@ const Register = () => {
         email,
         address,
         password,
+        desc,
         codechefID,
         codeforcesID,
         gfgID,
+        college,
+        branch,
+        title,
       }),
     });
 
@@ -81,7 +90,30 @@ const Register = () => {
               type="text"
               placeholder="Address"
             />
-
+            <input
+              value={college}
+              onChange={(e) => setcollege(e.target.value)}
+              type="text"
+              placeholder="College Name"
+            />
+            <input
+              value={branch}
+              onChange={(e) => setbranch(e.target.value)}
+              type="text"
+              placeholder="Branch Name"
+            />
+            <input
+              value={title}
+              onChange={(e) => settitle(e.target.value)}
+              type="text"
+              placeholder="Your Title"
+            />
+            <input
+              value={desc}
+              onChange={(e) => setdesc(e.target.value)}
+              type="text"
+              placeholder="About Yourself"
+            />
             <input
               value={password}
               onChange={(e) => setpassword(e.target.value)}
@@ -100,12 +132,12 @@ const Register = () => {
               type="text"
               placeholder="CODEFORCES USERNAME"
             />
-            <br />
+      
             <input
               value={gfgID}
               onChange={(e) => setgfgID(e.target.value)}
               type="text"
-              placeholder="gfg USERNAME"
+              placeholder="GFG USERNAME"
             />
             <br />
             <input

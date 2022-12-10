@@ -250,7 +250,15 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
                 // console.log(result);
                 // console.log(gfgSub);
                 req.rootUser.gfgSub = so3;
-          
+
+                let rankgfg=b(".rankNum").text();
+                req.rootUser.gfgRank=rankgfg;
+                console.log(rankgfg);
+ 
+                let gfgscore=b(".row.score_cards_container");
+                let gfgs=gfgscore.find(".score_card_value");
+                gfgscore=b(gfgs[0]).text();
+                req.rootUser.gfgScore = gfgscore;
             //     // req.rootUser.save(function (err, result) {
             //     //   if (err) {
             //     //     console.log(err);
@@ -259,20 +267,21 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
             //     //   }
             //     // });
             //     // res.send(req.rootUser);
-                req.rootUser.save(function (err, result) {
-                  if (err) {
-                    console.log(err);
-                  } else {
-                    console.log(result);
-                  }
-                });
-                res.send(req.rootUser);
-
+               
+            req.rootUser.save(function (err, result) {
+              if (err) {
+                console.log(err);
+              } else {
+                console.log(result);
+              }
+            });
+            res.send(req.rootUser);
 
   // use/access the results 
 })).catch(errors => {
  console.log(errors);
 })
+
   // res.send("HELLO WORLD FROM SERVER");
   // try {
   //   axios

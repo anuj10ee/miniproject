@@ -6,6 +6,7 @@ import image from "./0377c76083423a1414e4001161e0cdffb0b36e1f_760x400.0.jpg";
 import ChartContainer from "../Heatmap/heatmap";
 import codechef from "./NicePng_mustach-png_7920230.png";
 import codeforces from "./codeforces-seeklogo.com.svg";
+import gfg from "./icons8-geeksforgeeks-144.png"
 import Fade from "react-reveal/Fade";
 import Badge from "react-bootstrap/Badge";
 // import callCodechef from "./codechef";
@@ -73,8 +74,8 @@ function Profile(props) {
                     <h2 className="hover-underline-animation">
                       {details.name}
                     </h2>
-                    <p>Competitive Coder</p>
-                    <p>Blah Blah</p>
+                    <p>{details.title}</p>
+                    <p>{details.desc}</p>
                     <button className="edit">
                       <Link
                         className="anchor"
@@ -91,8 +92,8 @@ function Profile(props) {
                 <div className="inner-right">
                   <div className="education">
                     <h2 className="hover-underline-animation">EDUCATION</h2>
-                    <p>ABES ENGINEERING COLLEGE</p>
-                    <p>COMPUTER SCIENCE AND ENGINEERING</p>
+                    <p>{details.college}</p>
+                    <p>{details.branch}</p>
                   </div>
                   <div className="skills">
                     <h2 className="hover-underline-animation">SKILLS</h2>
@@ -200,9 +201,9 @@ function Profile(props) {
             </div>
           </Fade>
           <Fade left>
-            <div className="card3">
+            <div className="card4">
               <div className="head">
-                <img src={codeforces} alt="" />
+                <img src={gfg}alt="" />
               </div>
               <div className="content">
                 <div className="left">
@@ -216,20 +217,15 @@ function Profile(props) {
                     {/* <span> {codechefdata.fully_solved.count}</span> */}
                   </p>
                   <p>
-                    RATING:
-                    {console.log(codeforcesdata.result[0])}
+                    CODING SCORE:
                     <span>
-                      {codeforcesdata.result[0].rating
-                        ? codeforcesdata.result[0].rating
-                        : "-"}
+                      {details.gfgScore}
                     </span>{" "}
                   </p>
                   <p>
-                    GLOBAL RANK:{" "}
+                    COLLEGE RANK:{" "}
                     <span>
-                      {codeforcesdata.result[0].rank
-                        ? codeforcesdata.result[0].rank
-                        : "-"}
+                      {details.gfgRank}
                     </span>
                   </p>
                 </div>
