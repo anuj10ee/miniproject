@@ -8,7 +8,20 @@ const User = new mongoose.Schema(
     email: { type: String, required: true, max: 50, unique: true },
     address: { type: String, max: 50 },
     codechefID: { type: String, required: true },
+    codechefSub: { type: String},
+    codechefRating: { type: String},
+    codechefRank: { type: String},
+  //   codechefRecent:[
+  //     {
+  //     submissions:{
+  //       type: String,
+  //     },
+  //   },
+  // ],
+  gfgID: { type: String,required: true },
+  gfgSub: { type: String},
     codeforcesID: { type: String, required: true },
+    codeforcesSub: { type: String},
     password: { type: String, required: true, min: 6 },
     quote: { type: String },
     img: {

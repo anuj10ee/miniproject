@@ -89,7 +89,7 @@ function Posts(props) {
 
                       <span className="postUsername"></span>
                       <span className="postDate">
-                        {val.time ? val.time.slice(0,25) : "y"}
+                        {val.time ? val.time.slice(0, 25) : "y"}
                       </span>
                     </div>
                     <div className="postTopRight"></div>
@@ -98,25 +98,28 @@ function Posts(props) {
                     {console.log(val)}
                     <span className="postText">
                       {" "}
-                      {val.problemname ?
-                      
-                      <span> Solved Problem {val.problemname} <br /> <a href="">https://codeforces.com/problemset/problem/{val.contestId}/{val.index}</a> </span>
-                       : val.desc}
+                      {val.problemname ? (
+                        <span>
+                          {" "}
+                          Solved Problem {val.problemname} <br />{" "}
+                          <a href="">
+                            https://codeforces.com/problemset/problem/
+                            {val.contestId}/{val.index}
+                          </a>{" "}
+                        </span>
+                      ) : (
+                        val.desc
+                      )}
                     </span>
-                    {val.img==="uploads/"?
-                    <img
-                    className="postImg"
-                    src={"uploads/cf2.png"}
-                    alt=""
-                  />
-                    :
-                    <img
-                      className="postImg"
-                      src={"uploads/" + val.img}
-                      alt=""
-                    />
-                    }
-                    
+                    {val.img === "uploads/" ? (
+                      <img className="postImg" src={"uploads/cf2.png"} alt="" />
+                    ) : (
+                      <img
+                        className="postImg"
+                        src={"uploads/" + val.img}
+                        alt=""
+                      />
+                    )}
                   </div>
                   <div className="postBottom">
                     <div className="postBottomLeft">

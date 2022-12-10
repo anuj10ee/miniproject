@@ -81,9 +81,9 @@ router.post("/codeforces", async (req, res) => {
     t.setMinutes(t.getMinutes() + 30);
     console.log("70");
     newPost.time = t;
-    newPost.problemname=req.body.problemname;
-    newPost.contestId=req.body.contestId;
-    newPost.index=req.body.index;
+    newPost.problemname = req.body.problemname;
+    newPost.contestId = req.body.contestId;
+    newPost.index = req.body.index;
     // const post = await Post.find();
     // const a=await ;
     // console.log(Post.find({ time: t }));
@@ -92,8 +92,7 @@ router.post("/codeforces", async (req, res) => {
         console.log(err);
       } else {
         console.log("First function call : ", docs);
-        if(docs.length===0)
-        {
+        if (docs.length === 0) {
           newPost.save();
         }
       }

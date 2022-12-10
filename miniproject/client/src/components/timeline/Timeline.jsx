@@ -67,7 +67,8 @@ function Timeline(props) {
           </div>
           <div className="lower">
             <div className="left">
-              <input id="file-upload"
+              <input
+                id="file-upload"
                 // value={profilePic}
                 type="file"
                 onChange={(e) => setPostPic(e.target.files[0])}
@@ -86,7 +87,7 @@ function Timeline(props) {
                 style={{ cursor: "pointer" }}
                 value="Post"
               />
-              
+
               <br />
             </div>
           </div>

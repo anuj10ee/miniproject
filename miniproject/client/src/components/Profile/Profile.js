@@ -8,7 +8,7 @@ import codechef from "./NicePng_mustach-png_7920230.png";
 import codeforces from "./codeforces-seeklogo.com.svg";
 import Fade from "react-reveal/Fade";
 import Badge from "react-bootstrap/Badge";
-import callCodechef from "./codechef";
+// import callCodechef from "./codechef";
 import callCodeforces from "./codeforces";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -37,11 +37,11 @@ function Profile(props) {
         const error = new Error(res.error);
         throw error;
       } else {
-        if (data.codechefID) {
-          const r = await callCodechef(data);
-          console.log(r);
-          setcodechefdata(r);
-        }
+        // if (data.codechefID) {
+        //   const r = await callCodechef(data);
+        //   console.log(r);
+        //   setcodechefdata(r);
+        // }
         if (data.codeforcesID) {
           const s = await callCodeforces(data);
           console.log(s);
@@ -60,7 +60,7 @@ function Profile(props) {
 
   return (
     <>
-      {codechefdata && codeforcesdata ? (
+      {codeforcesdata ? (
         <div className="profile">
           <Fade left>
             <div className="card1">
@@ -125,18 +125,18 @@ function Profile(props) {
                   <div className="left">
                     <p>
                       USERNAME:
-                      <span>{codechefdata.user_details.username}</span>
+                      <span>{details.codechefID}</span>
                     </p>
                     <p>
                       TOTAL PROBLEMS SOLVED:{" "}
-                      <span> {codechefdata.fully_solved.count}</span>
+                      <span> {details.codechefSub}</span>
                     </p>
                     <p>
                       RATING:
-                      <span>{codechefdata.rating}</span>{" "}
+                      <span>{details.codechefRating}</span>{" "}
                     </p>
                     <p>
-                      GLOBAL RANK: <span>{codechefdata.global_rank}</span>
+                      GLOBAL RANK: <span>{details.codechefRank}</span>
                     </p>
                   </div>
                   <div className="right">
@@ -166,16 +166,71 @@ function Profile(props) {
                     <span>{codeforcesdata.result[0].handle}</span>
                   </p>
                   <p>
-                    TOTAL PROBLEMS SOLVED:{" "}
-                    <span> {codechefdata.fully_solved.count}</span>
+                    TOTAL PROBLEMS SOLVED:{details.codeforcesSub}
+                    {/* <span> {codechefdata.fully_solved.count}</span> */}
                   </p>
                   <p>
                     RATING:
                     {console.log(codeforcesdata.result[0])}
-                    <span>{codeforcesdata.result[0].rating?codeforcesdata.result[0].rating:"-"}</span>{" "}
+                    <span>
+                      {codeforcesdata.result[0].rating
+                        ? codeforcesdata.result[0].rating
+                        : "-"}
+                    </span>{" "}
                   </p>
                   <p>
-                    GLOBAL RANK: <span>{codeforcesdata.result[0].rank?codeforcesdata.result[0].rank:"-"}</span>
+                    GLOBAL RANK:{" "}
+                    <span>
+                      {codeforcesdata.result[0].rank
+                        ? codeforcesdata.result[0].rank
+                        : "-"}
+                    </span>
+                  </p>
+                </div>
+                <div className="right">
+                  <h3>RECENT SUBMISSIONS</h3>
+                  <ul className="outer">
+                    <li className="inner">SQUIRRELS</li>
+                    <li className="inner">DOGS</li>
+                    <li className="inner">CATS</li>
+                  </ul>
+                </div>
+              </div>
+              <ChartContainer />
+            </div>
+          </Fade>
+          <Fade left>
+            <div className="card3">
+              <div className="head">
+                <img src={codeforces} alt="" />
+              </div>
+              <div className="content">
+                <div className="left">
+                  <p>
+                    USERNAME:
+                    <span>{details.gfgID}</span>
+                  </p>
+                  <p>
+                    {console.log(details)}
+                    TOTAL PROBLEMS SOLVED:{details.gfgSub}
+                    {/* <span> {codechefdata.fully_solved.count}</span> */}
+                  </p>
+                  <p>
+                    RATING:
+                    {console.log(codeforcesdata.result[0])}
+                    <span>
+                      {codeforcesdata.result[0].rating
+                        ? codeforcesdata.result[0].rating
+                        : "-"}
+                    </span>{" "}
+                  </p>
+                  <p>
+                    GLOBAL RANK:{" "}
+                    <span>
+                      {codeforcesdata.result[0].rank
+                        ? codeforcesdata.result[0].rank
+                        : "-"}
+                    </span>
                   </p>
                 </div>
                 <div className="right">

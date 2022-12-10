@@ -14,6 +14,7 @@ const Register = () => {
   const [password, setpassword] = useState("");
   const [codechefID, setcodechefID] = useState("");
   const [codeforcesID, setcodeforcesID] = useState("");
+  const [gfgID, setgfgID] = useState("");
   const [address, setaddress] = useState("");
   async function registerUser(event) {
     event.preventDefault();
@@ -29,6 +30,7 @@ const Register = () => {
         password,
         codechefID,
         codeforcesID,
+        gfgID,
       }),
     });
 
@@ -97,6 +99,13 @@ const Register = () => {
               onChange={(e) => setcodeforcesID(e.target.value)}
               type="text"
               placeholder="CODEFORCES USERNAME"
+            />
+            <br />
+            <input
+              value={gfgID}
+              onChange={(e) => setgfgID(e.target.value)}
+              type="text"
+              placeholder="gfg USERNAME"
             />
             <br />
             <input

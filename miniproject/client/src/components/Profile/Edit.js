@@ -16,6 +16,7 @@ const Edit = () => {
   const [email, setemail] = useState(details.email);
   const [codechefID, setCodechefID] = useState(details.codechefID);
   const [codeforcesID, setCodeforcesID] = useState(details.codeforcesID);
+  const [gfgID, setGfgID] = useState(details.gfgID);
   const [profilePic, setProfilePic] = useState("");
   const [url, setUrl] = useState("");
   // const [userId, setUserId] = useState(details.codeforcesID);
@@ -29,6 +30,7 @@ const Edit = () => {
     bodyformdata.append("email", email);
     bodyformdata.append("codechefID", codechefID);
     bodyformdata.append("codeforcesID", codeforcesID);
+    bodyformdata.append("gfgID", gfgID);
     bodyformdata.append("image", profilePic);
     bodyformdata.append("userId", details._id);
     console.log(bodyformdata);
@@ -103,6 +105,14 @@ const Edit = () => {
               onChange={(e) => setCodeforcesID(e.target.value)}
               type="text"
               placeholder="Add Codeforces username"
+            />
+            <br />
+            <span>GFG_ID: </span>
+            <input
+              value={gfgID}
+              onChange={(e) => setGfgID(e.target.value)}
+              type="text"
+              placeholder="Add Gfg username"
             />
             <br />
             <span>Profile-Picture: </span>
