@@ -75,7 +75,7 @@ function Profile(props) {
                       {details.name}
                     </h2>
                     <p>{details.title}</p>
-                    <p>{details.desc}</p>
+                    <p className="content">{details.desc}</p>
                     <button className="edit">
                       <Link
                         className="anchor"
@@ -90,17 +90,19 @@ function Profile(props) {
               </div>
               <div className="right">
                 <div className="inner-right">
-                <div className="skills">
-                    <h2 >FOLLOWERS: <span>{details.followers.length}</span></h2>
-                    <h2 >FOLLOWINGS: <span>{details.followings.length}</span></h2>
+                
+                  
+                  <div className="skills">
+
+                    <h3 >FOLLOWERS: <span>{details.followers.length}</span></h3>
+                    <h3 >FOLLOWINGS: <span>{details.followings.length}</span></h3>
                    
                   </div>
                   <div className="education">
-                    <h2 className="hover-underline-animation">EDUCATION</h2>
-                    <p>{details.college}</p>
-                    <p>{details.branch}</p>
+                    <h2 className="hover-underline-animation">Education</h2>
+                    <p><span><strong>College: </strong></span>{details.college}</p>
+                    <p><span><strong>Branch: </strong></span>{details.branch}</p>
                   </div>
-                  
                 </div>
               </div>
             </div>

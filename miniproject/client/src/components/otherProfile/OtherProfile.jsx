@@ -80,7 +80,7 @@ function OtherProfile() {
                       {details.name}
                     </h2>
                     <p>{details.title}</p>
-                    <p>{details.desc}</p>
+                    <p className="content">{details.desc}</p>
                     {/* <button className="edit">
                       <Link
                         className="anchor"

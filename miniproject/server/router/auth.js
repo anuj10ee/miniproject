@@ -170,8 +170,15 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
         let h = so.find("h5");
         so = $(h[0]).text();
         // console.log(solved);
-        result = so.substring(14, 17);
-        console.log(result);
+        result = so.substring(
+
+          so.lastIndexOf("(") + 1, 
+      
+          so.lastIndexOf(")")
+      
+      );
+        // result = so.substring(14, 17);
+        // console.log(result);
         req.rootUser.codechefSub = result;
 
         console.log("1");
