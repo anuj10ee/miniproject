@@ -190,16 +190,37 @@
     cursor: pointer;
   }
    */
+   .edit{
+    background-color:gray;
+   }
 .edit .head{
     display:flex;
     justify-content: center;
     align-items: center;
-    margin: 5%;
+    color:white;
+
+}
+.edit .head h2{
+  margin: 10px 5px 11px 5px;
+  font-weight: 400;
+  font-size: 30px;
 }
 .edit .lower{
     display:flex;
     justify-content: center;
     align-items: center;
+}
+.edit .lower form{
+  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width:50%;
+    /* /* align-items: baseline; */
+}
+.edit .lower form img{
+  
+  width: 25%;
+
 }
 .edit .lower span{
     color:white;

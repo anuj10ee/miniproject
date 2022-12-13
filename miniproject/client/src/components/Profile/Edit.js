@@ -91,7 +91,7 @@ const Edit = () => {
               type="text"
               placeholder="Name"
             />
-            <br />
+       
             <span>EMAIL: </span>
             <input
               value={email}
@@ -99,7 +99,7 @@ const Edit = () => {
               type="email"
               placeholder="Email"
             />
-            <br />
+      
             <span>COLLEGE NAME: </span>
             <input
               value={college}
@@ -107,7 +107,7 @@ const Edit = () => {
               type="text"
               placeholder="College Name"
             />
-            <br />
+          
             <span>BRANCH NAME: </span>
             <input
               value={branch}
@@ -115,7 +115,7 @@ const Edit = () => {
               type="text"
               placeholder="Branch Name"
             />
-            <br />
+        
             <span>DESCRIPTION: </span>
             <input
               value={desc}
@@ -123,7 +123,7 @@ const Edit = () => {
               type="text"
               placeholder="ABOUT YOURSELF"
             />
-            <br />
+           
             <span>Title: </span>
             <input
               value={title}
@@ -131,7 +131,7 @@ const Edit = () => {
               type="text"
               placeholder="Your Title"
             />
-            <br />
+         
             <span>CODECHEF_ID: </span>
             <input
               value={codechefID}
@@ -139,7 +139,7 @@ const Edit = () => {
               type="text"
               placeholder="Add Codechef username"
             />
-            <br />
+         
             <span>CODEFORCES_ID: </span>
             <input
               value={codeforcesID}
@@ -147,7 +147,7 @@ const Edit = () => {
               type="text"
               placeholder="Add Codeforces username"
             />
-            <br />
+           
             <span>GFG_ID: </span>
             <input
               value={gfgID}
@@ -155,7 +155,7 @@ const Edit = () => {
               type="text"
               placeholder="Add Gfg username"
             />
-            <br />
+         
             <span>Profile-Picture: </span>
             {console.log(details.img)}
             <img src={"uploads/" + details.img} alt="asdf" />
@@ -166,14 +166,14 @@ const Edit = () => {
 
               // placeholder="Add Codeforces username"
             />
-            <br />
+          
             <input
               type="submit"
               className="submit"
               style={{ cursor: "pointer" }}
               value="Update"
             />
-            <br />
+           
           </form>
         </div>
       </div>

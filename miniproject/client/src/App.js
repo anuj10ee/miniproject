@@ -12,6 +12,7 @@ import Logout from "./components/auth/logout";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Edit from "./components/Profile/Edit";
+import Friends from "./components/friends/Friends"
 // // import Notify from "./components/alert/Alert"
 import OtherProfile from "./components/otherProfile/OtherProfile";
 import Contest from "./components/Contests/contest";
@@ -33,6 +34,7 @@ function App() {
 
         <Route path="/register" element={<Register />}></Route>
         <Route path="/home" element={<Home />}></Route>
+        <Route path="/friends" element={<Friends />}></Route>
         <Route path="/contest" element={<Contest />}></Route>
         <Route path="/logout" element={<Logout />}></Route>
         <Route path="/editOptions" element={<Edit />}></Route>

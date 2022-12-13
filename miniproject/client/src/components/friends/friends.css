@@ -1,0 +1,49 @@
+.friends{
+    background-color: gray;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:50vh;
+}
+.friends .left{
+    width:50%;
+}
+.friends .left .head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.friends .inner{
+    width: 50%;
+    margin: auto;
+}
+.friends .right .head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.friends .right{
+    width:50%;
+}
+.friends  .card .name{
+    display: flex;
+    justify-content: center;
+    font-weight: 100;
+    color: white;
+    padding: 10px;
+    align-items: center;
+}
+.friends .card{
+    display: flex;
+
+}

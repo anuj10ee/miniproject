@@ -90,28 +90,17 @@ function Profile(props) {
               </div>
               <div className="right">
                 <div className="inner-right">
+                <div className="skills">
+                    <h2 >FOLLOWERS: <span>{details.followers.length}</span></h2>
+                    <h2 >FOLLOWINGS: <span>{details.followings.length}</span></h2>
+                   
+                  </div>
                   <div className="education">
                     <h2 className="hover-underline-animation">EDUCATION</h2>
                     <p>{details.college}</p>
                     <p>{details.branch}</p>
                   </div>
-                  <div className="skills">
-                    <h2 className="hover-underline-animation">SKILLS</h2>
-                    <p>
-                      <Badge pill bg="primary">
-                        Primary
-                      </Badge>{" "}
-                      <Badge pill bg="secondary">
-                        Secondary
-                      </Badge>{" "}
-                      <Badge pill bg="success">
-                        Success
-                      </Badge>{" "}
-                      <Badge pill bg="danger">
-                        Danger
-                      </Badge>{" "}
-                    </p>
-                  </div>
+                  
                 </div>
               </div>
             </div>

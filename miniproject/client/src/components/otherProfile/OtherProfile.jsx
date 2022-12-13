@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router";
-import callDetails from "../posts/calldetails";
+import callDetails1 from "./calldetails1.js";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import callCodechef from "../Profile/codechef";
@@ -12,6 +12,9 @@ import { Link } from "react-router-dom";
 import ChartContainer from "../Heatmap/heatmap";
 import codechef from "../Profile/NicePng_mustach-png_7920230.png";
 import codeforces from "../Profile/codeforces-seeklogo.com.svg";
+import gfg from "../Profile/icons8-geeksforgeeks-144.png"
+
+
 
 function OtherProfile() {
   const { id } = useParams();
@@ -32,16 +35,16 @@ function OtherProfile() {
       //   credentials: "include",
       // });
       console.log(id);
-      const data = await callDetails(id);
+      const data = await callDetails1(id);
       console.log("abcdefgh");
       console.log(data);
       setDetails(data);
 
-      if (data.codechefID) {
-        const r = await callCodechef(data);
-        console.log(r);
-        setcodechefdata(r);
-      }
+      // if (data.codechefID) {
+      //   const r = await callCodechef(data);
+      //   console.log(r);
+      //   setcodechefdata(r);
+      // }
       if (data.codeforcesID) {
         const s = await callCodeforces(data);
         console.log(s);
@@ -58,23 +61,26 @@ function OtherProfile() {
 
   return (
     <>
-      {codechefdata && codeforcesdata ? (
+      {codeforcesdata ? (
         <div className="profile">
           <Fade left>
             <div className="card1">
               <div className="left">
                 <div className="pic">
-                  {console.log(details.img)}
-                  <img src={"/uploads/" + details.img} alt="" />
+                  {console.log(details)}
+                  {(details.img)?
+                  (<img src={"/uploads/" + details.img} alt="" />
+                  )
+                  :"x"
+                  }
                 </div>
                 <div className="info">
                   <div className="inner-info">
                     <h2 className="hover-underline-animation">
                       {details.name}
                     </h2>
-                    <p>Competitive Coder</p>
-                    <p>Blah Blah</p>
-
+                    <p>{details.title}</p>
+                    <p>{details.desc}</p>
                     {/* <button className="edit">
                       <Link
                         className="anchor"
@@ -89,28 +95,17 @@ function OtherProfile() {
               </div>
               <div className="right">
                 <div className="inner-right">
+                <div className="skills">
+                    <h2 >FOLLOWERS: <span>{details.followers.length}</span></h2>
+                    <h2 >FOLLOWINGS: <span>{details.followings.length}</span></h2>
+                   
+                  </div>
                   <div className="education">
                     <h2 className="hover-underline-animation">EDUCATION</h2>
-                    <p>ABES ENGINEERING COLLEGE</p>
-                    <p>COMPUTER SCIENCE AND ENGINEERING</p>
+                    <p>{details.college}</p>
+                    <p>{details.branch}</p>
                   </div>
-                  <div className="skills">
-                    <h2 className="hover-underline-animation">SKILLS</h2>
-                    <p>
-                      <Badge pill bg="primary">
-                        Primary
-                      </Badge>{" "}
-                      <Badge pill bg="secondary">
-                        Secondary
-                      </Badge>{" "}
-                      <Badge pill bg="success">
-                        Success
-                      </Badge>{" "}
-                      <Badge pill bg="danger">
-                        Danger
-                      </Badge>{" "}
-                    </p>
-                  </div>
+                  
                 </div>
               </div>
             </div>
@@ -125,18 +120,18 @@ function OtherProfile() {
                   <div className="left">
                     <p>
                       USERNAME:
-                      <span>{codechefdata.user_details.username}</span>
+                      <span>{details.codechefID}</span>
                     </p>
                     <p>
                       TOTAL PROBLEMS SOLVED:{" "}
-                      <span> {codechefdata.fully_solved.count}</span>
+                      <span> {details.codechefSub}</span>
                     </p>
                     <p>
                       RATING:
-                      <span>{codechefdata.rating}</span>{" "}
+                      <span>{details.codechefRating}</span>{" "}
                     </p>
                     <p>
-                      GLOBAL RANK: <span>{codechefdata.global_rank}</span>
+                      GLOBAL RANK: <span>{details.codechefRank}</span>
                     </p>
                   </div>
                   <div className="right">
@@ -163,19 +158,69 @@ function OtherProfile() {
                 <div className="left">
                   <p>
                     USERNAME:
-                    {console.log(codeforcesdata.username)}
-                    <span>{codeforcesdata.username}</span>
+                    <span>{codeforcesdata.result[0].handle}</span>
                   </p>
                   <p>
-                    TOTAL PROBLEMS SOLVED:{" "}
-                    <span> {codechefdata.fully_solved.count}</span>
+                    TOTAL PROBLEMS SOLVED:{details.codeforcesSub}
+                    {/* <span> {codechefdata.fully_solved.count}</span> */}
                   </p>
                   <p>
                     RATING:
-                    <span>{codeforcesdata.rating}</span>{" "}
+                    {console.log(codeforcesdata.result[0])}
+                    <span>
+                      {codeforcesdata.result[0].rating
+                        ? codeforcesdata.result[0].rating
+                        : "-"}
+                    </span>{" "}
                   </p>
                   <p>
-                    GLOBAL RANK: <span>{codeforcesdata.rank}</span>
+                    GLOBAL RANK:{" "}
+                    <span>
+                      {codeforcesdata.result[0].rank
+                        ? codeforcesdata.result[0].rank
+                        : "-"}
+                    </span>
+                  </p>
+                </div>
+                <div className="right">
+                  <h3>RECENT SUBMISSIONS</h3>
+                  <ul className="outer">
+                    <li className="inner">SQUIRRELS</li>
+                    <li className="inner">DOGS</li>
+                    <li className="inner">CATS</li>
+                  </ul>
+                </div>
+              </div>
+              <ChartContainer />
+            </div>
+          </Fade>
+          <Fade left>
+            <div className="card4">
+              <div className="head">
+                <img src={gfg}alt="" />
+              </div>
+              <div className="content">
+                <div className="left">
+                  <p>
+                    USERNAME:
+                    <span>{details.gfgID}</span>
+                  </p>
+                  <p>
+                    {console.log(details)}
+                    TOTAL PROBLEMS SOLVED:{details.gfgSub}
+                    {/* <span> {codechefdata.fully_solved.count}</span> */}
+                  </p>
+                  <p>
+                    CODING SCORE:
+                    <span>
+                      {details.gfgScore}
+                    </span>{" "}
+                  </p>
+                  <p>
+                    COLLEGE RANK:{" "}
+                    <span>
+                      {details.gfgRank}
+                    </span>
                   </p>
                 </div>
                 <div className="right">

@@ -23,7 +23,7 @@ const User = new mongoose.Schema(
   //     },
   //   },
   // ],
-  gfgID: { type: String,required: true },
+  gfgID: { type: String },
   gfgSub: { type: String},
   gfgRank: { type: String,default: "",},
   gfgScore:{ type: String},

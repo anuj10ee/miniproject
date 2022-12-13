@@ -21,7 +21,7 @@ const bcrypt = require("bcryptjs");
 console.log("BLAHHHH");
 router.post("/register", async (req, res) => {
   // console.log(abc);
-  const { email, name, address, password, codechefID, codeforcesID } = req.body;
+  const { email, name, address, password, codechefID, codeforcesID,college,branch,desc,title,gfgID } = req.body;
   console.log(name);
   // console.log(req.body);
   // console.log(xyz);
@@ -43,6 +43,11 @@ router.post("/register", async (req, res) => {
         password,
         codechefID,
         codeforcesID,
+        college,
+        branch,
+desc,
+title,gfgID
+
       });
 
       await user.save();

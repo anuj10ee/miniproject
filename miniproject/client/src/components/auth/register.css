@@ -55,8 +55,9 @@
 }
 .register .card .right form input {
     border: none;
+    margin: 2px;
     border-bottom: 1px solid lightgray;
-    padding: 20px 10px;
+    padding: 15px 10px;
 }
 .register .card .right form button {
     width: 50%;

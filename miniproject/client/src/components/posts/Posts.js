@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 // import { MoreVert } from "@material-ui/icons";
 import callDetails from "./calldetails";
 import callCodeforcessubmissions from "../Profile/codeforces-submissions";
-import Post from "./Post";
 
 function Posts(props) {
   const [data, setData] = useState("");
@@ -67,9 +66,9 @@ function Posts(props) {
                   <div className="postTop">
                     <div className="postTopLeft">
                       {console.log(val.userId)}
-                      {console.log(props.userID)}
-                      {console.log(val.userId === props.userID)}
-                      {val.userId === props.userID ? (
+                      {console.log(props.userID._id)}
+                      {console.log(val.userId === props.userID._id)}
+                      {val.userId === props.userID._id ? (
                         <Link to={`/profile`}>
                           <img
                             className="postProfileImg"
@@ -125,23 +124,23 @@ function Posts(props) {
                     <div className="postBottomLeft">
                       <img
                         className="likeIcon"
-                        src="uploads/img.png"
+                        src="uploads/like-png-facebook-logo-transparent-png-pictures-icons-and-15.png"
                         //   onClick={likeHandler}
                         alt=""
                       />
-                      <img
+                      <img 
                         className="likeIcon"
-                        src={props.like}
+                        src="uploads/—Pngtree—vector typing icon_3773950.png"
                         //   onClick={likeHandler}
                         alt=""
                       />
-                      <span className="postLikeCounter">
+                      {/* <span className="postLikeCounter">
                         {data.likes} people like it
-                      </span>
+                      </span> */}
                     </div>
-                    <div className="postBottomRight">
+                    {/* <div className="postBottomRight">
                       <span className="postCommentText"> comments</span>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
