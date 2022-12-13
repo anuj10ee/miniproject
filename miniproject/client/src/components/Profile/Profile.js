@@ -157,7 +157,7 @@ function Profile(props) {
                   </p>
                   <p>
                     TOTAL PROBLEMS SOLVED:{details.codeforcesSub}
-                    {/* <span> {codechefdata.fully_solved.count}</span> */}
+                  
                   </p>
                   <p>
                     RATING:

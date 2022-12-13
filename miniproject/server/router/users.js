@@ -109,10 +109,16 @@ router.put("/:id/follow", async (req, res) => {
   if (req.body.userId !== req.params.id) {
     try {
       const user = await User.findById(req.params.id);
+      console.log("112");
+      console.log(user);
       const currentUser = await User.findById(req.body.userId);
+      console.log("115");
+      console.log(currentUser);
       if (!user.followers.includes(req.body.userId)) {
-        await user.updateOne({ $push: { followers: req.body.userId } });
-        await currentUser.updateOne({ $push: { followings: req.params.id } });
+        var objfollowers1 = { id:req.body.userId,name:currentUser.name,image:currentUser.img };
+        var objfollowers2 = { id:req.params.id,name:user.name,image: user.img};
+        await user.updateOne({ $push: { followers: objfollowers1,fol:req.body.userId}, });
+        await currentUser.updateOne({ $push: { followings:objfollowers2 ,fo:req.params.id} });
         res.status(200).json("user has been followed");
       } else {
         res.status(403).json("you already follow this user");

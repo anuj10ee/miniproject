@@ -39,12 +39,37 @@ const User = new mongoose.Schema(
       type: String,
       default: "",
     },
-    
-    followers: {
+    followers: [
+      {
+        id: {
+          type: String,
+        },
+        name: {
+          type: String,
+        },
+        image: {
+          type: String,
+        },
+      },
+    ],
+    followings: [
+      {
+        id: {
+          type: String,
+        },
+        name: {
+          type: String,
+        },
+        image: {
+          type: String,
+        },
+      },
+    ],
+    fo: {
       type: Array,
       default: [],
     },
-    followings: {
+    fol: {
       type: Array,
       default: [],
     },
