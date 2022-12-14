@@ -14,3 +14,13 @@
     width: 90%;
     padding: 20px;
 }
+.contest table tbody tr td{
+   text-align: center;
+   padding: 20px;
+}
+.contest table thead th { 
+    border-bottom: 2px solid #000;
+    font-size: 24px;
+    padding-bottom: 8px;
+    font-weight: 400;
+}

@@ -59,7 +59,7 @@ router.put("/:id", upload.single("image"), async (req, res) => {
         return res.status(500).json(err);
       }
     }
-    if (req.file.path) {
+    if (req.file) {
       req.body.img = req.file.filename;
       console.log(req.body.img);
       console.log("68");

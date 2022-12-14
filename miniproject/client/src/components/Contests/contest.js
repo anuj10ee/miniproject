@@ -46,7 +46,9 @@ function Contest() {
             <th>Start Time</th>
             <th>End Time</th>
           </tr>
+          
         </thead>
+        
         <tbody>
           {console.log(Details)}
           
@@ -63,10 +65,10 @@ function Contest() {
                 <tr style={{padding:'20px' ,color:'green'}}>
                   <td>{item.site}</td>
                   <td>{item.name}</td>
-                  <td >{item.start_time }</td>
-                  <td>{item.end_time }</td>
+                  <td >{item.start_time.substring(0,10) }</td>
+                  <td>{item.end_time.substring(0,10) }</td>
                   {/* <td>{item.duration}</td> */}
-                  <td />
+                  
                 </tr>
               ))
             :(
