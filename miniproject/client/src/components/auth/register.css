@@ -69,10 +69,14 @@
     cursor: pointer;
 }
 .register .container{
+    margin-top: 55px;
     width: 100vw;
-    height: fit-content;
+    height: 100vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap :7rem;
     padding: 0 2rem;
 }
+.login-content::-webkit-scrollbar {
+    display: none;
+  }

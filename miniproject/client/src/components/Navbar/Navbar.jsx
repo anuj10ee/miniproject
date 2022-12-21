@@ -27,6 +27,10 @@ function Navbar() {
             </li>
             <li className="inner">
               {" "}
+              <Link to="/search">Search</Link>
+            </li>
+            <li className="inner">
+              {" "}
               <Link to="/logout">Logout</Link>
             </li>
             {/* <li className="inner">

@@ -6,7 +6,7 @@ import image from "./0377c76083423a1414e4001161e0cdffb0b36e1f_760x400.0.jpg";
 import ChartContainer from "../Heatmap/heatmap";
 import codechef from "./NicePng_mustach-png_7920230.png";
 import codeforces from "./codeforces-seeklogo.com.svg";
-import gfg from "./icons8-geeksforgeeks-144.png"
+import gfg from "./icons8-geeksforgeeks-144.png";
 import Fade from "react-reveal/Fade";
 import Badge from "react-bootstrap/Badge";
 // import callCodechef from "./codechef";
@@ -77,32 +77,50 @@ function Profile(props) {
                     <p>{details.title}</p>
                     <p className="content">{details.desc}</p>
                     {/* <button className="edit1"> */}
-                      <Link
-                        className="anchor"
-                        to={"/editOptions"}
-                        state={details}
-                      >
-                        EDIT
-                      </Link>
+                    <Link
+                      className="anchor"
+                      to={"/editOptions"}
+                      state={details}
+                    >
+                      EDIT
+                    </Link>
                     {/* </button> */}
                   </div>
                 </div>
               </div>
               <div className="right">
                 <div className="inner-right">
-                
-                  
                   <div className="skills">
-                  <h2 className="hover-underline-animation">Skills</h2>
-                  <h3 >Total Problems Solved: <span>{parseInt(details.codechefSub)+parseInt(details.codeforcesSub)+parseInt(details.gfgSub)}</span></h3>
-                    <h3 >Followers: <span>{details.followers.length}</span></h3>
-                    <h3 >Followings: <span>{details.followings.length}</span></h3>
-                   
+                    <h2 className="hover-underline-animation">Skills</h2>
+                    <h3>
+                      Total Problems Solved:{" "}
+                      <span>
+                        {parseInt(details.codechefSub) +
+                          parseInt(details.codeforcesSub) +
+                          parseInt(details.gfgSub)}
+                      </span>
+                    </h3>
+                    <h3>
+                      Followers: <span>{details.followers.length}</span>
+                    </h3>
+                    <h3>
+                      Followings: <span>{details.followings.length}</span>
+                    </h3>
                   </div>
                   <div className="education">
                     <h2 className="hover-underline-animation">Education</h2>
-                    <p><span><strong>College: </strong></span>{details.college}</p>
-                    <p><span><strong>Branch: </strong></span>{details.branch}</p>
+                    <p>
+                      <span>
+                        <strong>College: </strong>
+                      </span>
+                      {details.college}
+                    </p>
+                    <p>
+                      <span>
+                        <strong>Branch: </strong>
+                      </span>
+                      {details.branch}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -121,8 +139,7 @@ function Profile(props) {
                       <span>{details.codechefID}</span>
                     </p>
                     <p>
-                      TOTAL PROBLEMS SOLVED:{" "}
-                      <span> {details.codechefSub}</span>
+                      TOTAL PROBLEMS SOLVED: <span> {details.codechefSub}</span>
                     </p>
                     <p>
                       RATING:
@@ -158,10 +175,7 @@ function Profile(props) {
                     USERNAME:
                     <span>{codeforcesdata.result[0].handle}</span>
                   </p>
-                  <p>
-                    TOTAL PROBLEMS SOLVED:{details.codeforcesSub}
-                  
-                  </p>
+                  <p>TOTAL PROBLEMS SOLVED:{details.codeforcesSub}</p>
                   <p>
                     RATING:
                     {console.log(codeforcesdata.result[0])}
@@ -195,7 +209,7 @@ function Profile(props) {
           <Fade left>
             <div className="card4">
               <div className="head">
-                <img src={gfg}alt="" />
+                <img src={gfg} alt="" />
               </div>
               <div className="content">
                 <div className="left">
@@ -210,15 +224,10 @@ function Profile(props) {
                   </p>
                   <p>
                     CODING SCORE:
-                    <span>
-                      {details.gfgScore}
-                    </span>{" "}
+                    <span>{details.gfgScore}</span>{" "}
                   </p>
                   <p>
-                    COLLEGE RANK:{" "}
-                    <span>
-                      {details.gfgRank}
-                    </span>
+                    COLLEGE RANK: <span>{details.gfgRank}</span>
                   </p>
                 </div>
                 <div className="right">

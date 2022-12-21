@@ -7,6 +7,7 @@ import Form from "react-bootstrap/Form";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { useParams } from "react-router";
 import CardProfile from "./edit-javascript";
+import callDetails from "../posts/calldetails";
 
 const Edit = () => {
   const navigate = useNavigate();
@@ -48,27 +49,32 @@ const Edit = () => {
       method: "PUT",
       body: bodyformdata,
     });
-    const data = await response.json();
-    // const data1 = new FormData()
-    //     data1.append("file",profilePic)
-    //     data1.append("upload_preset","miniproject")
-    //     data1.append("cloud_name","dz2u63jv5")
-    //     fetch("https://api.cloudinary.com/v1_1/dz2u63jv5/image/upload",{
-    //         method:"post",
-    //         body:data1
-    //     })
-    //     .then(res=>res.json())
-    //     .then(data1=>{
-    //        console.log(data1)
-    //     })
-    //     .catch(err=>{
-    //         console.log(err)
-    //     })
-    console.log(data);
-    setUrl(data.img);
-    if (response.status === 422 || !data) {
-      window.alert("INVALID");
-    } else {
+    try {
+      const data = await response.json();
+      // const data1 = new FormData()
+      //     data1.append("file",profilePic)
+      //     data1.append("upload_preset","miniproject")
+      //     data1.append("cloud_name","dz2u63jv5")
+      //     fetch("https://api.cloudinary.com/v1_1/dz2u63jv5/image/upload",{
+      //         method:"post",
+      //         body:data1
+      //     })
+      //     .then(res=>res.json())
+      //     .then(data1=>{
+      //        console.log(data1)
+      //     })
+      //     .catch(err=>{
+      //         console.log(err)
+      //     })
+      console.log(data);
+      setUrl(data.img);
+      if (response.status === 422 || !data) {
+        window.alert("INVALID");
+      } else {
+        navigate("/Profile");
+      }
+    } catch (err) {
+      console.log(err);
       navigate("/Profile");
     }
   }
@@ -82,21 +88,24 @@ const Edit = () => {
           <form
             className="form "
             onSubmit={updateUser}
-            enctype="multipart/form-data"
+            encType="multipart/form-data"
           >
-             <span>Profile-Picture: </span>
+            <span>Profile-Picture: </span>
             {console.log(details.img)}
             <div className="ima">
-            <img src={"uploads/" + details.img} alt="asdf" />
-            </div>
-           
-            <input
-              // value={profilePic}
-              type="file"
-              onChange={(e) => setProfilePic(e.target.files[0])}
+              <img src={"uploads/" + details.img} alt="asdf" />
+              <input
+                // value={profilePic}
+                type="file"
+                id="filee"
+                onChange={(e) => setProfilePic(e.target.files[0])}
 
-              // placeholder="Add Codeforces username"
-            />
+                // placeholder="Add Codeforces username"
+              />
+              <label for="filee" class="custom-file">
+                Choose Photo
+              </label>
+            </div>
 
             <span>NAME: </span>
             <input
@@ -170,7 +179,6 @@ const Edit = () => {
               placeholder="Add Gfg username"
             />
 
-           
             <input
               type="submit"
               className="submit"

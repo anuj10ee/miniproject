@@ -381,7 +381,7 @@ router.get("/timeline/all/:userID", function _callee7(req, res) {
         case 6:
           userPosts = _context7.sent;
           _context7.next = 9;
-          return regeneratorRuntime.awrap(Promise.all(currentUser.fol.map(function (friendId) {
+          return regeneratorRuntime.awrap(Promise.all(currentUser._followings.map(function (friendId) {
             return Post.find({
               userId: friendId
             });

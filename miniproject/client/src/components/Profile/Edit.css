@@ -224,8 +224,10 @@
 }
 .edit .ima{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .edit .lower span{
     color:black;
@@ -245,4 +247,21 @@
 .edit .form input{
     font-size:20px;
     padding: 5px;
+}
+
+#filee{
+  display: none;
+}
+
+.edit .custom-file {
+  border: 2px solid black;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: rgb(240,240,240);
+}
+.edit .custom-file:hover{
+  background-color: white;
+  color: black;
 }

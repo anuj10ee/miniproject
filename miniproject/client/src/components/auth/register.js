@@ -188,7 +188,23 @@ const Register = () => {
               placeholder="Email"
             />
               </div>
-            </div><div className="input-div one">
+            </div>
+            <div className="input-div pass">
+              <div className="i">
+                <i className="fas fa-lock"></i>
+              </div>
+              <div className="div">
+                {/* <h5>Password</h5> */}
+                <input
+              value={password}
+              onChange={(e) => setpassword(e.target.value)}
+              type="password"
+              placeholder="Password"
+            />
+              </div>
+            </div>
+            
+            <div className="input-div one">
               <div className="i">
                 <i className="fas fa-user"></i>
               </div>
@@ -256,20 +272,7 @@ const Register = () => {
             />
               </div>
             </div>
-            <div className="input-div pass">
-              <div className="i">
-                <i className="fas fa-lock"></i>
-              </div>
-              <div className="div">
-                {/* <h5>Password</h5> */}
-                <input
-              value={password}
-              onChange={(e) => setpassword(e.target.value)}
-              type="password"
-              placeholder="Password"
-            />
-              </div>
-            </div>
+            
             <div className="input-div one">
               <div className="i">
                 <i className="fas fa-user"></i>

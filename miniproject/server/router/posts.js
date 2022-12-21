@@ -51,10 +51,10 @@ router.post("/", upload.single("image"), async (req, res) => {
     // console.log(newPost.profileimg);
     // console.log(user.img);
     newPost.profileimg = user.img;
-    console.log("54")
+    console.log("54");
     console.log(req.body);
-    newPost.desc=req.body.postText;
-    newPost.userName=req.body.name;
+    newPost.desc = req.body.postText;
+    newPost.userName = req.body.name;
     // console.log(newPost.profileimg);
     var createdDt = new Date();
     newPost.time = createdDt;
@@ -88,7 +88,7 @@ router.post("/codeforces", async (req, res) => {
     newPost.problemname = req.body.problemname;
     newPost.contestId = req.body.contestId;
     newPost.index = req.body.index;
-    newPost.userName=req.body.userName;
+    newPost.userName = req.body.userName;
     // const post = await Post.find();
     // const a=await ;
     // console.log(Post.find({ time: t }));
@@ -180,7 +180,7 @@ router.get("/timeline/all/:userID", async (req, res) => {
     const currentUser = await User.findById(req.params.userID);
     const userPosts = await Post.find({ userId: currentUser._id });
     const friendPosts = await Promise.all(
-      currentUser.fol.map((friendId) => {
+      currentUser._followings.map((friendId) => {
         return Post.find({ userId: friendId });
       })
     );

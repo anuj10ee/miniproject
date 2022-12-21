@@ -165,6 +165,7 @@ width:50%
 }
 
 .profile .card1 .right .skills h2{
+  text-align: center;
     margin: 5px 0px;
     color: rgb(42, 36, 36);
     font-family: 'Poppins', sans-serif;

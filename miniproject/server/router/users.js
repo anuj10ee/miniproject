@@ -106,24 +106,44 @@ router.get("/:id", async (req, res) => {
 //follow a user
 
 router.put("/:id/follow", async (req, res) => {
+  console.log("109");
+  console.log(req.body);
   if (req.body.userId !== req.params.id) {
     try {
       const user = await User.findById(req.params.id);
       console.log("112");
-      console.log(user);
+      console.log(req.body);
       const currentUser = await User.findById(req.body.userId);
       console.log("115");
       console.log(currentUser);
-      if (!user.followers.includes(req.body.userId)) {
-        var objfollowers1 = { id:req.body.userId,name:currentUser.name,image:currentUser.img };
-        var objfollowers2 = { id:req.params.id,name:user.name,image: user.img};
-        await user.updateOne({ $push: { followers: objfollowers1,fol:req.body.userId}, });
-        await currentUser.updateOne({ $push: { followings:objfollowers2 ,fo:req.params.id} });
+      console.log(req.body.userId);
+
+      console.log(user._followers.includes(req.body.userId));
+      if (!user._followers.includes(req.body.userId)) {
+        var objfollowers1 = {
+          id: req.body.userId,
+          name: currentUser.name,
+          image: currentUser.img,
+        };
+        var objfollowers2 = {
+          id: req.params.id,
+          name: user.name,
+          image: user.img,
+        };
+        await user.updateOne({
+          $push: { followers: objfollowers1, _followers: req.body.userId },
+        });
+        await currentUser.updateOne({
+          $push: { followings: objfollowers2, _followings: req.params.id },
+        });
         res.status(200).json("user has been followed");
       } else {
-        res.status(403).json("you already follow this user");
+        // res.status(403).json("you already follow this user");
+        return res.status(403).send("you already follow this user");
+        // windows.alert("you already follow this user");
       }
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   } else {
@@ -138,9 +158,25 @@ router.put("/:id/unfollow", async (req, res) => {
     try {
       const user = await User.findById(req.params.id);
       const currentUser = await User.findById(req.body.userId);
-      if (user.followers.includes(req.body.userId)) {
-        await user.updateOne({ $pull: { followers: req.body.userId } });
-        await currentUser.updateOne({ $pull: { followings: req.params.id } });
+      if (user._followers.includes(req.body.userId)) {
+        var objfollowers1 = {
+          id: req.body.userId,
+          name: currentUser.name,
+          image: currentUser.img,
+        };
+        var objfollowers2 = {
+          id: req.params.id,
+          name: user.name,
+          image: user.img,
+        };
+        await user.updateOne({
+          $pull: { followers: objfollowers1, _followers: req.body.userId },
+        });
+        await currentUser.updateOne({
+          $pull: { followings: objfollowers2, _followings: req.params.id },
+        });
+        // await user.updateOne({ $pull: { followers: req.body.userId } });
+        // await currentUser.updateOne({ $pull: { followings: req.params.id } });
         res.status(200).json("user has been unfollowed");
       } else {
         res.status(403).json("you dont follow this user");
@@ -150,6 +186,39 @@ router.put("/:id/unfollow", async (req, res) => {
     }
   } else {
     res.status(403).json("you cant unfollow yourself");
+  }
+});
+
+//search a user
+router.post("/search", async (req, res) => {
+  console.log("194");
+  console.log(req.rootUser);
+  // res.json({message:"hdkhk"})
+  // console.log("djhjcs");
+
+  try {
+    const { email } = req.body;
+    if (!email) {
+      return res.status(400).json("FILL KROOOOOOOOO");
+    }
+
+    const userSearch = await User.findOne({ email: email });
+    console.log(userSearch);
+    if (userSearch) {
+      // res.use(cookieSession({
+      //   name: 'session',
+      //   keys: [/* secret keys */],
+
+      //   // Cookie Options
+      //   maxAge: 24 * 60 * 60 * 1000 // 24 hours
+      // }))
+      // console.log(token);
+      res.json({ message: "user found", userDetails: userSearch });
+    } else {
+      res.status(400).json({ error: "user error" });
+    }
+  } catch (err) {
+    console.log(err);
   }
 });
 

@@ -12,17 +12,74 @@ import { Link } from "react-router-dom";
 import ChartContainer from "../Heatmap/heatmap";
 import codechef from "../Profile/NicePng_mustach-png_7920230.png";
 import codeforces from "../Profile/codeforces-seeklogo.com.svg";
-import gfg from "../Profile/icons8-geeksforgeeks-144.png"
+import gfg from "../Profile/icons8-geeksforgeeks-144.png";
+import { useLocation } from "react-router-dom";
 
-
-
-function OtherProfile() {
+function OtherProfile(props) {
   const { id } = useParams();
-  console.log(id);
+  console.log(props);
+  const location = useLocation();
+  const userId = location.state.userID;
+  console.log(userId);
   const navigate = useNavigate();
   const [details, setDetails] = useState("");
   const [codechefdata, setcodechefdata] = useState("");
   const [codeforcesdata, setcodeforcesdata] = useState("");
+
+  const followUser = async (event) => {
+    event.preventDefault();
+    console.log(userId);
+
+    console.log(details._id);
+    const response = await fetch(
+      `http://localhost:1337/user/${details._id}/follow`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId,
+        }),
+        // credentials: "include",
+      }
+    );
+    if (response.status === 403) {
+      window.alert("already followed");
+    } else if (response.status === 200) {
+      window.alert("user followed");
+      window.location.reload(false);
+    }
+    console.log(response.status);
+  };
+
+  const unfollowUser = async (event) => {
+    event.preventDefault();
+    console.log(userId);
+
+    console.log(details._id);
+    const response = await fetch(
+      `http://localhost:1337/user/${details._id}/unfollow`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId,
+        }),
+        // credentials: "include",
+      }
+    );
+    if (response.status === 403) {
+      window.alert("already unfollowed");
+    } else if (response.status === 200) {
+      window.alert("user unfollowed");
+      window.location.reload(false);
+    }
+    console.log(response.status);
+    console.log(response);
+  };
 
   const OtherProfilePage = async () => {
     try {
@@ -68,11 +125,11 @@ function OtherProfile() {
               <div className="left">
                 <div className="pic">
                   {console.log(details)}
-                  {(details.img)?
-                  (<img src={"/uploads/" + details.img} alt="" />
-                  )
-                  :"x"
-                  }
+                  {details.img ? (
+                    <img src={"/uploads/" + details.img} alt="" />
+                  ) : (
+                    ""
+                  )}
                 </div>
                 <div className="info">
                   <div className="inner-info">
@@ -94,19 +151,27 @@ function OtherProfile() {
                 </div>
               </div>
               <div className="right">
+                <button onClick={followUser}>Follow</button>
+                <button onClick={unfollowUser}>unfollow</button>
                 <div className="inner-right">
-                <div className="skills">
-                <h3 >Total Problem Solved: <span>{details.followers.length}</span></h3>
-                    <h3 >Followers: <span>{details.followers.length}</span></h3>
-                    <h3 >Followings: <span>{details.followings.length}</span></h3>
-                   
+                  <div className="skills">
+                    <h2 className="hover-underline-animation">Skills</h2>
+                    <h3>
+                      Total Problem Solved:{" "}
+                      <span>{details.followers.length}</span>
+                    </h3>
+                    <h3>
+                      Followers: <span>{details.followers.length}</span>
+                    </h3>
+                    <h3>
+                      Followings: <span>{details.followings.length}</span>
+                    </h3>
                   </div>
                   <div className="education">
                     <h2 className="hover-underline-animation">EDUCATION</h2>
                     <p>{details.college}</p>
                     <p>{details.branch}</p>
                   </div>
-                  
                 </div>
               </div>
             </div>
@@ -124,8 +189,7 @@ function OtherProfile() {
                       <span>{details.codechefID}</span>
                     </p>
                     <p>
-                      TOTAL PROBLEMS SOLVED:{" "}
-                      <span> {details.codechefSub}</span>
+                      TOTAL PROBLEMS SOLVED: <span> {details.codechefSub}</span>
                     </p>
                     <p>
                       RATING:
@@ -144,7 +208,7 @@ function OtherProfile() {
                     </ul>
                   </div>
                 </div>
-                <ChartContainer />
+                {/* <ChartContainer /> */}
               </div>
             ) : (
               ""
@@ -192,13 +256,13 @@ function OtherProfile() {
                   </ul>
                 </div>
               </div>
-              <ChartContainer />
+              {/* <ChartContainer /> */}
             </div>
           </Fade>
           <Fade left>
             <div className="card4">
               <div className="head">
-                <img src={gfg}alt="" />
+                <img src={gfg} alt="" />
               </div>
               <div className="content">
                 <div className="left">
@@ -213,15 +277,10 @@ function OtherProfile() {
                   </p>
                   <p>
                     CODING SCORE:
-                    <span>
-                      {details.gfgScore}
-                    </span>{" "}
+                    <span>{details.gfgScore}</span>{" "}
                   </p>
                   <p>
-                    COLLEGE RANK:{" "}
-                    <span>
-                      {details.gfgRank}
-                    </span>
+                    COLLEGE RANK: <span>{details.gfgRank}</span>
                   </p>
                 </div>
                 <div className="right">
@@ -233,7 +292,7 @@ function OtherProfile() {
                   </ul>
                 </div>
               </div>
-              <ChartContainer />
+              {/* <ChartContainer /> */}
             </div>
           </Fade>
         </div>

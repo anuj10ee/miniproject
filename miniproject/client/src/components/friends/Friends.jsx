@@ -54,8 +54,8 @@ function Friends() {
       }, */}
       {console.log(details)}
       {console.log(array)}
-      { array ? (
-        array.map((val, i) => {
+      { array1 ? (
+        array1.map((val, i) => {
           return (
             <>
                   <div className="card">
@@ -115,9 +115,9 @@ function Friends() {
       <h1>Followings</h1>
       </div>
    
-      {console.log(array1)}
-      { (array1) ? (
-        array1.map((val, i) => {
+      {console.log(array)}
+      { (array) ? (
+        array.map((val, i) => {
           return (
             <>
               <div className="card">

@@ -9,7 +9,7 @@ function Timeline(props) {
 
   const detail = location.state;
   const [postPic, setPostPic] = useState("");
-  const [postText,setPostText]=useState("");
+  const [postText, setPostText] = useState("");
 
   async function createPost(event) {
     event.preventDefault();
@@ -47,7 +47,7 @@ function Timeline(props) {
     // setUrl(data.img);
     if (response.status === 422 || !data) {
       window.alert("INVALID");
-    }else{
+    } else {
       window.location.reload(false);
     }
   }
@@ -66,9 +66,12 @@ function Timeline(props) {
               <img src={"uploads/" + props.data.img} alt="" />
             </div>
             <div className="right">
-              <input type="text" placeholder="Write Something..." 
-              value={postText}
-              onChange={(e) => setPostText(e.target.value)}/>
+              <input
+                type="text"
+                placeholder="Write Something..."
+                value={postText}
+                onChange={(e) => setPostText(e.target.value)}
+              />
               <br />
             </div>
           </div>

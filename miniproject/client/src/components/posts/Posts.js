@@ -78,7 +78,10 @@ function Posts(props) {
                           />
                         </Link>
                       ) : (
-                        <Link to={`/profile/${val.userId}`}>
+                        <Link
+                          to={`/profile/${val.userId}`}
+                          state={{ userID: props.userID._id }}
+                        >
                           <img
                             className="postProfileImg"
                             src={"/uploads/" + val.profileimg}
@@ -115,7 +118,11 @@ function Posts(props) {
                       )}
                     </span>
                     {val.img === "uploads/" ? (
-                      <img className="postImg" src={"/uploads/codeforces-sponsored-by-ton.png"} alt="" />
+                      <img
+                        className="postImg"
+                        src={"/uploads/codeforces-sponsored-by-ton.png"}
+                        alt=""
+                      />
                     ) : (
                       <img
                         className="postImg"
@@ -132,7 +139,7 @@ function Posts(props) {
                         //   onClick={likeHandler}
                         alt=""
                       />
-                      <img 
+                      <img
                         className="likeIcon"
                         src="uploads/—Pngtree—vector typing icon_3773950.png"
                         //   onClick={likeHandler}

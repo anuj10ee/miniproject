@@ -102,12 +102,22 @@ body{
 	align-items: center;
 }
 
-.login-content{
+.login .login-content{
 	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	text-align: center;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    overflow: scroll;
 }
+
+.register .login-content{
+	display: flex;
+    justify-content: flex-start;
+    /* align-items: center; */
+    text-align: center;
+    overflow: scroll;
+}
+
 
 .img img{
 	width: 500px;
@@ -215,10 +225,10 @@ body{
 	color: #555;
 	font-family: 'poppins', sans-serif;
 }
-
+/* 
 .input-div.pass{
 	margin-bottom: 4px;
-}
+} */
 
 .login a{
 	display: block;

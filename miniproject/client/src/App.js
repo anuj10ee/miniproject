@@ -17,6 +17,7 @@ import Friends from "./components/friends/Friends"
 import OtherProfile from "./components/otherProfile/OtherProfile";
 import Contest from "./components/Contests/contest";
 import Enterdetails from "./components/auth/enterdetails/Enterdetails";
+import Search from "./components/Search/Search";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/contest" element={<Contest />}></Route>
         <Route path="/logout" element={<Logout />}></Route>
         <Route path="/editOptions" element={<Edit />}></Route>
+        <Route path="/search" element={<Search />}></Route>
       </Routes>
 
       {/* <h1>Register</h1>

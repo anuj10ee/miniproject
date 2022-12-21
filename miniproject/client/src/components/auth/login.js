@@ -33,7 +33,6 @@ function Login() {
     });
 
     const data = await response.json();
-    console.log("jhshgdjsgdkuchksh");
     console.log(data);
     if (response.status === 400 || !data) {
       window.alert("INVALID LOGIN");
@@ -137,9 +136,10 @@ function Login() {
             </div>
             {/* <a href="#">Forgot Password?</a> */}
             <input type="submit" className="btn" value="Login" />
-            <a href="/register" className="btn">Register</a>
+            <a href="/register" className="btn">
+              Register
+            </a>
           </form>
-          
         </div>
       </div>
     </div>
