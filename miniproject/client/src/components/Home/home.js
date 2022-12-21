@@ -46,7 +46,18 @@ const Home = () => {
   return (
     <div className="home">
       {/* <div className="leftbar">YE HAI LEFT </div> */}
-      <div className="feed">{Data ? <Timeline data={Data} /> : "x"}</div>
+      <div className="feed">{Data ? <Timeline data={Data} /> : (
+        <div class="middle">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+        <div class="bar bar3"></div>
+        <div class="bar bar4"></div>
+        <div class="bar bar5"></div>
+        <div class="bar bar6"></div>
+        <div class="bar bar7"></div>
+        <div class="bar bar8"></div>
+      </div>
+      )}</div>
       {/* <div className="rightbar">YE HAI RIGHT SIDE</div> */}
       {/* <button className="logout" style={{ padding: 30, background: "yellow" }}>
         <a href="/logout">LOGOUT</a>

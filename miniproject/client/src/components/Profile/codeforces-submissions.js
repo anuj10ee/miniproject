@@ -3,7 +3,8 @@ const callCodeforcessubmissions = async (props) => {
 
   try {
     const res = await fetch(
-      `https://codeforces.com/api/user.status?handle=`+props.userID.codeforcesID,
+      `https://codeforces.com/api/user.status?handle=` +
+        props.userID.codeforcesID,
       {
         method: "GET",
         headers: {
@@ -15,12 +16,11 @@ const callCodeforcessubmissions = async (props) => {
     const codeforcesdata = await res.json();
     console.log(codeforcesdata);
     for await (const results of codeforcesdata.result) {
-        console.log(results);
+      console.log(results);
 
-        console.log(results.verdict);
+      console.log(results.verdict);
 
       if (results.verdict === "OK") {
-
         console.log(props);
         console.log(results.id);
         const response = await fetch("http://localhost:1337/posts/codeforces", {
@@ -31,9 +31,10 @@ const callCodeforcessubmissions = async (props) => {
           body: JSON.stringify({
             userId: props.userID._id,
             time: results.creationTimeSeconds,
-            problemname:results.problem.name,
-            contestId:results.problem.contestId,
-            index:results.problem.index,
+            problemname: results.problem.name,
+            contestId: results.problem.contestId,
+            index: results.problem.index,
+            userName:props.userID.name,
           }),
         });
         const data = await response.json();

@@ -10,25 +10,25 @@ const PostSchema = new mongoose.Schema(
       type: String,
       max: 500,
     },
-    profileimg:{
-      type:String,
-      default:"uploads/",
+    profileimg: {
+      type: String,
+      default: "uploads/",
     },
     img: {
-      type:String,
-      default:"uploads/"
+      type: String,
+      default: "uploads/",
     },
-    problemname:{
-      type:String,
+    problemname: {
+      type: String,
     },
-    contestId:{
-      type:String,
+    contestId: {
+      type: String,
     },
-    index:{
-      type:String,
+    index: {
+      type: String,
     },
-    time:{
-      type:String,
+    time: {
+      type: String,
       // unique:true,
     },
     userName: {

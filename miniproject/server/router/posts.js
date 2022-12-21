@@ -39,19 +39,23 @@ router.post("/", upload.single("image"), async (req, res) => {
   var newPost = new Post(req.body);
   // console.log(newPost);
   try {
-    console.log(req.file.path);
+    // console.log(req.file.path);
     if (req.file.path) {
       req.body.img = req.file.filename;
-      console.log(req.body.img);
-      console.log("46");
+      // console.log(req.body.img);
+      // console.log("46");
       newPost.img = req.body.img;
     }
     const user = await User.findById(req.body.userId);
-    console.log(user);
-    console.log(newPost.profileimg);
-    console.log(user.img);
+    // console.log(user);
+    // console.log(newPost.profileimg);
+    // console.log(user.img);
     newPost.profileimg = user.img;
-    console.log(newPost.profileimg);
+    console.log("54")
+    console.log(req.body);
+    newPost.desc=req.body.postText;
+    newPost.userName=req.body.name;
+    // console.log(newPost.profileimg);
     var createdDt = new Date();
     newPost.time = createdDt;
     // Post.insertOne( { ts: new Timestamp() } );
@@ -84,6 +88,7 @@ router.post("/codeforces", async (req, res) => {
     newPost.problemname = req.body.problemname;
     newPost.contestId = req.body.contestId;
     newPost.index = req.body.index;
+    newPost.userName=req.body.userName;
     // const post = await Post.find();
     // const a=await ;
     // console.log(Post.find({ time: t }));

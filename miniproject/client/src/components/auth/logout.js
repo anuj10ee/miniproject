@@ -1,7 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./logout.css"
+import "./logout.css";
+import { Link } from "react-router-dom";
 
 const Logout = () => {
   //promises
@@ -32,9 +33,11 @@ const Logout = () => {
         <div class="wrapper-1">
           <div class="wrapper-2">
             <h1>Thank you !</h1>
-            <p>Thanks for visiting our website. </p>
+            <p>Thanks for visiting codebook. </p>
             <p>you are logged out successfully </p>
-            <button class="go-home">Login</button>
+            <button class="go-home">
+            <Link to="/login">Login</Link>
+            </button>
           </div>
           {/* <div class="footer-like">
             <p>

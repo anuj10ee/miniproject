@@ -160,7 +160,7 @@ const Register = () => {
         <div className="login-content">
           <form onSubmit={registerUser}>
             {/* <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/avatar.svg" /> */}
-            <h2 className="title">Welcome</h2>
+            {/* <h2 className="title">Welcome</h2> */}
             <div className="input-div one">
               <div className="i">
                 <i className="fas fa-user"></i>

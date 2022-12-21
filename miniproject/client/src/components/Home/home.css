@@ -5,7 +5,7 @@
     background: rgb(42, 36, 36);
 }
 .home .feed{
-    width: 50%;
+    width: 65%;
     margin: 50px 0;
     background-color: rgb(195 217 210);    
     padding: 20px 0;
@@ -15,6 +15,6 @@
     box-shadow: 0px 0px 16px -8px;
     background-color: rgb(240,240,240);
     border-radius: 6px;
-    border: 2px solid olive;
+    /* border: 2px solid olive; */
 
 }

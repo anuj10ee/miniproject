@@ -191,7 +191,7 @@
   }
    */
    .edit{
-    background-color:gray;
+    background-color:rgb(195 217 210);
    }
 .edit .head{
     display:flex;
@@ -218,24 +218,31 @@
     /* /* align-items: baseline; */
 }
 .edit .lower form img{
-  
+  border-radius: 100%;
   width: 25%;
 
 }
+.edit .ima{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .edit .lower span{
-    color:white;
+    color:black;
 }
 .edit .submit{
     padding: 10px 20px;
     background: white;
     color: black;
-    margin: 5px;
+    margin: 20px;
     border-radius: 5px;
 }
 .edit .form span{
     font-size: 20px;
+    padding: 5px 0;
 }
 
 .edit .form input{
     font-size:20px;
+    padding: 5px;
 }

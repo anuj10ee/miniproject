@@ -57,7 +57,7 @@ function Posts(props) {
   }, []);
   return (
     <>
-      {console.log(data)}
+      {/* {console.log(data)} */}
       {data && userdata ? (
         data.map((val, i) => {
           return (
@@ -66,9 +66,9 @@ function Posts(props) {
                 <div className="postWrapper">
                   <div className="postTop">
                     <div className="postTopLeft">
-                      {console.log(val.userId)}
+                      {/* {console.log(val.userId)}
                       {console.log(props.userID._id)}
-                      {console.log(val.userId === props.userID._id)}
+                      {console.log(val.userId === props.userID._id)} */}
                       {val.userId === props.userID._id ? (
                         <Link to={`/profile`}>
                           <img
@@ -87,7 +87,10 @@ function Posts(props) {
                         </Link>
                       )}
 
-                      <span className="postUsername"></span>
+                      <span className="postUsername">
+                        {console.log(val.name)}
+                        {val.userName}
+                      </span>
                       <span className="postDate">
                         {val.time ? val.time.slice(0, 25) : "y"}
                       </span>

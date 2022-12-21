@@ -1,6 +1,6 @@
 .register {
     height: fit-content;
-    background-color: #c1beff;
+    background: rgb(195 217 210);
     display: flex;
     align-items: center;
     justify-content: center;

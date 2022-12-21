@@ -76,7 +76,7 @@ function Profile(props) {
                     </h2>
                     <p>{details.title}</p>
                     <p className="content">{details.desc}</p>
-                    <button className="edit">
+                    {/* <button className="edit1"> */}
                       <Link
                         className="anchor"
                         to={"/editOptions"}
@@ -84,7 +84,7 @@ function Profile(props) {
                       >
                         EDIT
                       </Link>
-                    </button>
+                    {/* </button> */}
                   </div>
                 </div>
               </div>
@@ -141,7 +141,7 @@ function Profile(props) {
                     </ul>
                   </div>
                 </div>
-                <ChartContainer />
+                {/* <ChartContainer /> */}
               </div>
             ) : (
               ""
@@ -189,7 +189,7 @@ function Profile(props) {
                   </ul>
                 </div>
               </div>
-              <ChartContainer />
+              {/* <ChartContainer /> */}
             </div>
           </Fade>
           <Fade left>
@@ -230,7 +230,7 @@ function Profile(props) {
                   </ul>
                 </div>
               </div>
-              <ChartContainer />
+              {/* <ChartContainer /> */}
             </div>
           </Fade>
         </div>

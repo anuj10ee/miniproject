@@ -84,6 +84,20 @@ const Edit = () => {
             onSubmit={updateUser}
             enctype="multipart/form-data"
           >
+             <span>Profile-Picture: </span>
+            {console.log(details.img)}
+            <div className="ima">
+            <img src={"uploads/" + details.img} alt="asdf" />
+            </div>
+           
+            <input
+              // value={profilePic}
+              type="file"
+              onChange={(e) => setProfilePic(e.target.files[0])}
+
+              // placeholder="Add Codeforces username"
+            />
+
             <span>NAME: </span>
             <input
               value={name}
@@ -156,17 +170,7 @@ const Edit = () => {
               placeholder="Add Gfg username"
             />
 
-            <span>Profile-Picture: </span>
-            {console.log(details.img)}
-            <img src={"uploads/" + details.img} alt="asdf" />
-            <input
-              // value={profilePic}
-              type="file"
-              onChange={(e) => setProfilePic(e.target.files[0])}
-
-              // placeholder="Add Codeforces username"
-            />
-
+           
             <input
               type="submit"
               className="submit"
