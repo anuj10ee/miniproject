@@ -1,5 +1,5 @@
 .register {
-    height: 100vh;
+    height: fit-content;
     background-color: #c1beff;
     display: flex;
     align-items: center;
@@ -67,4 +67,12 @@
     color: white;
     font-weight: bold;
     cursor: pointer;
+}
+.register .container{
+    width: 100vw;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap :7rem;
+    padding: 0 2rem;
 }

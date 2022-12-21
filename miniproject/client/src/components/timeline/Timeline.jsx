@@ -61,7 +61,7 @@ function Timeline(props) {
               <img src={"uploads/" + props.data.img} alt="" />
             </div>
             <div className="right">
-              <input type="text" placeholder="OR KYA CHL RHA HAI" />
+              <input type="text" placeholder="Write Something..." />
               <br />
             </div>
           </div>

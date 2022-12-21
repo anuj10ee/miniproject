@@ -16,6 +16,7 @@ import Friends from "./components/friends/Friends"
 // // import Notify from "./components/alert/Alert"
 import OtherProfile from "./components/otherProfile/OtherProfile";
 import Contest from "./components/Contests/contest";
+import Enterdetails from "./components/auth/enterdetails/Enterdetails";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
       </Route> */}
 
         <Route path="/register" element={<Register />}></Route>
+        <Route path="/enterdetails" element={<Enterdetails />}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/friends" element={<Friends />}></Route>
         <Route path="/contest" element={<Contest />}></Route>

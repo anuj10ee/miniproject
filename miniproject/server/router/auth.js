@@ -21,7 +21,19 @@ const bcrypt = require("bcryptjs");
 console.log("BLAHHHH");
 router.post("/register", async (req, res) => {
   // console.log(abc);
-  const { email, name, address, password, codechefID, codeforcesID,college,branch,desc,title,gfgID } = req.body;
+  const {
+    email,
+    name,
+    address,
+    password,
+    codechefID,
+    codeforcesID,
+    college,
+    branch,
+    desc,
+    title,
+    gfgID,
+  } = req.body;
   console.log(name);
   // console.log(req.body);
   // console.log(xyz);
@@ -45,9 +57,9 @@ router.post("/register", async (req, res) => {
         codeforcesID,
         college,
         branch,
-desc,
-title,gfgID
-
+        desc,
+        title,
+        gfgID,
       });
 
       await user.save();
@@ -148,22 +160,25 @@ router.get("/home", authenticate, (req, res) => {
   res.send(req.rootUser);
 });
 
-
-
-
-
-
-
 router.get("/profile", authenticate, async (req, res) => {
   console.log("HELLO FROM Profile");
-  const requestOne = axios.get(`https://www.codechef.com/users/${req.rootUser.codechefID}`);
-const requestTwo = axios.get(`https://codeforces.com/profile/${req.rootUser.codeforcesID}`);
-const requestThree = axios.get(`https://auth.geeksforgeeks.org/user/${req.rootUser.gfgID}/`);
-axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...responses) => {
-  const responseOne = responses[0]
-  const responseTwo = responses[1]
-  const responseThree = responses[2]
-  //  console.log(response);
+  const requestOne = axios.get(
+    `https://www.codechef.com/users/${req.rootUser.codechefID}`
+  );
+  const requestTwo = axios.get(
+    `https://codeforces.com/profile/${req.rootUser.codeforcesID}`
+  );
+  const requestThree = axios.get(
+    `https://auth.geeksforgeeks.org/user/${req.rootUser.gfgID}/`
+  );
+  axios
+    .all([requestOne, requestTwo, requestThree])
+    .then(
+      axios.spread((...responses) => {
+        const responseOne = responses[0];
+        const responseTwo = responses[1];
+        const responseThree = responses[2];
+        //  console.log(response);
         // console.log(response.data);
         const $ = cheerio.load(responseOne.data);
         let so = $(".content");
@@ -171,12 +186,10 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
         so = $(h[0]).text();
         // console.log(solved);
         result = so.substring(
+          so.lastIndexOf("(") + 1,
 
-          so.lastIndexOf("(") + 1, 
-      
           so.lastIndexOf(")")
-      
-      );
+        );
         // result = so.substring(14, 17);
         // console.log(result);
         req.rootUser.codechefSub = result;
@@ -188,13 +201,13 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
         let rank = $(".inline-list li a");
         let rankstrong = rank.find("strong");
         console.log(rankstrong.length);
-        rank=$(rankstrong[0]).text();
-        req.rootUser.codechefRank=rank;
+        rank = $(rankstrong[0]).text();
+        req.rootUser.codechefRank = rank;
 
         // $(".table-questions > table > tbody > tr > td").each((index, element) => {
 
         //   console.log($(element).text());
-          
+
         //   });
         // let rowArray=$("#rankContentDiv > div:nth-child(1) > table > tbody > tr:nth-child(1) > td:nth-child(2)");
         // // let anchorArray=rowArray.find("a");
@@ -204,15 +217,15 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
         // console.log(anchorArray);
         // for(let i=0;i<60;i++)
         // {
-          // let x=$(spanArray[1]).attr("title");
-          // console.log("x "+x);
-          // let y=$(anchorArray[1]).attr("href");
-          //   console.log("y"+y);
-          // if(x=="accepted")
-          // {
-          //   let y=$(anchorArray[0]).text();
-          //   console.log(y);
-          // }
+        // let x=$(spanArray[1]).attr("title");
+        // console.log("x "+x);
+        // let y=$(anchorArray[1]).attr("href");
+        //   console.log("y"+y);
+        // if(x=="accepted")
+        // {
+        //   let y=$(anchorArray[0]).text();
+        //   console.log(y);
+        // }
         // }
         // for(let i=0;i<rowArray.length;i++)
         // {
@@ -225,7 +238,7 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
         // console.log("2");
         // console.log(req.rootUser);
         // req.rootUser["codechefSub"] = "test";
-       
+
         // console.log("3");
         // console.log(req.rootUser);
         // console.log("4");
@@ -238,61 +251,60 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
         // });
         // res.send(req.rootUser);
 
+        let a = cheerio.load(responseTwo.data);
+        let so2 = a("._UserActivityFrame_footer");
+        let h2 = so2.find("._UserActivityFrame_counterValue");
+        so2 = a(h2[0]).text();
 
+        const arr = so2.split(/ (.*)/);
 
-            let a = cheerio.load(responseTwo.data);
-            let so2 = a("._UserActivityFrame_footer");
-            let h2 = so2.find("._UserActivityFrame_counterValue");
-            so2 = a(h2[0]).text();
-            
-            const arr = so2.split(/ (.*)/);
-            
-            // result = so.substring(14, 17);
-            console.log(arr[0]);
-            req.rootUser.codeforcesSub = arr[0];
+        // result = so.substring(14, 17);
+        console.log(arr[0]);
+        req.rootUser.codeforcesSub = arr[0];
 
+        let b = cheerio.load(responseThree.data);
+        let so3 = b(".row.score_cards_container");
+        let h3 = so3.find(".score_card_value");
+        so3 = b(h3[1]).text();
+        console.log(so3);
 
-            let b = cheerio.load(responseThree.data);
-                let so3 = b(".row.score_cards_container");
-                let h3 = so3.find(".score_card_value");
-                so3 = b(h3[1]).text();
-                console.log(so3); 
-                
-                // result = so.substring(14, 17);
-                // console.log(result);
-                // console.log(gfgSub);
-                req.rootUser.gfgSub = so3;
+        // result = so.substring(14, 17);
+        // console.log(result);
+        // console.log(gfgSub);
+        req.rootUser.gfgSub = so3;
 
-                let rankgfg=b(".rankNum").text();
-                req.rootUser.gfgRank=rankgfg;
-                console.log(rankgfg);
- 
-                let gfgscore=b(".row.score_cards_container");
-                let gfgs=gfgscore.find(".score_card_value");
-                gfgscore=b(gfgs[0]).text();
-                req.rootUser.gfgScore = gfgscore;
-            //     // req.rootUser.save(function (err, result) {
-            //     //   if (err) {
-            //     //     console.log(err);
-            //     //   } else {
-            //     //     console.log(result);
-            //     //   }
-            //     // });
-            //     // res.send(req.rootUser);
-               
-            req.rootUser.save(function (err, result) {
-              if (err) {
-                console.log(err);
-              } else {
-                console.log(result);
-              }
-            });
-            res.send(req.rootUser);
+        let rankgfg = b(".rankNum").text();
+        req.rootUser.gfgRank = rankgfg;
+        console.log(rankgfg);
 
-  // use/access the results 
-})).catch(errors => {
- console.log(errors);
-})
+        let gfgscore = b(".row.score_cards_container");
+        let gfgs = gfgscore.find(".score_card_value");
+        gfgscore = b(gfgs[0]).text();
+        req.rootUser.gfgScore = gfgscore;
+        //     // req.rootUser.save(function (err, result) {
+        //     //   if (err) {
+        //     //     console.log(err);
+        //     //   } else {
+        //     //     console.log(result);
+        //     //   }
+        //     // });
+        //     // res.send(req.rootUser);
+
+        req.rootUser.save(function (err, result) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(result);
+          }
+        });
+        res.send(req.rootUser);
+
+        // use/access the results
+      })
+    )
+    .catch((errors) => {
+      console.log(errors);
+    });
 
   // res.send("HELLO WORLD FROM SERVER");
   // try {
@@ -324,7 +336,7 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
   //       // $(".table-questions > table > tbody > tr > td").each((index, element) => {
 
   //       //   console.log($(element).text());
-          
+
   //       //   });
   //       // let rowArray=$("#rankContentDiv > div:nth-child(1) > table > tbody > tr:nth-child(1) > td:nth-child(2)");
   //       // // let anchorArray=rowArray.find("a");
@@ -355,7 +367,7 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
   //       // console.log("2");
   //       // console.log(req.rootUser);
   //       // req.rootUser["codechefSub"] = "test";
-       
+
   //       // console.log("3");
   //       // console.log(req.rootUser);
   //       // console.log("4");
@@ -384,14 +396,13 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
   //     let so = $("._UserActivityFrame_footer");
   //     let h = so.find("._UserActivityFrame_counterValue");
   //     so = $(h[0]).text();
-      
+
   //     const arr = so.split(/ (.*)/);
-      
+
   //     // result = so.substring(14, 17);
   //     // console.log(result);
   //     req.rootUser.codeforcesSub = arr[0];
 
-      
   //     // res.send(req.rootUser);
   //   })
   //   .catch((err) => console.log(err));
@@ -401,8 +412,6 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
   // {
   //   console.log(err);
   // }
-
-
 
   // try{
   //   axios
@@ -415,8 +424,8 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
   //     let so = $(".row.score_cards_container");
   //     let h = so.find(".score_card_value");
   //     so = $(h[1]).text();
-  //     console.log(so); 
-      
+  //     console.log(so);
+
   //     // result = so.substring(14, 17);
   //     // console.log(result);
   //     // console.log(gfgSub);
@@ -446,14 +455,7 @@ axios.all([requestOne, requestTwo, requestThree]).then(axios.spread((...response
   // {
   //   console.log(err);
   // }
-  
 });
-
-
-
-
-
-
 
 router.get("/profile/:id", (req, res) => {
   console.log("HELLO FROM Profile2");

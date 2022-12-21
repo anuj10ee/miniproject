@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // import { MoreVert } from "@material-ui/icons";
 import callDetails from "./calldetails";
 import callCodeforcessubmissions from "../Profile/codeforces-submissions";
+// import img from "publ"
 
 function Posts(props) {
   const [data, setData] = useState("");
@@ -72,7 +73,7 @@ function Posts(props) {
                         <Link to={`/profile`}>
                           <img
                             className="postProfileImg"
-                            src={"uploads/" + userdata.img}
+                            src={"/uploads/" + userdata.img}
                             alt=""
                           />
                         </Link>
@@ -80,7 +81,7 @@ function Posts(props) {
                         <Link to={`/profile/${val.userId}`}>
                           <img
                             className="postProfileImg"
-                            src={"uploads/" + val.profileimg}
+                            src={"/uploads/" + val.profileimg}
                             alt=""
                           />
                         </Link>
@@ -111,7 +112,7 @@ function Posts(props) {
                       )}
                     </span>
                     {val.img === "uploads/" ? (
-                      <img className="postImg" src={"uploads/cf2.png"} alt="" />
+                      <img className="postImg" src={"/uploads/codeforces-sponsored-by-ton.png"} alt="" />
                     ) : (
                       <img
                         className="postImg"

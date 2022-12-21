@@ -60,7 +60,7 @@ function Login() {
       />
         : */}
 
-      <div className="card">
+      {/* <div className="card">
         <div className="left">
           <h1>Hello World.</h1>
           <p>
@@ -93,6 +93,53 @@ function Login() {
             <input type="submit" value="Login" style={{ cursor: "pointer" }} />
             <br />
           </form>
+        </div>
+      </div> */}
+      <img
+        className="wave"
+        src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/wave.png"
+      />
+      <div className="container">
+        <div className="img">
+          <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/bg.svg" />
+        </div>
+        <div className="login-content">
+          <form onSubmit={loginUser}>
+            {/* <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/avatar.svg" /> */}
+            <h2 className="title">Welcome</h2>
+            <div className="input-div one">
+              <div className="i">
+                <i className="fas fa-user"></i>
+              </div>
+              <div className="div">
+                {/* <h5>Username</h5> */}
+                <input
+                  value={email}
+                  onChange={(e) => setemail(e.target.value)}
+                  type="email"
+                  placeholder="Email"
+                />
+              </div>
+            </div>
+            <div className="input-div pass">
+              <div className="i">
+                <i className="fas fa-lock"></i>
+              </div>
+              <div className="div">
+                {/* <h5>Password</h5> */}
+                <input
+                  value={password}
+                  onChange={(e) => setpassword(e.target.value)}
+                  type="password"
+                  placeholder="Password"
+                />
+              </div>
+            </div>
+            {/* <a href="#">Forgot Password?</a> */}
+            <input type="submit" className="btn" value="Login" />
+            <a href="/register" className="btn">Register</a>
+          </form>
+          
         </div>
       </div>
     </div>

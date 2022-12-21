@@ -96,8 +96,9 @@ function OtherProfile() {
               <div className="right">
                 <div className="inner-right">
                 <div className="skills">
-                    <h2 >FOLLOWERS: <span>{details.followers.length}</span></h2>
-                    <h2 >FOLLOWINGS: <span>{details.followings.length}</span></h2>
+                <h3 >Total Problem Solved: <span>{details.followers.length}</span></h3>
+                    <h3 >Followers: <span>{details.followers.length}</span></h3>
+                    <h3 >Followings: <span>{details.followings.length}</span></h3>
                    
                   </div>
                   <div className="education">

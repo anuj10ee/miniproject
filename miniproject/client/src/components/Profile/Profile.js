@@ -93,9 +93,10 @@ function Profile(props) {
                 
                   
                   <div className="skills">
-
-                    <h3 >FOLLOWERS: <span>{details.followers.length}</span></h3>
-                    <h3 >FOLLOWINGS: <span>{details.followings.length}</span></h3>
+                  <h2 className="hover-underline-animation">Skills</h2>
+                  <h3 >Total Problems Solved: <span>{parseInt(details.codechefSub)+parseInt(details.codeforcesSub)+parseInt(details.gfgSub)}</span></h3>
+                    <h3 >Followers: <span>{details.followers.length}</span></h3>
+                    <h3 >Followings: <span>{details.followings.length}</span></h3>
                    
                   </div>
                   <div className="education">

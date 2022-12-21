@@ -1,5 +1,6 @@
 .contest{
     background-color: rgb(42, 36, 36);
+    margin-top:50px;
 }
 .contest h1{
     color:white;
@@ -9,7 +10,7 @@
     align-items: center;
 }
 .contest table{
-    background-color: white;
+    background-color: rgb(195 217 210);
     margin: auto;
     width: 90%;
     padding: 20px;

@@ -3,15 +3,15 @@ import { useState } from "react";
 // import { useHistory } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import "./register.css";
+import "../register.css";
 
-const Register = () => {
+const Enterdetails = () => {
   // const history=useHistory();
   const navigate = useNavigate();
 
-  const [name, setname] = useState("");
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
+//   const [name, setname] = useState("");
+//   const [email, setemail] = useState("");
+//   const [password, setpassword] = useState("");
   const [codechefID, setcodechefID] = useState("");
   const [codeforcesID, setcodeforcesID] = useState("");
   const [gfgID, setgfgID] = useState("");
@@ -23,16 +23,13 @@ const Register = () => {
 
   async function registerUser(event) {
     event.preventDefault();
-    const response = await fetch("http://localhost:1337/register", {
+    const response = await fetch("http://localhost:1337/enterdetails", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name,
-        email,
         address,
-        password,
         desc,
         codechefID,
         codeforcesID,
@@ -160,48 +157,9 @@ const Register = () => {
         <div className="login-content">
           <form onSubmit={registerUser}>
             {/* <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/avatar.svg" /> */}
-            <h2 className="title">Welcome</h2>
+            <h2 className="title">Enter Details</h2>
+            
             <div className="input-div one">
-              <div className="i">
-                <i className="fas fa-user"></i>
-              </div>
-              <div className="div">
-                {/* <h5>Username</h5> */}
-                <input
-              value={name}
-              onChange={(e) => setname(e.target.value)}
-              type="text"
-              placeholder="Name"
-            />
-              </div>
-            </div>
-            <div className="input-div one">
-              <div className="i">
-                <i className="fas fa-user"></i>
-              </div>
-              <div className="div">
-                {/* <h5>Username</h5> */}
-                <input
-              value={email}
-              onChange={(e) => setemail(e.target.value)}
-              type="email"
-              placeholder="Email"
-            />
-              </div>
-            </div><div className="input-div one">
-              <div className="i">
-                <i className="fas fa-user"></i>
-              </div>
-              <div className="div">
-                {/* <h5>Username</h5> */}
-                <input
-              value={address}
-              onChange={(e) => setaddress(e.target.value)}
-              type="text"
-              placeholder="Address"
-            />
-              </div>
-            </div><div className="input-div one">
               <div className="i">
                 <i className="fas fa-user"></i>
               </div>
@@ -256,20 +214,7 @@ const Register = () => {
             />
               </div>
             </div>
-            <div className="input-div pass">
-              <div className="i">
-                <i className="fas fa-lock"></i>
-              </div>
-              <div className="div">
-                {/* <h5>Password</h5> */}
-                <input
-              value={password}
-              onChange={(e) => setpassword(e.target.value)}
-              type="password"
-              placeholder="Password"
-            />
-              </div>
-            </div>
+            
             <div className="input-div one">
               <div className="i">
                 <i className="fas fa-user"></i>
@@ -314,7 +259,7 @@ const Register = () => {
             </div>
             
             {/* <a href="#">Forgot Password?</a> */}
-            <input type="submit" className="btn" value="Register" />
+            <input type="submit" className="btn" value="Proceed" />
           </form>
           
         </div>
@@ -323,4 +268,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Enterdetails;

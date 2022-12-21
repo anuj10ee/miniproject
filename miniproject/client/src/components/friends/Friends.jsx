@@ -44,10 +44,11 @@ function Friends() {
     <div className="friends">
 
     <div className="left">
+    <div className="inner">
     <div className="head">
      <h1>Followers</h1>
       </div>
-    <div className="inner">
+    
       {/* {
         flag==1?"0":"1"
       }, */}

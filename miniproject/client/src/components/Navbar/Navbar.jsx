@@ -10,14 +10,14 @@ function Navbar() {
         <div className="left">
           <ul className="outer">
             <li className="inner">
-              <Link to="/home" >Home</Link>
+              <Link to="/home">Home</Link>
             </li>
             <li className="inner">
               <Link to="/profile">Profile</Link>
             </li>
-            <li className="inner">
+            {/* <li className="inner">
               <Link to="/feed">Feed</Link>
-            </li>
+            </li> */}
             <li className="inner">
               <Link to="/contest">Contests</Link>
             </li>
@@ -27,17 +27,21 @@ function Navbar() {
             </li>
             <li className="inner">
               {" "}
+              <Link to="/logout">Logout</Link>
+            </li>
+            {/* <li className="inner">
+              {" "}
               <Link to="/targetset">Targetset</Link>
-            </li>
-            <li className="inner">
+            </li> */}
+            {/* <li className="inner">
               <Link to="/teams">Teams</Link>
-            </li>
-            <li className="inner">
+            </li> */}
+            {/* <li className="inner">
               <Link to="/search">Search</Link>
-            </li>
-            <li className="inner">
-              <Link to="/settings">Settings</Link>
-            </li>
+            </li> */}
+            {/* <li className="inner">
+              <Link to="/editOptions">Settings</Link>
+            </li> */}
           </ul>
         </div>
         <div className="right"></div>

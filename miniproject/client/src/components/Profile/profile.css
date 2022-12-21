@@ -38,18 +38,20 @@
     justify-content: center;
     align-items: center;
     background: rgb(42, 36, 36);
+    margin-top: 50px;
 
 }
 
 .profile .left .edit{
-  margin: 4px;
-  background-color: black;
+  background-color: rgb(51,190,143);
   border-radius: 5px;
   padding: 5px 10px;
   display: flex;
+  margin: 10px 0px 0px 0px;
   align-items: center;
-  width: 40%;
+  width: 100%;
   justify-content: center;
+  cursor: pointer;
 }
 
 .profile .edit .anchor{
@@ -60,7 +62,7 @@
 .profile .card1{
 
     width: 90%;
-    background-color: rgb(189, 230, 189);
+    background-color: rgb(195 217 210);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -101,15 +103,19 @@
     width: 50%;
 }
 .profile .card1 .right .inner-right{
-  width: 100%;
+  width: 95%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
 }
 .profile .card1 .right .education h2{
     margin: 5px 0px;
     color:rgb(42, 36, 36);
     font-family: 'Poppins', sans-serif;
+    text-align: center;
 }
 .profile .card1 .right .education p{
   font-family: 'Poppins', sans-serif;
@@ -162,7 +168,7 @@ width:50%
     width: 90%;
     display: flex;
     flex-direction: column;
-    background-color: rgb(189, 230, 189);
+    background-color: rgb(195 217 210);
     justify-content: center;
     align-items: center;
     margin: auto;
@@ -175,7 +181,7 @@ width:50%
     display: flex;
     justify-content: center;
     align-items: center;
-
+    margin-bottom: 10px;
 }
 .profile .card2 .head img
 {
@@ -191,6 +197,7 @@ width:50%
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
 }
 .profile .card2 .content .left{
 width: 50%;
@@ -239,7 +246,7 @@ margin: 0 10%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5%;
+    margin: 3%;
 
 }
 .profile .card3 .head img
@@ -291,7 +298,7 @@ margin: 0 10%;
   width: 90%;
   display: flex;
   flex-direction: column;
-  background-color: rgb(189, 230, 189);
+  background-color: rgb(195 217 210);
   justify-content: center;
   align-items: center;
   margin: auto;
@@ -305,7 +312,7 @@ margin: 0 10%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5%;
+  margin: 3%;
 
 }
 .profile .card3 .head img
@@ -322,6 +329,7 @@ margin: 0 10%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: white;
 }
 .profile .card3 .content .left{
 width: 50%;
@@ -360,7 +368,7 @@ margin: 0 10%;
   width: 90%;
   display: flex;
   flex-direction: column;
-  background-color: rgb(189, 230, 189);
+  background-color: rgb(195 217 210);
   justify-content: center;
   align-items: center;
   margin: auto;
@@ -374,7 +382,7 @@ margin: 0 10%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2%;
+  margin: 1%;
 
 }
 .profile .card4 .head img
@@ -391,6 +399,7 @@ margin: 0 10%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
 }
 .profile .card4 .content .left{
 width: 50%;
