@@ -31,7 +31,6 @@ app.get("/", (req, res) => {
 
 app.get("/home", (req, res) => {
   res.cookie("Test", "something");
-  res.send("hluuu");
 });
 
 if (process.env.NODE_ENV === "production") {

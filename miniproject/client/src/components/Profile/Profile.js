@@ -152,9 +152,9 @@ function Profile(props) {
                   <div className="right">
                     <h3>RECENT SUBMISSIONS</h3>
                     <ul className="outer">
-                      <li className="inner">SQUIRRELS</li>
-                      <li className="inner">DOGS</li>
-                      <li className="inner">CATS</li>
+                      <li className="inner">{details.codechefSubmissions[0]}</li>
+                      <li className="inner">{details.codechefSubmissions[1]}</li>
+                      <li className="inner">{details.codechefSubmissions[2]}</li>
                     </ul>
                   </div>
                 </div>
@@ -197,9 +197,9 @@ function Profile(props) {
                 <div className="right">
                   <h3>RECENT SUBMISSIONS</h3>
                   <ul className="outer">
-                    <li className="inner">SQUIRRELS</li>
-                    <li className="inner">DOGS</li>
-                    <li className="inner">CATS</li>
+                    <li className="inner">{details.codeforcesSubmissions[0]}</li>
+                    <li className="inner">{details.codeforcesSubmissions[1]}</li>
+                    <li className="inner">{details.codeforcesSubmissions[2]}</li>
                   </ul>
                 </div>
               </div>
@@ -233,9 +233,9 @@ function Profile(props) {
                 <div className="right">
                   <h3>RECENT SUBMISSIONS</h3>
                   <ul className="outer">
-                    <li className="inner">SQUIRRELS</li>
-                    <li className="inner">DOGS</li>
-                    <li className="inner">CATS</li>
+                    <li className="inner">{details.gfgSubmissions[0]}</li>
+                    <li className="inner">{details.gfgSubmissions[1]}</li>
+                    <li className="inner">{details.gfgSubmissions[2]}</li>
                   </ul>
                 </div>
               </div>

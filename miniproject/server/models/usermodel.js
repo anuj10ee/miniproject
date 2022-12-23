@@ -13,6 +13,7 @@ const User = new mongoose.Schema(
 
     codechefID: { type: String, required: true },
     codechefSub: { type: String },
+    codechefSubmissions: { type: Array, default: [] },
     codechefRating: { type: String },
     codechefRank: { type: String },
     skills: [],
@@ -27,8 +28,11 @@ const User = new mongoose.Schema(
     gfgSub: { type: String },
     gfgRank: { type: String, default: "" },
     gfgScore: { type: String },
+    gfgSubmissions: { type: Array, default: [] },
     codeforcesID: { type: String, required: true },
     codeforcesSub: { type: String },
+    codeforcesSubmissions: { type: Array, default: [] },
+
     password: { type: String, required: true, min: 6 },
     quote: { type: String },
     img: {

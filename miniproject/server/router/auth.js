@@ -171,13 +171,18 @@ router.get("/profile", authenticate, async (req, res) => {
   const requestThree = axios.get(
     `https://auth.geeksforgeeks.org/user/${req.rootUser.gfgID}/`
   );
+  const requestFour = axios.get(
+    `https://codeforces.com/submissions/${req.rootUser.codeforcesID}`
+  );
   axios
-    .all([requestOne, requestTwo, requestThree])
+    .all([requestOne, requestTwo, requestThree, requestFour])
     .then(
       axios.spread((...responses) => {
         const responseOne = responses[0];
         const responseTwo = responses[1];
         const responseThree = responses[2];
+
+        const responseFour = responses[3];
         //  console.log(response);
         // console.log(response.data);
         const $ = cheerio.load(responseOne.data);
@@ -190,25 +195,40 @@ router.get("/profile", authenticate, async (req, res) => {
 
           so.lastIndexOf(")")
         );
+
         // result = so.substring(14, 17);
         // console.log(result);
         req.rootUser.codechefSub = result;
 
-        console.log("1");
         let rating = $(".rating-number").text();
         req.rootUser.codechefRating = rating;
 
         let rank = $(".inline-list li a");
         let rankstrong = rank.find("strong");
-        console.log(rankstrong.length);
+        // console.log(rankstrong.length);
         rank = $(rankstrong[0]).text();
         req.rootUser.codechefRank = rank;
 
-        // $(".table-questions > table > tbody > tr > td").each((index, element) => {
+        let sub = [];
+        let submission = $(
+          "body > main > div > div > div > div > div > section:nth-child(7) > div > article > p:nth-child(28) > span > a:nth-child(1)"
+        ).text();
+        // console.log("213"+submission);
 
+        $(
+          "body > main > div > div > div > div > div > section:nth-child(7) > div > article > p:nth-last-child(1) > span > a"
+        ).each((index, element) => {
+          // console.log($(element).text());
+          let jk = $(element).text();
+          sub.push(jk);
+        });
+        // console.log(sub);
+        req.rootUser.codechefSubmissions = sub;
+        // $(" div:nth-child(1) > table > tbody > tr > td:nth-child(2)").each((index, element) => {
+        //   console.log("213");
         //   console.log($(element).text());
+        // });
 
-        //   });
         // let rowArray=$("#rankContentDiv > div:nth-child(1) > table > tbody > tr:nth-child(1) > td:nth-child(2)");
         // // let anchorArray=rowArray.find("a");
         // console.log(rowArray.html);
@@ -259,14 +279,57 @@ router.get("/profile", authenticate, async (req, res) => {
         const arr = so2.split(/ (.*)/);
 
         // result = so.substring(14, 17);
-        console.log(arr[0]);
+        // console.log(arr[0]);
         req.rootUser.codeforcesSub = arr[0];
+
+
+        let codeforcesSubmissions=[]
+        let z = cheerio.load(responseFour.data);
+        // let xxcf = z(
+        //   ".submissionVerdictWrapper span"
+        // );
+        // // console.log(zcf);
+        // console.log(xxcf.text());
+       
+        var accept=[];
+        var problem=[];
+        z(".submissionVerdictWrapper span").each((index, element) => {
+
+          // console.log($(element).text());
+          let jks=z(element).text();
+          accept.push(jks);
+          });
+          z(".status-small a").each((index, element) => {
+
+            // console.log($(element).text());
+            let jks=z(element).text();
+            problem.push(jks);
+            });
+        for (let i = 0; i < 50; i++) {
+        
+          if (accept[i] === "Accepted") {
+            codeforcesSubmissions.push(problem[i]);
+          }
+          // console.log("213" + zcf);
+        }
+        console.log(codeforcesSubmissions);
+        req.rootUser.codeforcesSubmissions = codeforcesSubmissions;
+        // for()
+       
+        // let so2 = a("._UserActivityFrame_footer");
+        // let h2 = so2.find("._UserActivityFrame_counterValue");
+        // so2 = a(h2[0]).text();
+
+        // const arr = so2.split(/ (.*)/);
+
+        // result = so.substring(14, 17);
+        // console.log(arr[0]);
+        // req.rootUser.codeforcesSub = arr[0];
 
         let b = cheerio.load(responseThree.data);
         let so3 = b(".row.score_cards_container");
         let h3 = so3.find(".score_card_value");
         so3 = b(h3[1]).text();
-        console.log(so3);
 
         // result = so.substring(14, 17);
         // console.log(result);
@@ -275,12 +338,20 @@ router.get("/profile", authenticate, async (req, res) => {
 
         let rankgfg = b(".rankNum").text();
         req.rootUser.gfgRank = rankgfg;
-        console.log(rankgfg);
 
         let gfgscore = b(".row.score_cards_container");
         let gfgs = gfgscore.find(".score_card_value");
         gfgscore = b(gfgs[0]).text();
         req.rootUser.gfgScore = gfgscore;
+
+        var gfgSubmissions=[];
+        b(".problemLink").each((index, element) => {
+
+          // console.log($(element).text());
+          let jks=z(element).text();
+          gfgSubmissions.push(jks);
+          });
+          req.rootUser.gfgSubmissions = gfgSubmissions;
         //     // req.rootUser.save(function (err, result) {
         //     //   if (err) {
         //     //     console.log(err);
@@ -294,7 +365,7 @@ router.get("/profile", authenticate, async (req, res) => {
           if (err) {
             console.log(err);
           } else {
-            console.log(result);
+            // console.log(result);
           }
         });
         res.send(req.rootUser);
