@@ -135,10 +135,12 @@ function Login() {
               </div>
             </div>
             {/* <a href="#">Forgot Password?</a> */}
-            <input type="submit" className="btn" value="Login" />
-            <a href="/register" className="btn">
-              Register
-            </a>
+            <div className="idk">
+              <input type="submit" className="btn" value="Login" />
+              <a href="/register" className="btn">
+                Register
+              </a>
+            </div>
           </form>
         </div>
       </div>

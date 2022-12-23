@@ -32,10 +32,10 @@ export default function Home() {
         </div>
         <div className="lower">
           <div className="left">
-            <a href="/login">login</a>
+            <a href="/login">Login</a>
           </div>
           <div className="right">
-            <a href="/register">register</a>
+            <a href="/register">Register</a>
           </div>
         </div>
       </div>

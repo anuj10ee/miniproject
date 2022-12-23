@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     /* margin-top: 40px; */
-    background: rgb(195 217 210);
+    background: black;
     height: 100vh;
 }
 .temp .upper{
@@ -35,7 +35,7 @@
     display: inline-block;
     /* padding: 6px 12px; */
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 15px;
     background-color: rgb(240,240,240);
 
 }
@@ -55,7 +55,7 @@
     display: inline-block;
     /* padding: 6px 12px; */
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 15px;
     background-color: rgb(240,240,240);
 }
 .temp .lower .right a:hover{

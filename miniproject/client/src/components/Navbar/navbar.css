@@ -33,16 +33,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(51,190,143);
- height:50px; 
- border-radius: 5px;
- z-index: 1000;  
-     /* position: sticky; */
+    background: rgb(42, 36, 36);
+    height: 50px;
+    /* border-radius: 5px; */
+    z-index: 1000;
+    /* position: sticky; */
     /* display: contents; */
     position: fixed;
     /* padding: 6%; */
     width: 100%;
-    top:0;
+    top: 0;
 }
 
 .navbar .left{

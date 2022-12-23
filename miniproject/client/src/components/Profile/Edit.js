@@ -71,11 +71,12 @@ const Edit = () => {
       if (response.status === 422 || !data) {
         window.alert("INVALID");
       } else {
-        navigate("/Profile");
+        navigate("/profile");
       }
     } catch (err) {
+      navigate("/profile");
       console.log(err);
-      navigate("/Profile");
+      
     }
   }
   return (

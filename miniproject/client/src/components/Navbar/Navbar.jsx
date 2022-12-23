@@ -23,7 +23,7 @@ function Navbar() {
             </li>
             <li className="inner">
               {" "}
-              <Link to="/friends">Friends</Link>
+              <Link to="/friends">Followers</Link>
             </li>
             <li className="inner">
               {" "}

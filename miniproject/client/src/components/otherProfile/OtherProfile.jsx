@@ -25,7 +25,6 @@ function OtherProfile(props) {
   const [details, setDetails] = useState("");
   const [codechefdata, setcodechefdata] = useState("");
   const [codeforcesdata, setcodeforcesdata] = useState("");
-
   const followUser = async (event) => {
     event.preventDefault();
     console.log(userId);
@@ -133,9 +132,7 @@ function OtherProfile(props) {
                 </div>
                 <div className="info">
                   <div className="inner-info">
-                    <h2 className="hover-underline-animation">
-                      {details.name}
-                    </h2>
+                    <h2>{details.name}</h2>
                     <p>{details.title}</p>
                     <p className="content">{details.desc}</p>
                     {/* <button className="edit">
@@ -147,18 +144,26 @@ function OtherProfile(props) {
                         EDIT
                       </Link>
                     </button> */}
+                    <div className="rightinner">
+                      <button className="btns" onClick={followUser}>
+                        Follow
+                      </button>
+                      <button onClick={unfollowUser}>Unfollow</button>
+                    </div>
                   </div>
                 </div>
               </div>
               <div className="right">
-                <button onClick={followUser}>Follow</button>
-                <button onClick={unfollowUser}>unfollow</button>
                 <div className="inner-right">
                   <div className="skills">
                     <h2 className="hover-underline-animation">Skills</h2>
                     <h3>
                       Total Problem Solved:{" "}
-                      <span>{details.followers.length}</span>
+                      <span>
+                        {parseInt(details.codechefSub) +
+                          parseInt(details.codeforcesSub) +
+                          parseInt(details.gfgSub)}
+                      </span>
                     </h3>
                     <h3>
                       Followers: <span>{details.followers.length}</span>
@@ -169,8 +174,20 @@ function OtherProfile(props) {
                   </div>
                   <div className="education">
                     <h2 className="hover-underline-animation">EDUCATION</h2>
-                    <p>{details.college}</p>
-                    <p>{details.branch}</p>
+
+                    <p>
+                      <span>
+                        <strong>College: </strong>
+                      </span>
+                      {details.college}
+                    </p>
+                    <p>
+                      <span>
+                        <strong>Branch: </strong>
+                      </span>
+
+                      {details.branch}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -202,9 +219,15 @@ function OtherProfile(props) {
                   <div className="right">
                     <h3>RECENT SUBMISSIONS</h3>
                     <ul className="outer">
-                      <li className="inner">SQUIRRELS</li>
-                      <li className="inner">DOGS</li>
-                      <li className="inner">CATS</li>
+                      <li className="inner">
+                        {details.codechefSubmissions[0]}
+                      </li>
+                      <li className="inner">
+                        {details.codechefSubmissions[1]}
+                      </li>
+                      <li className="inner">
+                        {details.codechefSubmissions[2]}
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -226,7 +249,7 @@ function OtherProfile(props) {
                     <span>{codeforcesdata.result[0].handle}</span>
                   </p>
                   <p>
-                    TOTAL PROBLEMS SOLVED:{details.codeforcesSub}
+                    TOTAL PROBLEMS SOLVED: <span>{details.codeforcesSub}</span>
                     {/* <span> {codechefdata.fully_solved.count}</span> */}
                   </p>
                   <p>
@@ -250,9 +273,15 @@ function OtherProfile(props) {
                 <div className="right">
                   <h3>RECENT SUBMISSIONS</h3>
                   <ul className="outer">
-                    <li className="inner">SQUIRRELS</li>
-                    <li className="inner">DOGS</li>
-                    <li className="inner">CATS</li>
+                    <li className="inner">
+                      {details.codeforcesSubmissions[0]}
+                    </li>
+                    <li className="inner">
+                      {details.codeforcesSubmissions[1]}
+                    </li>
+                    <li className="inner">
+                      {details.codeforcesSubmissions[2]}
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -272,7 +301,7 @@ function OtherProfile(props) {
                   </p>
                   <p>
                     {console.log(details)}
-                    TOTAL PROBLEMS SOLVED:{details.gfgSub}
+                    TOTAL PROBLEMS SOLVED: <span>{details.gfgSub}</span>
                     {/* <span> {codechefdata.fully_solved.count}</span> */}
                   </p>
                   <p>
@@ -286,9 +315,9 @@ function OtherProfile(props) {
                 <div className="right">
                   <h3>RECENT SUBMISSIONS</h3>
                   <ul className="outer">
-                    <li className="inner">SQUIRRELS</li>
-                    <li className="inner">DOGS</li>
-                    <li className="inner">CATS</li>
+                    <li className="inner">{details.gfgSubmissions[0]}</li>
+                    <li className="inner">{details.gfgSubmissions[1]}</li>
+                    <li className="inner">{details.gfgSubmissions[2]}</li>
                   </ul>
                 </div>
               </div>

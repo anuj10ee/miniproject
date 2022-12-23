@@ -58,25 +58,21 @@
 }
 
 .profile .anchor{
-    text-decoration: none;
-    color: black;
-    text-align: center;
-    margin: 10px 0px 0px 0px;
-    width: 90%;
-    /* background-color: rgb(51,190,143); */
-   
-    /* padding: 5px 10px;
-    display: flex; */
-    
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border: 2px solid black;
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
-    border-radius: 5px;
-    background-color: rgb(240,240,240);
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  margin: 10px 0px 0px 0px;
+  /* width: 90%; */
+  /* background-color: rgb(51,190,143); */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid black;
+  display: inline-block;
+  padding: 3px 30px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: rgb(240,240,240);
 }
 .profile .anchor:hover{
   background-color: white;
@@ -86,7 +82,8 @@
 .profile .card1{
 
     width: 90%;
-    background-color: rgb(195 217 210);
+    /* background-color: rgb(195 217 210); */
+    background-color: rgb(240 240 240);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,6 +104,10 @@
     margin: 5px 0;
     color: rgb(42, 36, 36);
     font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid black;
 }
 .profile .card1 .left .inner-info p{
     font-family: 'Poppins', sans-serif;
@@ -115,7 +116,7 @@
 .profile .card1 .left .inner-info .content{
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
-  width:90%;
+  /* width:90%; */
 }
 .profile .card1 .right{
     /* border: 1px solid red; */
@@ -130,7 +131,7 @@
   width: 95%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     background: rgb(240,240,240);
     padding: 10px;
     border-radius: 5px;
@@ -193,7 +194,7 @@ width:50%
     width: 90%;
     display: flex;
     flex-direction: column;
-    background-color: rgb(195 217 210);
+    background-color: #a3a3a3;
     justify-content: center;
     align-items: center;
     margin: auto;
@@ -323,7 +324,7 @@ margin: 0 10%;
   width: 90%;
   display: flex;
   flex-direction: column;
-  background-color: rgb(195 217 210);
+  background-color: #a3a3a3;
   justify-content: center;
   align-items: center;
   margin: auto;
@@ -388,12 +389,14 @@ margin: 0 10%;
 
 
 
-
+.profile .skills h3 span{
+  font-weight: 100;
+}
 .profile .card4{
   width: 90%;
   display: flex;
   flex-direction: column;
-  background-color: rgb(195 217 210);
+  background-color: #a3a3a3;
   justify-content: center;
   align-items: center;
   margin: auto;
@@ -520,3 +523,20 @@ margin: 0 10%;
     }
   }
 /* LOADER   */
+
+.rightinner button {
+  border: 2px solid black;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: rgb(240,240,240);
+  margin:10px;
+}
+.rightinner .btns{
+  margin-left: 0;
+}
+.rightinner button:hover{
+  background-color: white;
+  color: black;
+}

@@ -15,7 +15,7 @@ import callCodeforces from "./codeforces";
 
 function Profile(props) {
   const navigate = useNavigate();
-  const [details, setDetails] = useState("");
+  const [d, setd] = useState("");
   const [codechefdata, setcodechefdata] = useState("");
   const [codeforcesdata, setcodeforcesdata] = useState("");
 
@@ -33,7 +33,7 @@ function Profile(props) {
       const data = await res.json();
       console.log("abcdefgh");
       console.log(data);
-      setDetails(data);
+      setd(data);
       if (res.status === 401) {
         const error = new Error(res.error);
         throw error;
@@ -67,20 +67,18 @@ function Profile(props) {
             <div className="card1">
               <div className="left">
                 <div className="pic">
-                  <img src={"uploads/" + details.img} alt="" />
+                  <img src={"uploads/" + d.img} alt="" />
                 </div>
                 <div className="info">
                   <div className="inner-info">
-                    <h2 className="hover-underline-animation">
-                      {details.name}
-                    </h2>
-                    <p>{details.title}</p>
-                    <p className="content">{details.desc}</p>
+                    <h2>{d.name}</h2>
+                    <p>{d.title}</p>
+                    <p className="content">{d.desc}</p>
                     {/* <button className="edit1"> */}
                     <Link
                       className="anchor"
                       to={"/editOptions"}
-                      state={details}
+                      state={d}
                     >
                       EDIT
                     </Link>
@@ -95,16 +93,16 @@ function Profile(props) {
                     <h3>
                       Total Problems Solved:{" "}
                       <span>
-                        {parseInt(details.codechefSub) +
-                          parseInt(details.codeforcesSub) +
-                          parseInt(details.gfgSub)}
+                        {parseInt(d.codechefSub) +
+                          parseInt(d.codeforcesSub) +
+                          parseInt(d.gfgSub)}
                       </span>
                     </h3>
                     <h3>
-                      Followers: <span>{details.followers.length}</span>
+                      Followers: <span>{d.followers.length}</span>
                     </h3>
                     <h3>
-                      Followings: <span>{details.followings.length}</span>
+                      Followings: <span>{d.followings.length}</span>
                     </h3>
                   </div>
                   <div className="education">
@@ -113,13 +111,13 @@ function Profile(props) {
                       <span>
                         <strong>College: </strong>
                       </span>
-                      {details.college}
+                      {d.college}
                     </p>
                     <p>
                       <span>
                         <strong>Branch: </strong>
                       </span>
-                      {details.branch}
+                      {d.branch}
                     </p>
                   </div>
                 </div>
@@ -127,7 +125,7 @@ function Profile(props) {
             </div>
           </Fade>
           <Fade right>
-            {details.codechefID ? (
+            {d.codechefID ? (
               <div className="card2">
                 <div className="head">
                   <img src={codechef} alt="" />
@@ -136,25 +134,31 @@ function Profile(props) {
                   <div className="left">
                     <p>
                       USERNAME:
-                      <span>{details.codechefID}</span>
+                      <span>{d.codechefID}</span>
                     </p>
                     <p>
-                      TOTAL PROBLEMS SOLVED: <span> {details.codechefSub}</span>
+                      TOTAL PROBLEMS SOLVED: <span> {d.codechefSub}</span>
                     </p>
                     <p>
                       RATING:
-                      <span>{details.codechefRating}</span>{" "}
+                      <span>{d.codechefRating}</span>{" "}
                     </p>
                     <p>
-                      GLOBAL RANK: <span>{details.codechefRank}</span>
+                      GLOBAL RANK: <span>{d.codechefRank}</span>
                     </p>
                   </div>
                   <div className="right">
                     <h3>RECENT SUBMISSIONS</h3>
                     <ul className="outer">
-                      <li className="inner">{details.codechefSubmissions[0]}</li>
-                      <li className="inner">{details.codechefSubmissions[1]}</li>
-                      <li className="inner">{details.codechefSubmissions[2]}</li>
+                      <li className="inner">
+                        {d.codechefSubmissions[0]}
+                      </li>
+                      <li className="inner">
+                        {d.codechefSubmissions[1]}
+                      </li>
+                      <li className="inner">
+                        {d.codechefSubmissions[2]}
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -175,7 +179,9 @@ function Profile(props) {
                     USERNAME:
                     <span>{codeforcesdata.result[0].handle}</span>
                   </p>
-                  <p>TOTAL PROBLEMS SOLVED:{details.codeforcesSub}</p>
+                  <p>
+                    TOTAL PROBLEMS SOLVED:<span>{d.codeforcesSub}</span>
+                  </p>
                   <p>
                     RATING:
                     {console.log(codeforcesdata.result[0])}
@@ -197,9 +203,15 @@ function Profile(props) {
                 <div className="right">
                   <h3>RECENT SUBMISSIONS</h3>
                   <ul className="outer">
-                    <li className="inner">{details.codeforcesSubmissions[0]}</li>
-                    <li className="inner">{details.codeforcesSubmissions[1]}</li>
-                    <li className="inner">{details.codeforcesSubmissions[2]}</li>
+                    <li className="inner">
+                      {d.codeforcesSubmissions[0]}
+                    </li>
+                    <li className="inner">
+                      {d.codeforcesSubmissions[1]}
+                    </li>
+                    <li className="inner">
+                      {d.codeforcesSubmissions[2]}
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -215,27 +227,27 @@ function Profile(props) {
                 <div className="left">
                   <p>
                     USERNAME:
-                    <span>{details.gfgID}</span>
+                    <span>{d.gfgID}</span>
                   </p>
                   <p>
-                    {console.log(details)}
-                    TOTAL PROBLEMS SOLVED:{details.gfgSub}
+                    {console.log(d)}
+                    TOTAL PROBLEMS SOLVED:<span>{d.gfgSub}</span>
                     {/* <span> {codechefdata.fully_solved.count}</span> */}
                   </p>
                   <p>
                     CODING SCORE:
-                    <span>{details.gfgScore}</span>{" "}
+                    <span>{d.gfgScore}</span>{" "}
                   </p>
                   <p>
-                    COLLEGE RANK: <span>{details.gfgRank}</span>
+                    COLLEGE RANK: <span>{d.gfgRank}</span>
                   </p>
                 </div>
                 <div className="right">
                   <h3>RECENT SUBMISSIONS</h3>
                   <ul className="outer">
-                    <li className="inner">{details.gfgSubmissions[0]}</li>
-                    <li className="inner">{details.gfgSubmissions[1]}</li>
-                    <li className="inner">{details.gfgSubmissions[2]}</li>
+                    <li className="inner">{d.gfgSubmissions[0]}</li>
+                    <li className="inner">{d.gfgSubmissions[1]}</li>
+                    <li className="inner">{d.gfgSubmissions[2]}</li>
                   </ul>
                 </div>
               </div>

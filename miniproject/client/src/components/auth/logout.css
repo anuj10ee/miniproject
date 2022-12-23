@@ -1,13 +1,17 @@
 .logout .content
 {
-    background: #ffffff;
-background: linear-gradient(to bottom, #ffffff 0%,#e1e8ed 100%);
+    /* background: #ffffff;
+background: linear-gradient(to bottom, #ffffff 0%,#e1e8ed 100%); */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e1e8ed',GradientType=0 );
     height: 100%;
         margin: 0;
         background-repeat: no-repeat;
         background-attachment: fixed;
   
+}
+
+.logout{
+  background-color: #a3a3a3;
 }
 
 .logout .wrapper-1{
@@ -19,12 +23,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   .logout .wrapper-2{
     padding :30px;
     text-align:center;
+    background: rgb(240 240 240);
   }
   .logout h1{
       font-family: 'Kaushan Script', cursive;
     font-size:4em;
     letter-spacing:3px;
-    color:rgb(51,190,143) ;
+    color: rgb(42, 36, 36);
     margin:0;
     margin-bottom:20px;
   }
@@ -37,13 +42,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   }
   .logout .go-home{
     color:#fff;
-    background:rgb(51,190,143);
+    background-color: rgb(42, 36, 36);
     border:none;
     padding:10px 50px;
     margin:30px 0;
     border-radius:30px;
     text-transform:capitalize;
-    box-shadow: 0 10px 16px 1px rgba(174, 199, 251, 1);
+    box-shadow: 0 10px 16px 1px rgb(81, 81, 81);
   }
   .logout .go-home a{
     color: white;

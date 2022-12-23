@@ -197,15 +197,16 @@ router.post("/search", async (req, res) => {
   // console.log("djhjcs");
 
   try {
-    const { email } = req.body;
-    if (!email) {
+    const { name } = req.body;
+    if (!name) {
       return res.status(400).json("FILL KROOOOOOOOO");
     }
-
-    const userSearch = await User.findOne({ email: email });
+    
+    const userSearch=await User.find({ name: name });
+    console.log("213");
     console.log(userSearch);
     if (userSearch) {
-      // res.use(cookieSession({
+      // res.use(cookieSession({ 
       //   name: 'session',
       //   keys: [/* secret keys */],
 

@@ -18,6 +18,7 @@ import OtherProfile from "./components/otherProfile/OtherProfile";
 import Contest from "./components/Contests/contest";
 import Enterdetails from "./components/auth/enterdetails/Enterdetails";
 import Search from "./components/Search/Search";
+import { Navigate } from 'react-router-dom';
 
 function App() {
   return (
@@ -42,6 +43,10 @@ function App() {
         <Route path="/logout" element={<Logout />}></Route>
         <Route path="/editOptions" element={<Edit />}></Route>
         <Route path="/search" element={<Search />}></Route>
+        {/* <Route
+                    path="/profile/editOptions"
+                    element={ <Navigate to="/profile" /> }
+                ></Route> */}
       </Routes>
 
       {/* <h1>Register</h1>

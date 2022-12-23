@@ -5,7 +5,6 @@ import "./friends.css";
 import callDetails1 from "../otherProfile/calldetails1.js";
 import { Link } from "react-router-dom";
 
-
 function Friends() {
   const location = useLocation();
   const detail = location.state;
@@ -28,9 +27,9 @@ function Friends() {
       const data = await res.json();
       console.log("abcdefgh");
       console.log(data);
+      setDetails(data._id);
       setArray(data.followings);
       setArray1(data.followers);
-
     } catch (err) {
       console.log(err);
       navigate("/login");
@@ -41,29 +40,28 @@ function Friends() {
   }, []);
   return (
     <>
-    <div className="friends">
+      <div className="friends">
+        <div className="left">
+          <div className="inner">
+            <div className="head">
+              <h1>Followers</h1>
+            </div>
 
-    <div className="left">
-    <div className="inner">
-    <div className="head">
-     <h1>Followers</h1>
-      </div>
-    
-      {/* {
+            {/* {
         flag==1?"0":"1"
       }, */}
-      {console.log(details)}
-      {console.log(array)}
-      { array1 ? (
-        array1.map((val, i) => {
-          return (
-            <>
-                  <div className="card">
-                    <div className="image">
-                      {/* {console.log(val.userId)}
+            {console.log(details)}
+            {console.log(array)}
+            {array1 ? (
+              array1.map((val, i) => {
+                return (
+                  <>
+                    <div className="card">
+                      <div className="image">
+                        {/* {console.log(val.userId)}
                       {console.log(props.userID._id)}
                       {console.log(val.userId === props.userID._id)} */}
-                      {/* {val.userId === props.userID._id ? ( */}
+                        {/* {val.userId === props.userID._id ? ( */}
                         <Link to={`/profile/${val.id}`}>
                           <img
                             className="postProfileImg"
@@ -71,7 +69,7 @@ function Friends() {
                             alt=""
                           />
                         </Link>
-                      {/* ) : ( */}
+                        {/* ) : ( */}
                         {/* <Link to={`/profile/${val.userId}`}>
                           <img
                             className="postProfileImg"
@@ -79,61 +77,59 @@ function Friends() {
                             alt=""
                           />
                         </Link> */}
-                      {/* )} */}
+                        {/* )} */}
 
-                      {/* <span className="postUsername"></span>
+                        {/* <span className="postUsername"></span>
                       <span className="postDate">
                         {val.time ? val.time.slice(0, 25) : "y"}
                       </span> */}
+                      </div>
+                      <div className="name">{val.name}</div>
                     </div>
-                    <div className="name">{val.name}</div>
-                  </div>
-                  
-               
-            </>
-          );
-        })
-        
-      ) : (
-        // <callPosts data={data}/>
-        <div class="middle">
-        <div class="bar bar1"></div>
-        <div class="bar bar2"></div>
-        <div class="bar bar3"></div>
-        <div class="bar bar4"></div>
-        <div class="bar bar5"></div>
-        <div class="bar bar6"></div>
-        <div class="bar bar7"></div>
-        <div class="bar bar8"></div>
-      </div>
-      )}
-      </div>
-      </div>
-      <div className="right">
-      <div className="inner">
-      <div className="head">
-      <h1>Followings</h1>
-      </div>
-   
-      {console.log(array)}
-      { (array) ? (
-        array.map((val, i) => {
-          return (
-            <>
-              <div className="card">
-                    <div className="image">
-                      {/* {console.log(val.userId)}
+                  </>
+                );
+              })
+            ) : (
+              // <callPosts data={data}/>
+              <div class="middle">
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+                <div class="bar bar3"></div>
+                <div class="bar bar4"></div>
+                <div class="bar bar5"></div>
+                <div class="bar bar6"></div>
+                <div class="bar bar7"></div>
+                <div class="bar bar8"></div>
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="right">
+          <div className="inner">
+            <div className="head">
+              <h1>Followings</h1>
+            </div>
+
+            {console.log(array)}
+            {array ? (
+              array.map((val, i) => {
+                return (
+                  <>
+                    <div className="card">
+                      <div className="image">
+                        {/* {console.log(val.userId)}
                       {console.log(props.userID._id)}
                       {console.log(val.userId === props.userID._id)} */}
-                      {/* {val.userId === props.userID._id ? ( */}
-                        <Link to={`/profile/${val.id}`}>
+                        {/* {val.userId === props.userID._id ? ( */}
+                        {console.log(details._id)}
+                        <Link to={`/profile/${val.id}`}  state={{ userID: details._id }}>
                           <img
                             className="postProfileImg"
                             src={"uploads/" + val.image}
                             alt=""
                           />
                         </Link>
-                      {/* ) : ( */}
+                        {/* ) : ( */}
                         {/* <Link to={`/profile/${val.userId}`}>
                           <img
                             className="postProfileImg"
@@ -141,38 +137,33 @@ function Friends() {
                             alt=""
                           />
                         </Link> */}
-                      {/* )} */}
+                        {/* )} */}
 
-                      {/* <span className="postUsername"></span>
+                        {/* <span className="postUsername"></span>
                       <span className="postDate">
                         {val.time ? val.time.slice(0, 25) : "y"}
                       </span> */}
+                      </div>
+                      <div className="name">{val.name}</div>
                     </div>
-                    <div className="name">{val.name}</div>
-                
-                    </div>
-               
-              
-            </>
-          );
-        })
-        
-      ) : (
-        // <callPosts data={data}/>
-        <div class="middle">
-        <div class="bar bar1"></div>
-        <div class="bar bar2"></div>
-        <div class="bar bar3"></div>
-        <div class="bar bar4"></div>
-        <div class="bar bar5"></div>
-        <div class="bar bar6"></div>
-        <div class="bar bar7"></div>
-        <div class="bar bar8"></div>
-      </div>
-      )}
-      </div>
-
-      </div>
+                  </>
+                );
+              })
+            ) : (
+              // <callPosts data={data}/>
+              <div class="middle">
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+                <div class="bar bar3"></div>
+                <div class="bar bar4"></div>
+                <div class="bar bar5"></div>
+                <div class="bar bar6"></div>
+                <div class="bar bar7"></div>
+                <div class="bar bar8"></div>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </>
   );
