@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 function Friends() {
   const location = useLocation();
-  const detail = location.state;
+  // const detail = location.state;
   const [details, setDetails] = useState("");
   const [details1, setDetails1] = useState("");
   const [array, setArray] = useState("");
@@ -110,8 +110,8 @@ function Friends() {
               <h1>Followings</h1>
             </div>
 
-            {console.log(array)}
-            {array ? (
+            {console.log(details)}
+            {array && details ? (
               array.map((val, i) => {
                 return (
                   <>
@@ -121,8 +121,11 @@ function Friends() {
                       {console.log(props.userID._id)}
                       {console.log(val.userId === props.userID._id)} */}
                         {/* {val.userId === props.userID._id ? ( */}
-                        {console.log(details._id)}
-                        <Link to={`/profile/${val.id}`}  state={{ userID: details._id }}>
+                        {console.log(val.id)}
+                        <Link
+                          to={`/profile/${val.id}`}
+                          state={{ userID: details }}
+                        >
                           <img
                             className="postProfileImg"
                             src={"uploads/" + val.image}

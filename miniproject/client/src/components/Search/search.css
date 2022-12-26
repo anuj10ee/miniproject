@@ -43,6 +43,7 @@
 .search .lower a img{
     border-radius: 50%;
     object-fit: cover;
+    width: 50%;
 }
 .search .name{
     margin: 16px;

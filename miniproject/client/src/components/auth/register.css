@@ -71,7 +71,7 @@
 .register .container{
     margin-top: 55px;
     width: 100vw;
-    height: 100vh;
+    height: 92vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap :7rem;
@@ -79,4 +79,18 @@
 }
 .login-content::-webkit-scrollbar {
     display: none;
+  }
+  .register .login-content .id{
+    width: 100%;
+    display: flex;
+    margin-top: 50px;
+    /* margin: 0 10px; */
+  }
+  .register .login-content .input-div-outer{
+    width: 100%;
+    margin: 0 10px;
+  }
+  .register .login-content .input-div-inner{
+    width: 100%;
+    margin: 0 10px;
   }

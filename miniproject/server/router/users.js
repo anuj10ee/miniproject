@@ -108,6 +108,7 @@ router.get("/:id", async (req, res) => {
 router.put("/:id/follow", async (req, res) => {
   console.log("109");
   console.log(req.body);
+  console.log(req.body.userId);
   if (req.body.userId !== req.params.id) {
     try {
       const user = await User.findById(req.params.id);
@@ -201,12 +202,12 @@ router.post("/search", async (req, res) => {
     if (!name) {
       return res.status(400).json("FILL KROOOOOOOOO");
     }
-    
-    const userSearch=await User.find({ name: name });
+
+    const userSearch = await User.find({ name: name });
     console.log("213");
     console.log(userSearch);
-    if (userSearch) {
-      // res.use(cookieSession({ 
+    if (userSearch.length != 0) {
+      // res.use(cookieSession({
       //   name: 'session',
       //   keys: [/* secret keys */],
 
@@ -216,7 +217,7 @@ router.post("/search", async (req, res) => {
       // console.log(token);
       res.json({ message: "user found", userDetails: userSearch });
     } else {
-      res.status(400).json({ error: "user error" });
+      res.status(400).json({ error: "user not found" });
     }
   } catch (err) {
     console.log(err);

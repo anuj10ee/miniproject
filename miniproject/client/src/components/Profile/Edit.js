@@ -94,7 +94,7 @@ const Edit = () => {
             <span>Profile-Picture: </span>
             {console.log(details.img)}
             <div className="ima">
-              <img src={"uploads/" + details.img} alt="asdf" />
+              <img src={"uploads/" + details.img} alt="error" />
               <input
                 // value={profilePic}
                 type="file"

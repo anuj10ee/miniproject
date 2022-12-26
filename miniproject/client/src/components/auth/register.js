@@ -157,169 +157,178 @@ const Register = () => {
         <div className="img">
           <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/bg.svg" />
         </div>
+
         <div className="login-content">
           <form onSubmit={registerUser}>
+            <div className="id">
+            <div className="input-div-outer">
+              <div className="input-div one">
+                <div className="i">
+                  <i className="fas fa-user"></i>
+                </div>
+                <div className="div">
+                  {/* <h5>Username</h5> */}
+                  <input
+                    value={name}
+                    onChange={(e) => setname(e.target.value)}
+                    type="text"
+                    placeholder="Name"
+                  />
+                </div>
+              </div>
+              <div className="input-div one">
+                <div className="i">
+                  <i className="fas fa-user"></i>
+                </div>
+                <div className="div">
+                  {/* <h5>Username</h5> */}
+                  <input
+                    value={email}
+                    onChange={(e) => setemail(e.target.value)}
+                    type="email"
+                    placeholder="Email"
+                  />
+                </div>
+              </div>
+              <div className="input-div pass">
+                <div className="i">
+                  <i className="fas fa-lock"></i>
+                </div>
+                <div className="div">
+                  {/* <h5>Password</h5> */}
+                  <input
+                    value={password}
+                    onChange={(e) => setpassword(e.target.value)}
+                    type="password"
+                    placeholder="Password"
+                  />
+                </div>
+              </div>
+
+              <div className="input-div one">
+                <div className="i">
+                  <i className="fas fa-user"></i>
+                </div>
+                <div className="div">
+                  {/* <h5>Username</h5> */}
+                  <input
+                    value={address}
+                    onChange={(e) => setaddress(e.target.value)}
+                    type="text"
+                    placeholder="Address"
+                  />
+                </div>
+              </div>
+              <div className="input-div one">
+                <div className="i">
+                  <i className="fas fa-user"></i>
+                </div>
+                <div className="div">
+                  {/* <h5>Username</h5> */}
+                  <input
+                    value={college}
+                    onChange={(e) => setcollege(e.target.value)}
+                    type="text"
+                    placeholder="College Name"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="input-div-inner">
+              <div className="input-div one">
+                <div className="i">
+                  <i className="fas fa-user"></i>
+                </div>
+                <div className="div">
+                  {/* <h5>Username</h5> */}
+                  <input
+                    value={branch}
+                    onChange={(e) => setbranch(e.target.value)}
+                    type="text"
+                    placeholder="Branch Name"
+                  />
+                </div>
+              </div>
+              <div className="input-div one">
+                <div className="i">
+                  <i className="fas fa-user"></i>
+                </div>
+                <div className="div">
+                  {/* <h5>Username</h5> */}
+                  <input
+                    value={title}
+                    onChange={(e) => settitle(e.target.value)}
+                    type="text"
+                    placeholder="Your Title"
+                  />
+                </div>
+              </div>
+              <div className="input-div one">
+                <div className="i">
+                  <i className="fas fa-user"></i>
+                </div>
+                <div className="div">
+                  {/* <h5>Username</h5> */}
+                  <input
+                    value={desc}
+                    onChange={(e) => setdesc(e.target.value)}
+                    type="text"
+                    placeholder="About Yourself"
+                  />
+                </div>
+              </div>
+
+              <div className="input-div one">
+                <div className="i">
+                  <i className="fas fa-user"></i>
+                </div>
+                <div className="div">
+                  {/* <h5>Username</h5> */}
+                  <input
+                    value={codechefID}
+                    onChange={(e) => setcodechefID(e.target.value)}
+                    type="text"
+                    placeholder="CODECHEF USERNAME"
+                  />
+                </div>
+              </div>
+              <div className="input-div one">
+                <div className="i">
+                  <i className="fas fa-user"></i>
+                </div>
+                <div className="div">
+                  {/* <h5>Username</h5> */}
+                  <input
+                    value={codeforcesID}
+                    onChange={(e) => setcodeforcesID(e.target.value)}
+                    type="text"
+                    placeholder="CODEFORCES USERNAME"
+                  />
+                </div>
+              </div>
+              <div className="input-div one">
+                <div className="i">
+                  <i className="fas fa-user"></i>
+                </div>
+                <div className="div">
+                  {/* <h5>Username</h5> */}
+                  <input
+                    value={gfgID}
+                    onChange={(e) => setgfgID(e.target.value)}
+                    type="text"
+                    placeholder="GFG USERNAME"
+                  />
+                </div>
+              </div>
+            </div>
+            </div>
             {/* <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/avatar.svg" /> */}
             {/* <h2 className="title">Welcome</h2> */}
-            <div className="input-div one">
-              <div className="i">
-                <i className="fas fa-user"></i>
-              </div>
-              <div className="div">
-                {/* <h5>Username</h5> */}
-                <input
-              value={name}
-              onChange={(e) => setname(e.target.value)}
-              type="text"
-              placeholder="Name"
-            />
-              </div>
-            </div>
-            <div className="input-div one">
-              <div className="i">
-                <i className="fas fa-user"></i>
-              </div>
-              <div className="div">
-                {/* <h5>Username</h5> */}
-                <input
-              value={email}
-              onChange={(e) => setemail(e.target.value)}
-              type="email"
-              placeholder="Email"
-            />
-              </div>
-            </div>
-            <div className="input-div pass">
-              <div className="i">
-                <i className="fas fa-lock"></i>
-              </div>
-              <div className="div">
-                {/* <h5>Password</h5> */}
-                <input
-              value={password}
-              onChange={(e) => setpassword(e.target.value)}
-              type="password"
-              placeholder="Password"
-            />
-              </div>
-            </div>
             
-            <div className="input-div one">
-              <div className="i">
-                <i className="fas fa-user"></i>
-              </div>
-              <div className="div">
-                {/* <h5>Username</h5> */}
-                <input
-              value={address}
-              onChange={(e) => setaddress(e.target.value)}
-              type="text"
-              placeholder="Address"
-            />
-              </div>
-            </div><div className="input-div one">
-              <div className="i">
-                <i className="fas fa-user"></i>
-              </div>
-              <div className="div">
-                {/* <h5>Username</h5> */}
-                <input
-              value={college}
-              onChange={(e) => setcollege(e.target.value)}
-              type="text"
-              placeholder="College Name"
-            />
-              </div>
-            </div><div className="input-div one">
-              <div className="i">
-                <i className="fas fa-user"></i>
-              </div>
-              <div className="div">
-                {/* <h5>Username</h5> */}
-                <input
-              value={branch}
-              onChange={(e) => setbranch(e.target.value)}
-              type="text"
-              placeholder="Branch Name"
-            />
-              </div>
-            </div>
-            <div className="input-div one">
-              <div className="i">
-                <i className="fas fa-user"></i>
-              </div>
-              <div className="div">
-                {/* <h5>Username</h5> */}
-                <input
-              value={title}
-              onChange={(e) => settitle(e.target.value)}
-              type="text"
-              placeholder="Your Title"
-            />
-              </div>
-            </div>
-            <div className="input-div one">
-              <div className="i">
-                <i className="fas fa-user"></i>
-              </div>
-              <div className="div">
-                {/* <h5>Username</h5> */}
-                <input
-              value={desc}
-              onChange={(e) => setdesc(e.target.value)}
-              type="text"
-              placeholder="About Yourself"
-            />
-              </div>
-            </div>
-            
-            <div className="input-div one">
-              <div className="i">
-                <i className="fas fa-user"></i>
-              </div>
-              <div className="div">
-                {/* <h5>Username</h5> */}
-                <input
-              value={codechefID}
-              onChange={(e) => setcodechefID(e.target.value)}
-              type="text"
-              placeholder="CODECHEF USERNAME"
-            />
-              </div>
-            </div>
-            <div className="input-div one">
-              <div className="i">
-                <i className="fas fa-user"></i>
-              </div>
-              <div className="div">
-                {/* <h5>Username</h5> */}
-                <input
-              value={codeforcesID}
-              onChange={(e) => setcodeforcesID(e.target.value)}
-              type="text"
-              placeholder="CODEFORCES USERNAME"
-            />
-              </div>
-            </div>
-            <div className="input-div one">
-              <div className="i">
-                <i className="fas fa-user"></i>
-              </div>
-              <div className="div">
-                {/* <h5>Username</h5> */}
-                <input
-              value={gfgID}
-              onChange={(e) => setgfgID(e.target.value)}
-              type="text"
-              placeholder="GFG USERNAME"
-            />
-              </div>
-            </div>
-            
+
             {/* <a href="#">Forgot Password?</a> */}
             <input type="submit" className="btn" value="Register" />
           </form>
-          
         </div>
       </div>
     </div>

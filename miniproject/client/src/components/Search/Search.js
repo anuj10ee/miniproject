@@ -22,7 +22,7 @@ function Search() {
     const data = await response.json();
     console.log(data);
     if (response.status === 400 || !data) {
-      window.alert("INVALID");
+      window.alert("USER NOT FOUND");
     } else {
       console.log(data.status);
       setDetails(data);
@@ -64,38 +64,36 @@ function Search() {
             Search
           </button>
         </div>
-        {details && details1 ? (
-          details.userDetails.map((val, i) => {
-            return(
-          <div className="lower">
-            {val._id === details1._id ? (
-              <Link to={`/profile`}>
-                <img
-                  className="searchimg"
-                  src={"/uploads/" + details1.img}
-                  alt=""
-                />
-                <div className="name">{details1.name}</div>
-              </Link>
-            ) : (
-              <Link
-                to={`/profile/${val._id}`}
-                state={{ userID: details1._id }}
-              >
-                <img
-                  className="searchimg"
-                  src={"/uploads/" + val.img}
-                  alt=""
-                />
-                <div className="name">{val.name}</div>
-              </Link>
-            )}
-          </div>
-          );
-          })
-        ) : (
-          ""
-        )}
+        {details && details1
+          ? details.userDetails.map((val, i) => {
+              return (
+                <div className="lower">
+                  {val._id === details1._id ? (
+                    <Link to={`/profile`}>
+                      <img
+                        className="searchimg"
+                        src={"/uploads/" + details1.img}
+                        alt=""
+                      />
+                      <div className="name">{details1.name}</div>
+                    </Link>
+                  ) : (
+                    <Link
+                      to={`/profile/${val._id}`}
+                      state={{ userID: details1._id }}
+                    >
+                      <img
+                        className="searchimg"
+                        src={"/uploads/" + val.img}
+                        alt=""
+                      />
+                      <div className="name">{val.name}</div>
+                    </Link>
+                  )}
+                </div>
+              );
+            })
+          : ""}
       </div>
     </div>
   );

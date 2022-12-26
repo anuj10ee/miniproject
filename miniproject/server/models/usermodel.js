@@ -10,20 +10,12 @@ const User = new mongoose.Schema(
     college: { type: String },
     branch: { type: String },
     title: { type: String },
-
     codechefID: { type: String, required: true },
     codechefSub: { type: String },
     codechefSubmissions: { type: Array, default: [] },
     codechefRating: { type: String },
     codechefRank: { type: String },
     skills: [],
-    //   codechefRecent:[
-    //     {
-    //     submissions:{
-    //       type: String,
-    //     },
-    //   },
-    // ],
     gfgID: { type: String },
     gfgSub: { type: String },
     gfgRank: { type: String, default: "" },
@@ -32,17 +24,10 @@ const User = new mongoose.Schema(
     codeforcesID: { type: String, required: true },
     codeforcesSub: { type: String },
     codeforcesSubmissions: { type: Array, default: [] },
-
     password: { type: String, required: true, min: 6 },
     quote: { type: String },
-    img: {
-      type: String,
-      default: "uploads/",
-    },
-    coverPicture: {
-      type: String,
-      default: "",
-    },
+    img: {type: String,default: "uploads/",},
+    coverPicture: {type: String,default: "",},
     followers: [
       {
         id: {
