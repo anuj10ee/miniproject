@@ -23,7 +23,7 @@ const callCodeforcessubmissions = async (props) => {
       if (results.verdict === "OK") {
         console.log(props);
         console.log(results.id);
-        const response = await fetch("http://localhost:1337/posts/codeforces", {
+        const response = await fetch("https://mernbackend2-hgyy.onrender.com/posts/codeforces", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -47,4 +47,4 @@ const callCodeforcessubmissions = async (props) => {
   }
 };
 
-module.exports = callCodeforcessubmissions;
+export default callCodeforcessubmissions;

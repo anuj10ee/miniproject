@@ -23,7 +23,7 @@ function Timeline(props) {
     // console.log(bodyformdata);
     // const d=await callCodeforcessubmissions(props.data.codeforcesID);
 
-    const response = await fetch("http://localhost:1337/posts", {
+    const response = await fetch("https://mernbackend2-hgyy.onrender.com/posts", {
       method: "POST",
       body: bodyformdata,
     });

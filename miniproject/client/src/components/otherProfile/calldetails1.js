@@ -19,5 +19,5 @@ const callDetails1 = async (props) => {
     }
   };
   
-  module.exports = callDetails1;
+  export default callDetails1;
   

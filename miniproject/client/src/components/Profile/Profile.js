@@ -21,7 +21,7 @@ function Profile(props) {
 
   const callProfilePage = async () => {
     try {
-      const res = await fetch("http://localhost:1337/profile", {
+      const res = await fetch("https://mernbackend2-hgyy.onrender.com/profile", {
         method: "GET",
         headers: {
           Accept: "application/json",

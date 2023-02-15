@@ -3,7 +3,7 @@ const callDetails = async (props) => {
 
   try {
     console.log(props);
-    const res = await fetch(`http://localhost:1337/user/${props._id}`, {
+    const res = await fetch(`https://mernbackend2-hgyy.onrender.com/user/${props._id}`, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -19,4 +19,4 @@ const callDetails = async (props) => {
   }
 };
 
-module.exports = callDetails;
+export default callDetails;

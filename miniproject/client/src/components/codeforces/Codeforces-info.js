@@ -20,5 +20,5 @@ const callCodeforces = async (props) => {
     }
   };
   
-  module.exports = callCodeforces;
+  export default callCodeforces;
   

@@ -23,7 +23,7 @@ const Register = () => {
 
   async function registerUser(event) {
     event.preventDefault();
-    const response = await fetch("http://localhost:1337/register", {
+    const response = await fetch("https://mernbackend2-hgyy.onrender.com/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

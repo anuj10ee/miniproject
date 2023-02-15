@@ -8,7 +8,7 @@ const Logout = () => {
   //promises
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("http://localhost:1337/logout", {
+    fetch("https://mernbackend2-hgyy.onrender.com/logout", {
       method: "GET",
       headers: {
         Accept: "application/json",

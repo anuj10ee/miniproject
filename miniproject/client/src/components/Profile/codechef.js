@@ -20,4 +20,4 @@ const callCodechef = async (props) => {
   }
 };
 
-module.exports = callCodechef;
+export default callCodechef;

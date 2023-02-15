@@ -31,7 +31,7 @@ function OtherProfile(props) {
 
     console.log(details._id);
     const response = await fetch(
-      `http://localhost:1337/user/${details._id}/follow`,
+      `https://mernbackend2-hgyy.onrender.com/user/${details._id}/follow`,
       {
         method: "PUT",
         headers: {
@@ -58,7 +58,7 @@ function OtherProfile(props) {
 
     console.log(details._id);
     const response = await fetch(
-      `http://localhost:1337/user/${details._id}/unfollow`,
+      `https://mernbackend2-hgyy.onrender.com/user/${details._id}/unfollow`,
       {
         method: "PUT",
         headers: {
