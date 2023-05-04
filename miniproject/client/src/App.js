@@ -12,13 +12,13 @@ import Logout from "./components/auth/logout";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Edit from "./components/Profile/Edit";
-import Friends from "./components/friends/Friends"
+import Friends from "./components/friends/Friends";
 // // import Notify from "./components/alert/Alert"
 import OtherProfile from "./components/otherProfile/OtherProfile";
 import Contest from "./components/Contests/contest";
 import Enterdetails from "./components/auth/enterdetails/Enterdetails";
 import Search from "./components/Search/Search";
-import { Navigate } from 'react-router-dom';
+import { Navigate } from "react-router-dom";
 
 function App() {
   return (

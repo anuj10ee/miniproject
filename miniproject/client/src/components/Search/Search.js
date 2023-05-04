@@ -9,7 +9,7 @@ function Search() {
   const [details1, setDetails1] = useState("");
   const searchUser = async (event) => {
     event.preventDefault();
-    const response = await fetch("https://mernbackend2-hgyy.onrender.com/user/search", {
+    const response = await fetch("http://localhost:1337/user/search", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +31,7 @@ function Search() {
       // history.push("/login");
     }
     try {
-      const res = await fetch("https://mernbackend2-hgyy.onrender.com/home", {
+      const res = await fetch("http://localhost:1337/home", {
         method: "GET",
         headers: {
           Accept: "application/json",

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
-const DB = process.env.DATABASE;
+const DB =
+  "mongodb+srv://anuj108:qM2UBabWVmz9pKYT@cluster0.0jyrh8q.mongodb.net/mini-project?retryWrites=true&w=majority";
 
 console.log(DB);
 
@@ -12,6 +13,7 @@ mongoose
   .then(() => {
     console.log("MONGODB CONNECTED");
   })
-  .catch((err) => { 
+  .catch((err) => {
+    console.log(err);
     console.log("DISCONNECT HOGYA");
   });

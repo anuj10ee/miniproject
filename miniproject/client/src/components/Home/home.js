@@ -7,7 +7,6 @@ import { useEffect } from "react";
 import Profile from "../Profile/Profile";
 // import {useHistory}
 import { useNavigate } from "react-router-dom";
-import Spinner from "../Spinner/Spinner";
 import Timeline from "../timeline/Timeline";
 import Posts from "../posts/Posts";
 import { useState } from "react";
@@ -17,7 +16,7 @@ const Home = () => {
 
   const callHomePage = async () => {
     try {
-      const res = await fetch("https://mernbackend2-hgyy.onrender.com/home", {
+      const res = await fetch("http://localhost:1337/home", {
         method: "GET",
         headers: {
           Accept: "application/json",

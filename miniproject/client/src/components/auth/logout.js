@@ -8,8 +8,8 @@ const Logout = () => {
   //promises
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("https://mernbackend2-hgyy.onrender.com/logout", {
-      method: "GET",
+    fetch("http://localhost:1337/logout", {
+      method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -21,6 +21,8 @@ const Logout = () => {
         if (res.status !== 200) {
           const error = new Error(res.error);
           throw error;
+        } else {
+          console.log("yes");
         }
       })
       .catch((err) => {
@@ -36,7 +38,7 @@ const Logout = () => {
             <p>Thanks for visiting codebook. </p>
             <p>you are logged out successfully </p>
             <button class="go-home">
-            <Link to="/login">Login</Link>
+              <Link to="/login">Login</Link>
             </button>
           </div>
           {/* <div class="footer-like">

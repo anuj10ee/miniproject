@@ -18,7 +18,7 @@ function Posts(props) {
       console.log(props.userID);
       await callCodeforcessubmissions(props);
       const res = await fetch(
-        "https://mernbackend2-hgyy.onrender.com/posts/timeline/all/" + props.userID._id,
+        "http://localhost:1337/posts/timeline/all/" + props.userID._id,
         {
           method: "GET",
           headers: {

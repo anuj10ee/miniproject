@@ -45,7 +45,7 @@ const Edit = () => {
 
     console.log(bodyformdata);
 
-    const response = await fetch("https://mernbackend2-hgyy.onrender.com/user/" + details._id, {
+    const response = await fetch("http://localhost:1337/user/" + details._id, {
       method: "PUT",
       body: bodyformdata,
     });

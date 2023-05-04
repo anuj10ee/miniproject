@@ -12,7 +12,7 @@ dotenv.config({ path: "./config.env" });
 require("./db/conn");
 app.use(express.json());
 app.use(cookieparser());
-const PORT = process.env.PORT || 1337;
+const PORT = 1337;
 console.log(process.env.PORT);
 const corsOptions = {
   origin: true, //included origin as true
@@ -32,9 +32,9 @@ app.get("/home", (req, res) => {
   res.cookie("Test", "something");
 });
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
+// }
 
 app.listen(PORT, () => {
   console.log(`server started on ${PORT}`);

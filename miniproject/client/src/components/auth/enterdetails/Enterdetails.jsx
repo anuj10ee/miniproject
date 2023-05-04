@@ -23,7 +23,7 @@ const Enterdetails = () => {
 
   async function registerUser(event) {
     event.preventDefault();
-    const response = await fetch("https://mernbackend2-hgyy.onrender.com/enterdetails", {
+    const response = await fetch("http://localhost:1337/enterdetails", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -148,15 +148,15 @@ const Enterdetails = () => {
       </div> */}
       <img
         className="wave"
-        src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/wave.png"
+        src="s://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/wave.png"
       />
       <div className="container">
         <div className="img">
-          <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/bg.svg" />
+          <img src="s://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/bg.svg" />
         </div>
         <div className="login-content">
           <form onSubmit={registerUser}>
-            {/* <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/avatar.svg" /> */}
+            {/* <img src="s://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/avatar.svg" /> */}
             <h2 className="title">Enter Details</h2>
             
             <div className="input-div one">
