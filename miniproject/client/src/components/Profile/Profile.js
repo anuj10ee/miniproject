@@ -3,7 +3,6 @@ import { useNavigate, Link } from "react-router-dom";
 import { useEffect } from "react";
 import "./profile.css";
 import image from "./0377c76083423a1414e4001161e0cdffb0b36e1f_760x400.0.jpg";
-import ChartContainer from "../Heatmap/heatmap";
 import codechef from "./NicePng_mustach-png_7920230.png";
 import codeforces from "./codeforces-seeklogo.com.svg";
 import gfg from "./icons8-geeksforgeeks-144.png";

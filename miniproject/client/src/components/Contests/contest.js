@@ -11,7 +11,7 @@ function Contest() {
   const contestpage = async () => {
     try {
       const res = await fetch(
-        "https://kontests.net/api/v1/all",
+        "http://kontests.net/api/v1/all",
         {
           method: "GET",
           // headers: {

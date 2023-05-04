@@ -9,7 +9,6 @@ import Fade from "react-reveal/Fade";
 import Badge from "react-bootstrap/Badge";
 import image from "../Profile/0377c76083423a1414e4001161e0cdffb0b36e1f_760x400.0.jpg";
 import { Link } from "react-router-dom";
-import ChartContainer from "../Heatmap/heatmap";
 import codechef from "../Profile/NicePng_mustach-png_7920230.png";
 import codeforces from "../Profile/codeforces-seeklogo.com.svg";
 import gfg from "../Profile/icons8-geeksforgeeks-144.png";

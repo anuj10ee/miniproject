@@ -62,7 +62,8 @@ function Friends() {
                       {console.log(props.userID._id)}
                       {console.log(val.userId === props.userID._id)} */}
                         {/* {val.userId === props.userID._id ? ( */}
-                        <Link to={`/profile/${val.id}`}>
+                        <Link to={`/profile/${val.id}`}
+                        state={{ userID: details }}>
                           <img
                             className="postProfileImg"
                             src={"uploads/" + val.image}

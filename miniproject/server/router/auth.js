@@ -3,7 +3,7 @@ const { countDocuments } = require("../models/usermodel");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
 const authenticate = require("../middleware/authenticate");
-const solved = require("../web-scrapping/codechef-ki-api.js");
+// const solved = require("../web-scrapping/codechef-ki-api.js");
 const cheerio = require("cheerio");
 const axios = require("axios");
 require("../db/conn");
@@ -18,7 +18,6 @@ const bcrypt = require("bcryptjs");
 
 //cookie parser bhi install krna h
 
-console.log("BLAHHHH");
 router.post("/register", async (req, res) => {
   // console.log(abc);
   const {
@@ -93,7 +92,7 @@ router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
-      return res.status(400).json("FILL KROOOOOOOOO");
+      return res.status(400).json("PLEASE FILL THE EMAIL PASSWORD");
     }
 
     const userLogin = await User.findOne({ email: email });
@@ -102,12 +101,13 @@ router.post("/login", async (req, res) => {
       const isMatch = await bcrypt.compare(password, userLogin.password);
 
       const token = await userLogin.generateAuthToken();
-      console.log("blah blah");
       console.log(token);
 
       res.cookie("jwtoken", token, {
         expires: new Date(Date.now() + 25892000000),
         httpOnly: true,
+        sameSite: "none",
+        // secure: true,
       });
 
       // res.use(cookieSession({
@@ -282,31 +282,27 @@ router.get("/profile", authenticate, async (req, res) => {
         // console.log(arr[0]);
         req.rootUser.codeforcesSub = arr[0];
 
-
-        let codeforcesSubmissions=[]
+        let codeforcesSubmissions = [];
         let z = cheerio.load(responseFour.data);
         // let xxcf = z(
         //   ".submissionVerdictWrapper span"
         // );
         // // console.log(zcf);
         // console.log(xxcf.text());
-       
-        var accept=[];
-        var problem=[];
+
+        var accept = [];
+        var problem = [];
         z(".submissionVerdictWrapper span").each((index, element) => {
-
           // console.log($(element).text());
-          let jks=z(element).text();
+          let jks = z(element).text();
           accept.push(jks);
-          });
-          z(".status-small a").each((index, element) => {
-
-            // console.log($(element).text());
-            let jks=z(element).text();
-            problem.push(jks);
-            });
+        });
+        z(".status-small a").each((index, element) => {
+          // console.log($(element).text());
+          let jks = z(element).text();
+          problem.push(jks);
+        });
         for (let i = 0; i < 50; i++) {
-        
           if (accept[i] === "Accepted") {
             codeforcesSubmissions.push(problem[i]);
           }
@@ -315,7 +311,7 @@ router.get("/profile", authenticate, async (req, res) => {
         console.log(codeforcesSubmissions);
         req.rootUser.codeforcesSubmissions = codeforcesSubmissions;
         // for()
-       
+
         // let so2 = a("._UserActivityFrame_footer");
         // let h2 = so2.find("._UserActivityFrame_counterValue");
         // so2 = a(h2[0]).text();
@@ -344,14 +340,13 @@ router.get("/profile", authenticate, async (req, res) => {
         gfgscore = b(gfgs[0]).text();
         req.rootUser.gfgScore = gfgscore;
 
-        var gfgSubmissions=[];
+        var gfgSubmissions = [];
         b(".problemLink").each((index, element) => {
-
           // console.log($(element).text());
-          let jks=z(element).text();
+          let jks = z(element).text();
           gfgSubmissions.push(jks);
-          });
-          req.rootUser.gfgSubmissions = gfgSubmissions;
+        });
+        req.rootUser.gfgSubmissions = gfgSubmissions;
         //     // req.rootUser.save(function (err, result) {
         //     //   if (err) {
         //     //     console.log(err);
@@ -535,10 +530,12 @@ router.get("/profile/:id", (req, res) => {
   res.send(req.rootUser);
 });
 
-router.get("/logout", (req, res) => {
+router.post("/logout", (req, res) => {
   console.log("HELLO FROM logout");
   // res.send("HELLO WORLD FROM SERVER");
-  res.clearCookie("jwtoken", { path: "/" });
+  res.clearCookie("jwtoken", {
+    path: "/",
+  });
   res.status(200).send("user logout");
 });
 

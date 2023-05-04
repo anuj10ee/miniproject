@@ -19,4 +19,4 @@ const callDetails = async (props) => {
   }
 };
 
-module.exports = callDetails;
+export default callDetails;

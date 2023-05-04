@@ -47,4 +47,4 @@ const callCodeforcessubmissions = async (props) => {
   }
 };
 
-module.exports = callCodeforcessubmissions;
+export default callCodeforcessubmissions;
